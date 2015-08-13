@@ -37,20 +37,22 @@ $endfor$
 $for(include-before)$
 $include-before$
 $endfor$
-$if(title)$
 <header>
-<h1 class="title">$pagetitle$$if(title-prefix)$ | $title-prefix$$endif$</h1>
-$if(subtitle)$
-<h1 class="subtitle">$subtitle$</h1>
+$if(title-prefix)$
+<h1 class="title">$title-prefix$</h1>
+$endif$
+$if(title)$
+<h2 class="post-title">$title$</h2>
+$endif$
+$if(date)$
+<div class='date-header'>
+  <time pubdate="pubdate">$date$</time>
+</div>
 $endif$
 $for(author)$
 <h2 class="author">$author$</h2>
 $endfor$
-$if(date)$
-<time pubdate="pubdate">$date$</time>
-$endif$
 </header>
-$endif$
 $if(toc)$
 <nav id="$idprefix$TOC">
 $toc$
