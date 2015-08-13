@@ -10,7 +10,7 @@ $endfor$
 $if(date-meta)$
   <meta name="dcterms.date" content="$date-meta$">
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</title>
+  <title>$pagetitle$$if(title-prefix)$ | $title-prefix$$endif$</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -39,7 +39,7 @@ $include-before$
 $endfor$
 $if(title)$
 <header>
-<h1 class="title">$if(title-prefix)$$title-prefix$ - $endif$$pagetitle$</h1>
+<h1 class="title">$pagetitle$$if(title-prefix)$ | $title-prefix$$endif$</h1>
 $if(subtitle)$
 <h1 class="subtitle">$subtitle$</h1>
 $endif$
