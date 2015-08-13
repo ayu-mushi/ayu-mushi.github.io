@@ -1,5 +1,5 @@
 ---
-title: 'about me'
+title: 'About me'
 date: '2015-8-13'
 ---
 
