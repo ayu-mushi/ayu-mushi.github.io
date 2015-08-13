@@ -13,7 +13,7 @@ Github
   ~ [mushi2000](http://shogiwars.heroz.jp/users/history/mushi2000)
 
 ask.fm
-  ~ [ayu-mushi](http://ask.fm/ayu_mushi)
+  ~ [ayu\_mushi](http://ask.fm/ayu_mushi)
 
 email
   ~ ayu.mushi2015 {at} gmail.com
