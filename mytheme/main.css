@@ -19,6 +19,11 @@ main {
   margin-left: 160px;
   padding: 10px 10px 10px 20px; }
 
+header {
+  height: 100%;
+  margin-left: 160px;
+  padding: 10px 10px 10px 20px; }
+
 a.headerlink {
   font-size: x-small; }
 
