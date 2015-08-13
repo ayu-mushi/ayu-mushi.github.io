@@ -49,6 +49,9 @@ p {
 dt ~ dt {
   border-top: 1px solid rgba(180, 180, 255, 0.3); }
 
+dd ~ dt {
+  padding-top: 4px; }
+
 a:link {
   color: #0055ff;
   text-decoration: none; }
