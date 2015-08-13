@@ -4,6 +4,7 @@ BUILDS=$(addprefix build/,$(notdir $(SOURCES:.md=.html)))
 ARTICLE_MDS=$(wildcard src/article/*.md)
 ARTICLE_BUILDS=$(addprefix build/article/,$(notdir $(ARTICLE_MDS:.md=.html)))
 SITE_NAME="ayu-mushi's website"
+SITE_URI="http://ayu-mushi.github.io/"
 
 all: $(BUILDS) $(ARTICLE_BUILDS) build/README.md
 
