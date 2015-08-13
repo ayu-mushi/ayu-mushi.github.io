@@ -4,7 +4,13 @@ date: '2015-8-13'
 ---
 
 Twitter
-  ~ [mushi\_ayumu](https://twitter.com/mushi_ayumu)
+  ~ [\@mushi\_ayumu](https://twitter.com/mushi_ayumu)
+
+Twilog
+  ~ [真社会性昆虫ちゃん - Twilog](http://twilog.org/mushi\_ayumu)
+
+Favstar
+  ~ [\@mushi\_ayumuのベストツイート](http://ja.favstar.fm/users/mushi_ayumu)
 
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
