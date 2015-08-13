@@ -8,6 +8,7 @@ Twitter
 
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
+  ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
 
 将棋ウォーズ
   ~ [mushi2000](http://shogiwars.heroz.jp/users/history/mushi2000)
