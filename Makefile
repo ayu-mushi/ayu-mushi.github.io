@@ -7,7 +7,7 @@ build/mytheme/main.css : src/mytheme/main.sass
 	sass $< $@
 
 build/%.html : src/%.md build/mytheme/main.css
-	pandoc -o $@ $< --css=http://ayu-mushi.github.io/mytheme/main.css --template src/mytheme/layout.html
+	pandoc -o $@ $< --css=http://ayu-mushi.github.io/mytheme/main.css --template src/mytheme/layout.html --title-prefix="ayu-mushi's website"
 
 .PHONY: all clean
 

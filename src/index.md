@@ -1,3 +1,5 @@
-ayu-mushi.github.io
-====================
+---
+title: 'index'
+---
+
 * hello
