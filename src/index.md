@@ -13,3 +13,6 @@ Github
 
 ask.fm
   ~ [ayu-mushi](http://ask.fm/ayu_mushi)
+
+email
+  ~ ayu.mushi2015 {at} gmail.com
