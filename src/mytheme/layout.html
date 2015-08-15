@@ -71,6 +71,12 @@ $highlighting-css$
       </ul>
     </nav>
     <main>
+    $if(abstract)$
+    <section id="abstract">
+      <h1>概要</h1>
+      $abstract$
+    </section>
+    $endif$
     $body$
     $for(include-after)$
     $include-after$
