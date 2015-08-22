@@ -23,7 +23,4 @@ build/%.html : src/%.md build/mytheme/main.css
 .PHONY: all clean
 
 clean:
-	rm -f build/*.html
-	rm -f build/mytheme/main.css
-	rm -f build/README.md
-	rm -f build/article/*.html
+	rm -f $(BUILDS) build/mytheme/main.css build/README.md $(ARTICLE_BUILDS)
