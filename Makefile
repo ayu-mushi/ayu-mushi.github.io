@@ -14,7 +14,7 @@ build/README.md:
 build/mytheme/main.css : src/mytheme/main.sass
 	sass $< $@
 
-build/article/%.html : src/article/*.md build/mytheme/main.css
+build/article/%.html : src/article/%.md build/mytheme/main.css
 	pandoc -f markdown -o $@ $< --css=../mytheme/main.css --template src/mytheme/layout.html --title-prefix=$(SITE_NAME)
 
 build/%.html : src/%.md build/mytheme/main.css
