@@ -24,3 +24,5 @@ build/%.html : src/%.md build/mytheme/main.css
 
 clean:
 	rm -f $(BUILDS) build/mytheme/main.css build/README.md $(ARTICLE_BUILDS)
+
+rebuild: clean all
