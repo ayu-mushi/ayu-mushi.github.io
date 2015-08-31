@@ -9,7 +9,7 @@ COMMON_OPTS=--template src/mytheme/layout.html --title-prefix=$(SITE_NAME)
 
 all: $(BUILDS) $(ARTICLE_BUILDS) build/README.md
 
-build/README.md:
+build/README.md: README.md
 	cp README.md build/README.md
 
 build/mytheme/main.css : src/mytheme/main.sass
