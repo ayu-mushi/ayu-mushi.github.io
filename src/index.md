@@ -9,9 +9,6 @@ Twitter
 Twilog
   ~ [真社会性昆虫ちゃん - Twilog](http://twilog.org/mushi\_ayumu)
 
-Favstar
-  ~ [\@mushi\_ayumuのベストツイート](http://ja.favstar.fm/users/mushi_ayumu)
-
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
