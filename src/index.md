@@ -19,5 +19,8 @@ Github
 ask.fm
   ~ [ayu\_mushi](http://ask.fm/ayu_mushi)
 
+SoundCloud
+  ~ [ayu-mushi](https://soundcloud.com/ayu-mushi)
+
 email
   ~ ayu.mushi2015 {at} gmail.com
