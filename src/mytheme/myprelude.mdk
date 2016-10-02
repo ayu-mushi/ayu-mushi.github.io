@@ -1,0 +1,9 @@
+Css: clear
+[INCLUDE=bootstrap]
+Css: ../mytheme/main.css
+Math Mode: mathjax
+Title Note: &date;
+.newword { font-weight: bold }
+Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
+HTML Meta: name="twitter:site" content="mushi_ayumu"
+Embed: 0

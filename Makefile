@@ -20,8 +20,8 @@ build/mytheme/main.css : src/mytheme/main.sass
 build/article/%.html : src/article/%.md build/mytheme/main.css
 	pandoc -f markdown -o $@ $< --css=../mytheme/main.css $(COMMON_OPTS)
 
-build/article/%.html : src/article/%.mdk build/mytheme/main.css
-	madoko -v --odir=build/article/ $<
+build/article/%.html : src/article/%.mdk build/mytheme/main.css src/mytheme/myprelude.mdk
+	madoko -v --odir=build/article $<
 
 build/%.html : src/%.md build/mytheme/main.css
 	pandoc -f markdown -o $@ $< --css=mytheme/main.css $(COMMON_OPTS)
