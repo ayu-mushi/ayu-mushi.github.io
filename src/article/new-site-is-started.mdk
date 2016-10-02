@@ -1,0 +1,35 @@
+[INCLUDE="../mytheme/myprelude.mdk"]
+Title : サイト作りました
+Author : ayu-mushi
+Keywords: ayu-mushi, サイト, テスト
+Description: Madokoでサイトを作った
+Title Note: &date;
+Doc class : article
+
+[TITLE]
+
+#作った
+これからサイトをやっていきます。例えば記事とかを書きますよ。
+
+この記事では、筆者のことと、サイトを作るときに使わせてもらった技術とを紹介します。
+
+#自己紹介
+ayu-mushiといいます。
+
+Haskell、計算機科学などに関心があります。
+
+あとは[トップページ](/)に使ってるSNSなどへリンクが貼ってあるので見て下さい。
+
+#技術
+
+##Madoko
+マークアップ言語
+数式とかも書ける: $\sum_{i}^{n}$
+
+##Markdown
+
+##Textlint
+
+##Makefile
+
+##Bootstrap
