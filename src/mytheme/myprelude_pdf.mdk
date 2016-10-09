@@ -1,0 +1,21 @@
+Doc class : [no-math, 10pt]article
+Package: [curve]xypic
+Package: amscd
+Package: amsthm
+Package: amsfonts
+Package: amsmath
+Package: amsthm
+Package: fontspec
+Package: pgfplots
+Package: pgfplotstable
+Package: pst-plot
+Package: pstricks
+Package: tikz
+Tex Header:
+  \setmainfont{IPAGothic}
+  \setsansfont{IPAPGothic}
+  \setmonofont{IPAPGothic}
+  \XeTeXlinebreaklocale "ja"
+  \XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+  \XeTeXlinebreakpenalty=0
+	\usetikzlibrary{decorations.pathreplacing, decorations.pathmorphing}
