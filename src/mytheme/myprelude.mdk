@@ -1,9 +1,21 @@
-Css: clear
 [INCLUDE=bootstrap]
 Css: ../mytheme/main.css
-Math Mode: mathjax
-Title Note: &date;
 .newword { font-weight: bold }
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
+Updated Date: &date
+Cite Style: textual
+~a: .tex-tooltip
 HTML Meta: name="twitter:site" content="mushi_ayumu"
+HTML Footer: </main>
 Embed: 0
+Bib: ../article/biblio.bib
+@if tex {
+[INCLUDE=../mytheme/myprelude_pdf.mdk]
+}
+[INCLUDE=../mytheme/nav.html]
+<main>
+**&Title;**
+
+公開日: <time pubdate="pubdate">&Pubdate;</time>
+
+[TOC]
