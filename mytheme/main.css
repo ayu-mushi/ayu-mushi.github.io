@@ -39,30 +39,12 @@ header {
 a.headerlink {
   font-size: x-small; }
 
-ul, ol, dl {
-  padding: 5px;
-  padding-left: 25px; }
+ul, ol {
+  margin: 0 0 0 1em;
+  padding: 0; }
 
 strong.passion {
   letter-spacing: 0.5em; }
-
-strong, em, b {
-  -webkit-text-emphasis: filled dot;
-  text-emphasis: filled dot;
-  font-weight: normal;
-  font-style: normal; }
-
-p {
-  padding: 5px; }
-
-#section {
-  border-bottom: 1px solid rgba(180, 180, 255, 0.4); }
-
-dt ~ dt {
-  border-top: 1px solid rgba(180, 180, 255, 0.3); }
-
-dd ~ dt {
-  padding-top: 4px; }
 
 a:link {
   color: #0055ff;
@@ -73,5 +55,12 @@ a:visited {
 a:hover {
   color: #0077ff;
   text-decoration: underline; }
+
+.citations {
+  color: #555555;
+  font-weight: bold;
+  font-size: large;
+  margin-left: 0.2em;
+  margin-right: 0.2em; }
 
 /*# sourceMappingURL=main.css.map */
