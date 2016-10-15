@@ -1,7 +1,8 @@
 SOURCES=$(wildcard src/*.md)
 BUILDS=$(addprefix build/,$(notdir $(SOURCES:.md=.html)))
 
-ARTICLE_MDS=$(wildcard src/article/*.md) $(wildcard src/article/*.mdk)
+ARTICLE_MDS=$(filter-out src/article/index.mdk, $(wildcard src/article/*.md) $(wildcard src/article/*.mdk))
+ARTICLE_INDEX=src/article/index.mdk
 ARTICLE_EXTENSIONS="\.mdk|\.md"
 ARTICLE_HTMLS=$(shell echo $(ARTICLE_MDS) | perl -pe "s/"$(ARTICLE_EXTENSIONS)"/\.html/g")
 ARTICLE_PDFS=$(addprefix build/article/pdf/,$(notdir $(shell echo $(wildcard src/article/*.mdk) | perl -pe "s/\.mdk/\.pdf/g")))
@@ -11,13 +12,16 @@ SITE_URI="http://ayu-mushi.github.io/"
 COMMON_OPTS=--template src/mytheme/layout.html --title-prefix=$(SITE_NAME)
 CURRENT_DIR = $(shell pwd)
 
-all: $(BUILDS) $(ARTICLE_BUILDS) build/README.md #$(ARTICLE_PDFS)
+all: $(BUILDS) $(ARTICLE_BUILDS) build/article/index.html build/README.md #$(ARTICLE_PDFS)
 
 build/README.md: README.md
 	cp README.md build/README.md
 
 build/mytheme/main.css : src/mytheme/main.sass
 	sass $< $@
+
+src/article/index.mdk : $(ARTICLE_MDS) src/article/make_index.py
+	python src/article/make_index.py > src/article/index.mdk
 
 build/article/%.html : src/article/%.md build/mytheme/main.css
 	pandoc -f markdown -o $@ $< --css=../mytheme/main.css $(COMMON_OPTS)

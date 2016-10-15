@@ -2,20 +2,47 @@
 Css: ../mytheme/main.css
 .newword { font-weight: bold }
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
-Updated Date: &date
-Cite Style: textual
+Cite Style: natural
+Bib Search Url: google.co.jp
 ~a: .tex-tooltip
 HTML Meta: name="twitter:site" content="mushi_ayumu"
 HTML Footer: </main>
 Embed: 0
+@if Pubdate == null { #date {display: none} }
+@if Update == null { #date {display: none}}
+@if Draft { #date {display: none} }
+#update { html-elem: date; }
+#pubdate { html-elem: date; html-pubdate: pubdate}
 Bib: ../article/biblio.bib
+Toc depth: 5
+JS Header:
+    (function(i,s,o,g,r,a,m){
+        i['GoogleAnalyticsObject']=r;
+        i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-34234538-2', 'auto');
+    ga('send', 'pageview');
+
 @if tex {
 [INCLUDE=../mytheme/myprelude_pdf.mdk]
 }
 [INCLUDE=../mytheme/nav.html]
+
+~ Begin  HtmlOnly
+
 <main>
 **&Title;**
 
-公開日: <time pubdate="pubdate">&Pubdate;</time>
+~ End  HtmlOnly
+
+~ Begin  TexOnly
+[TITLE]
+~ End  TexOnly
+
+~ {#date}
+Published
+  ~ [&Pubdate;]{ #pubdate }
+Last Modified
+  ~ [&Update;]{ #update }
+~
 
 [TOC]

@@ -1,12 +1,12 @@
-[INCLUDE="../mytheme/myprelude.mdk"]
 Title : サイト作りました
-Author : ayu-mushi
+Author: ayu-mushi
 Keywords: ayu-mushi, サイト, テスト
 Description: Madokoでサイトを作った
-Title Note: &date;
-Doc class : article
+Pubdate: 2016-10-5
+Update: 2016-10-5
 
-[TITLE]
+[INCLUDE="../mytheme/myprelude.mdk"]
+
 
 #作った
 これからサイトをやっていきます。例えば記事とかを書きますよ。
@@ -18,13 +18,78 @@ ayu-mushiといいます。
 
 Haskell、計算機科学などに関心があります。
 
-あとは[トップページ](/)に使ってるSNSなどへリンクが貼ってあるので見て下さい。
+あとは[トップページ](/)に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
 
-#技術
+#使った技術紹介
 
 ##Madoko
 マークアップ言語
-数式とかも書ける: $\sum_{i}^{n}$
+
+```madoko
+例えば、Madoko Reference[@Leijen201604]を参照。
+見よ!
+
+ぐへへへ[@Leijen201604]。
+```
+
+例えば、Madoko Reference[@Leijen201604]を参照。
+見よ!
+
+ぐへへへ[@Leijen201604]。
+
+数式とかも書ける:
+
+```latex
+$\sum_{i}^{n}$
+```
+
+$\sum_{i}^{n}$
+
+同じソースからpdfもhtmlも出力できる。
+テストとして、[サイト作りました pdf版][pdf_version_of_me]としてこのページのpdf版をアップしました。
+XeLaTeXであり、フォントを指定する必要がある。
+
+[このページのソースはGithubにあります][source_of_me]。
+
+[pdf_version_of_me]: ./pdf/new-site-is-started.pdf "「サイト作りました」のpdf版"
+[source_of_me]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk "「サイト作りました」のソース"
+
+* A
+* B
+
+
+被定義項A
+  : 定義項A
+被定義項B
+  : 定義項B
+
+1. A
+2. B
+
+//amsthmの環境がhtmlで使えることも紹介しよう
+
+```madoko
+脚注![^1]
+
+
+[^1]: ちなみに、死
+```
+
+脚注![^1]
+
+[^1]: ちなみに、死
+
+
+```madoko
+madokoにmadokoのソースを入れると何か魔法の鏡の中で話してるみたい。
+
+* リングウイルスをプログラムから現実へ流出させるただ1つの昇階機《Evaluator》
+```
+
+madokoにmadokoのソースを入れると何か魔法の鏡の中で話してるみたい。
+
+* リングウイルスをプログラムから現実へ流出させるただ1つの昇階機《Evaluator》
+
 
 ##Markdown
 
@@ -33,3 +98,5 @@ Haskell、計算機科学などに関心があります。
 ##Makefile
 
 ##Bootstrap
+
+[BIB]
