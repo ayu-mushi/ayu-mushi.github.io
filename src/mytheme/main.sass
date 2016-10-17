@@ -1,6 +1,7 @@
 *
   margin: 0
   padding: 0
+  font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif
 
 nav#menu
   font-size: x-large
@@ -14,21 +15,27 @@ nav#menu
   top: 0
   width: 140px
 
-pre
-  padding-top: 1em
-  padding-bottom: 1em
+.proof
+  background-color: #eeeeee
 
-h1.title
-  font-size: large
+.site-name
+  font-size: medium
   border-bottom: 1px solid rgba(180, 180, 255, 0.4)
   padding-bottom: 5px
 
-h2.post-title
+#post-title
   font-size: xx-large
+  font-weight: bold
+
 main
   height: 100%
   margin-left: 160px
-  padding: 10px 10px 10px 20px
+  padding: 10px 10px 0px 20px
+
+.footnotes
+  height: 100%
+  margin-left: 160px
+  padding: 0px 10px 10px 20px
 
 header
   height: 100%
@@ -38,30 +45,19 @@ header
 a.headerlink
   font-size: x-small
 
-ul,ol,dl
-  padding: 5px
-  padding-left: 25px
+//http://www.tagindex.com/stylesheet/list/margin_padding.html
+ul, ol, dl
+  margin: 0 0 0 1em
+  padding: 0
 
-//strong.passion
+strong.passion
   letter-spacing: 0.5em
 
-//strong,em,b
+em
   -webkit-text-emphasis: filled dot
   text-emphasis: filled dot
   font-weight: normal
   font-style: normal
-
-p
-  padding: 5px
-
-#section
-  border-bottom: 1px solid rgba(180, 180, 255, 0.4)
-
-dt~dt
-  border-top: 1px solid rgba(180, 180, 255, 0.3)
-
-dd~dt
-  padding-top: 4px
 
 a
   &:link
@@ -73,3 +69,10 @@ a
   &:hover
     color: #0077ff
     text-decoration: underline
+
+.citations
+  color: #555555
+  font-weight: bold
+  font-size: large
+  margin-left: 0.2em
+  margin-right: 0.2em

@@ -1,20 +1,39 @@
 [INCLUDE=bootstrap]
 Css: ../mytheme/main.css
+Site Name: ayu-mushi.github.io
 .newword { font-weight: bold }
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
 Cite Style: natural
 Bib Search Url: google.co.jp
-~a: .tex-tooltip
 HTML Meta: name="twitter:site" content="mushi_ayumu"
-HTML Footer: </main>
+HTML Meta: name="twitter:title" content="&title;"
+HTML Meta: name="twitter:description" content="&description;"
+Github Source: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/&filename;
+body { after: "</main>" }
 Embed: 0
 @if Pubdate == null { #date {display: none} }
 @if Update == null { #date {display: none}}
 @if Draft { #date {display: none} }
+@if not Draft { #draft {display: none} }
+
+.ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
+
+Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
+~ Begin samp-code-body {.panel-body}&nl;\
+````madoko&nl;&source;&nl;````&nl;\
+~ End samp-code-body&nl;\
+~ Begin samp-code-footer {.panel-footer}&nl;\
+&source;&nl;\
+~ End samp-code-footer&nl;\
+~ End Sampleblock&nl;\
+"}
+
 #update { html-elem: date; }
 #pubdate { html-elem: date; html-pubdate: pubdate}
 Bib: ../article/biblio.bib
 Toc depth: 5
+Heading Depth: 5
+Header Base: 2
 JS Header:
     (function(i,s,o,g,r,a,m){
         i['GoogleAnalyticsObject']=r;
@@ -30,7 +49,9 @@ JS Header:
 ~ Begin  HtmlOnly
 
 <main>
-**&Title;**
+[&site-name;]{.site-name}
+
+[&Title;]{#post-title}
 
 ~ End  HtmlOnly
 
@@ -43,6 +64,15 @@ Published
   ~ [&Pubdate;]{ #pubdate }
 Last Modified
   ~ [&Update;]{ #update }
+~
+
+~ {#draft}
+  ** この記事は下書きです。**
+~
+
+~ {#source}
+Source of This Page(GitHub)
+  : &github-source;
 ~
 
 [TOC]
