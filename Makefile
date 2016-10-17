@@ -5,6 +5,7 @@ ARTICLE_MDS=$(filter-out src/article/index.mdk, $(wildcard src/article/*.md) $(w
 ARTICLE_INDEX=src/article/index.mdk
 ARTICLE_EXTENSIONS="\.mdk|\.md"
 ARTICLE_HTMLS=$(shell echo $(ARTICLE_MDS) | perl -pe "s/"$(ARTICLE_EXTENSIONS)"/\.html/g")
+ARTICLE_MARKDOWNIZED=$(addprefix build/md/, $(notdir $(shell echo $(ARTICLE_MDS) | perl -pe "s/"$(ARTICLE_EXTENSIONS)"/\.md/g")))
 ARTICLE_PDFS=$(addprefix build/article/pdf/,$(notdir $(shell echo $(wildcard src/article/*.mdk) | perl -pe "s/\.mdk/\.pdf/g")))
 ARTICLE_BUILDS=$(addprefix build/article/,$(notdir $(ARTICLE_HTMLS)))
 SITE_NAME="ayu-mushi's website"
@@ -12,7 +13,7 @@ SITE_URI="http://ayu-mushi.github.io/"
 COMMON_OPTS=--template src/mytheme/layout.html --title-prefix=$(SITE_NAME)
 CURRENT_DIR = $(shell pwd)
 
-all: $(BUILDS) $(ARTICLE_BUILDS) build/article/index.html build/README.md #$(ARTICLE_PDFS)
+all: $(BUILDS) $(ARTICLE_BUILDS) $(ARTICLE_MARKDOWNIZED) build/article/index.html build/README.md #$(ARTICLE_PDFS)
 
 build/README.md: README.md
 	cp README.md build/README.md
@@ -28,6 +29,9 @@ build/article/%.html : src/article/%.md build/mytheme/main.css
 
 build/article/%.html : src/article/%.mdk build/mytheme/main.css src/mytheme/myprelude.mdk
 	madoko -v $< --odir=$(CURRENT_DIR)/build/article
+
+build/md/%.md : build/article/%.html #for textlint, madoko file is transformated into plain markdown
+	pandoc -o $@ $<
 
 build/article/pdf/%.pdf: src/article/%.mdk src/mytheme/myprelude.mdk
 	madoko -v --pdf $< --odir=$(CURRENT_DIR)/build/article/pdf
