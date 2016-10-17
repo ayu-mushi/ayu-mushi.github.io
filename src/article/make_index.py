@@ -15,6 +15,9 @@ from jinja2 import Template
 # → madokoファイルあるいはmdファイルにする (テンプレートを利用)
 # → 出力(標準出力で良い)
 
+# 【使い方】
+# $ python src/article/make_index.py > src/article/index.mdk
+
 article_dir = "build/article/"
 pdf_dir = "build/article/pdf/"
 
@@ -26,15 +29,12 @@ def readContent(path):
   f.close()
   return content
 
-def get_pubdate(filename):
+def getid_maybe(filename, id0):
     dom = lxml.html.fromstring(readContent(filename))
     try:
-        return dom.get_element_by_id("pubdate").text_content()
+        return dom.get_element_by_id(id0).text_content()
     except KeyError:
         return None
-
-def has_pubdate(filename):
-    return get_pubdate(filename) is not None
 
 # ref: https://cre8cre8.com/python/sort_string_date.htm
 def str2date(d):
@@ -60,12 +60,15 @@ def doc_detail(filename):
     doc = {}
     doc["file"] = filename
     doc["file_base"] = os.path.basename(filename)
-    doc["pubdate"] = str2date(get_pubdate(filename))
-    doc["title"] = dom.findtext(".//title")
+    doc["pubdate"] = str2date(getid_maybe(filename, "pubdate"))
+    doc["title"] = getid_maybe(filename, "post-title")
     doc["description"] = get_metadata(filename, "description")
     doc["keywords"] = get_metadata(filename, "keywords")
     doc["isthere_pdf_of"] = isthere_pdf_of(filename)
-    doc["pdf_versions_name"] = pdf_versions_name(filename)
+    doc["pdf_versions_name"] = os.path.basename(pdf_versions_name(filename))
+    ftitle, fext = os.path.splitext(os.path.basename(filename))
+    doc["github_source"] = "https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/" + ftitle + ".mdk"
+    doc["update"] = str2date(getid_maybe(filename, "update"))
     return doc
 
 def all_to_mdk(doc_list):
@@ -77,14 +80,19 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 {% for doc in doc_list %}
-* {{doc.pubdate}} [{{ doc.title }}]({{ doc.file_base }}) {{ doc.description }} {{doc.keywords}}
-{% endfor %}
+* [{{ doc.title }}]({{ doc.file_base }} "{{doc.title}}")
+  {% if doc.description != "" %}: 説明: {{ doc.description }}{% endif %}
+  {% if doc.description != "" %}: キーワード: {{doc.keywords}}{% endif %}
+  : ソース: <{{doc.github_source}}>
+  : 投稿日: {{doc.pubdate}}
+  : 最終更新日: {{doc["update"]}}{% if doc.isthere_pdf_of %}
+  : [pdf版](pdf/{{ doc.pdf_versions_name }} "{{doc.title}} pdf版"){% endif %}{% endfor %}
 """
 
     t = Template(index_template_mdk)
     print(t.render(doc_list=doc_list).encode("utf-8"))
 
-files = filter(has_pubdate, files)
+files = filter(lambda filename: getid_maybe(filename, "pubdate") is not None, files)
 detailed_files = map(doc_detail, files)
-detailed_files = sorted(detailed_files, key=lambda file0: file0["pubdate"])
+detailed_files = sorted(detailed_files, key=lambda file0: file0["pubdate"], reverse=True)
 all_to_mdk(detailed_files)
