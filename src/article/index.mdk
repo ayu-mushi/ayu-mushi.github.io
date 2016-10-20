@@ -6,5 +6,10 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 
-* 2016-10-05 [サイト作りました](new-site-is-started.html) Madokoでサイトを作った ayu-mushi, サイト, テスト
-
+* [サイト作りました](new-site-is-started.html "サイト作りました")
+  : 説明: Madokoでサイトを作った
+  : キーワード: ayu-mushi, madoko
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk>
+  : 投稿日: 2016-10-05
+  : 最終更新日: 2016-10-20
+  : [pdf版](pdf/new-site-is-started.pdf "サイト作りました pdf版")

@@ -1,9 +1,9 @@
 Title : サイト作りました
 Author: ayu-mushi
-Keywords: ayu-mushi, サイト, テスト
+Keywords: ayu-mushi, madoko
 Description: Madokoでサイトを作った
 Pubdate: 2016-10-5
-Update: 2016-10-5
+Update: 2016-10-20
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -13,47 +13,70 @@ Update: 2016-10-5
 
 この記事では、筆者のことと、サイトを作るときに使わせてもらった技術とを紹介します。
 
-#自己紹介
+#自己紹介 {#auto}
 ayu-mushiといいます。
 
 Haskell、計算機科学などに関心があります。
 
-あとは[トップページ](/)に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
+あとは[トップページ](/ "ayu-mushi.github.io")に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
 
-#使った技術紹介
+#Madoko
+Markdownに対し上位互換性があるマークアップ言語。
+公式サイトは["Welcome to Madoko"][official_site]です。
 
-##Madoko
-マークアップ言語
+[official_site]: https://www.madoko.net/ "Madoko 公式サイト"
 
-```madoko
-例えば、Madoko Reference[@Leijen201604]を参照。
-見よ!
+BibTeXかCitation Languageかによる参考文献の管理、
+LaTeXによる数式描画、
+amsthmのhtml版、
+あらゆる要素のナンバリングと参照(番号は表示しないようにもできる)、
+をサポートしているため、学術文書の執筆に適しています。
 
-ぐへへへ[@Leijen201604]。
-```
-
-例えば、Madoko Reference[@Leijen201604]を参照。
-見よ!
-
-ぐへへへ[@Leijen201604]。
-
-数式とかも書ける:
-
-```latex
-$\sum_{i}^{n}$
-```
-
-$\sum_{i}^{n}$
-
-同じソースからpdfもhtmlも出力できる。
+同じソースからpdfもhtmlも出力できます。
 テストとして、[サイト作りました pdf版][pdf_version_of_me]としてこのページのpdf版をアップしました。
-XeLaTeXであり、フォントを指定する必要がある。
+LaTeXとXeLaTeXとが使えます。
+pdfで日本語を使う場合、XeLaTeXを使用し、フォントを指定する必要があります。
+具体的なコードは、[madokoを使う | 情報分析・システム開発のタロスカイ株式会社][specify_ja_font]を参照して下さい。
+
+[specify_ja_font]: https://tarosky.co.jp/tarog/1279 "XeLaTeX用にフォント指定"
+
+ブロックやインライン要素に対して、css風のマッチや、挿入・置換、などの機能があり、拡張性が高いです。
+置換では、有限回数展開するSKIコンビネータ計算が実装されているようです[@Leijen201604], pdf p.94。
+SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com/SourceControl/latest#test/new/extra_ski.text>
+
+ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
+自分の設定ファイルは["ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub"][myprelude]として公開しました。
+
+[myprelude]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/mytheme/myprelude.mdk "myprelude.mdk"
 
 [このページのソースはGithubにあります][source_of_me]。
 
 [pdf_version_of_me]: ./pdf/new-site-is-started.pdf "「サイト作りました」のpdf版"
 [source_of_me]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk "「サイト作りました」のソース"
 
+
+以下は機能の紹介とテストのために、サンプルを挙げます。
+
+##文献言及(citation)
+~ Sample
+例えば、Madoko Reference[@Leijen201604]を参照。
+見よ!
+
+ぐへへへ[@Leijen201604]。
+~
+
+##数式
+~ Sample
+$\sum_{i}^{n}$
+~
+
+数式は、LaTeXまたはXeLaTeXで描画され、svg画像として出力されます。
+また、MathJaxなどで数式を描画するような設定にもできます。
+LaTeXやXeLaTeXの方は、ライブラリがそれらのものを使えるので、可換図式なども通常のLaTeXと同じように書けますが、面倒なのでサンプルは載せません。
+
+##リスト
+
+~ Sample
 * A
 * B
 
@@ -66,37 +89,75 @@ XeLaTeXであり、フォントを指定する必要がある。
 1. A
 2. B
 
-//amsthmの環境がhtmlで使えることも紹介しよう
+~
 
-```madoko
+
+##定理環境
+
+~ Begin Sample
+
+~ Theorem {#javataro_thm; caption: "ジャバ太郎の定理"}
+
+~~ Proof
+すごい証明。
+
+It is proof.
+~~
+
+~
+
+**参照** Theorem [#javataro_thm].
+~ End Sample
+
+##脚注
+
+~ Sample
 脚注![^1]
 
 
-[^1]: ちなみに、死
+[^1]: ちなみに、
+~
+
+##自分で定義したやつのテスト
+**ルビ**
+
+Madokoの置換を利用して定義。
+`&source;`が置換元の内容を表す変数。
+```madoko
+.ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
 ```
 
-脚注![^1]
+~ Sample
+* [死喰い人]{.ruby; rtext: "デスイーター"}
+* [獅子]{.ruby; rtext: "ライオン"}
+~
 
-[^1]: ちなみに、死
+**今回使われたサンプルコード書法**
 
+今回使われたMadokoによるMadokoに対するサンプルコード書法は公式のレファレンスに載っているものを参考にして書きました。
 
 ```madoko
-madokoにmadokoのソースを入れると何か魔法の鏡の中で話してるみたい。
-
-* リングウイルスをプログラムから現実へ流出させるただ1つの昇階機《Evaluator》
+Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
+~ Begin samp-code-body {.panel-body}&nl;\
+````madoko&nl;&source;&nl;````&nl;\
+~ End samp-code-body&nl;\
+~ Begin samp-code-footer {.panel-footer}&nl;\
+&source;&nl;\
+~ End samp-code-footer&nl;\
+~ End Sampleblock&nl;\
+"}
 ```
 
-madokoにmadokoのソースを入れると何か魔法の鏡の中で話してるみたい。
+サンプルコード書法のサンプルコード
 
-* リングウイルスをプログラムから現実へ流出させるただ1つの昇階機《Evaluator》
+~~ Sample
+~ Sample
+**こんにちは!!**
+&delta;
+-----そう
+......なんだって
+~
+~~
 
-
-##Markdown
-
-##Textlint
-
-##Makefile
-
-##Bootstrap
 
 [BIB]
