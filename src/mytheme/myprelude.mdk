@@ -5,9 +5,13 @@ Site Name: ayu-mushi.github.io
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
 Cite Style: natural
 Bib Search Url: google.co.jp
+Html Header: <head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">
 HTML Meta: name="twitter:site" content="mushi_ayumu"
-HTML Meta: name="twitter:title" content="&title;"
-HTML Meta: name="twitter:description" content="&description;"
+HTML Meta: name="twitter:card" content="summary"
+HTML Meta: property="og:title" content="&title;"
+HTML Meta: property="og:type" content="article"
+HTML Meta: property="og:site_name" content="&site-name;"
+HTML Meta: property="og:description" content="&description;"
 Github Source: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/&filename;
 body { after: "</main>" }
 Embed: 0
@@ -18,6 +22,10 @@ Embed: 0
 
 .ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
 
+@if tex {
+.SampleBlock : padding-left=1em padding-right=1em padding-top=1em padding-bottom=1em border-style=solid border-width=1px
+.samp-code-footer { padding-top: 1em; border-top: 1px solid}
+}
 Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 ~ Begin samp-code-body {.panel-body}&nl;\
 ````madoko&nl;&source;&nl;````&nl;\
