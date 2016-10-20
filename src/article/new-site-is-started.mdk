@@ -1,7 +1,7 @@
 Title : サイト作りました
 Author: ayu-mushi
 Keywords: ayu-mushi, madoko
-Description: Madokoでサイトを作った
+Description: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
 Pubdate: 2016-10-5
 Update: 2016-10-20
 
@@ -21,8 +21,10 @@ Haskell、計算機科学などに関心があります。
 あとは[トップページ](/ "ayu-mushi.github.io")に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
 
 #Madoko
-Markdownに対し上位互換性があるマークアップ言語。
-公式サイトは["Welcome to Madoko"][official_site]です。
+本サイトで使用した主な技術。
+
+Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。
+公式サイトは["Welcome to Madoko"][official_site]。
 
 [official_site]: https://www.madoko.net/ "Madoko 公式サイト"
 
@@ -34,13 +36,13 @@ amsthmのhtml版、
 
 同じソースからpdfもhtmlも出力できます。
 テストとして、[サイト作りました pdf版][pdf_version_of_me]としてこのページのpdf版をアップしました。
-LaTeXとXeLaTeXとが使えます。
+pdf出力には、LaTeXとXeLaTeXとが使えます。
 pdfで日本語を使う場合、XeLaTeXを使用し、フォントを指定する必要があります。
 具体的なコードは、[madokoを使う | 情報分析・システム開発のタロスカイ株式会社][specify_ja_font]を参照して下さい。
 
 [specify_ja_font]: https://tarosky.co.jp/tarog/1279 "XeLaTeX用にフォント指定"
 
-ブロックやインライン要素に対して、css風のマッチや、挿入・置換、などの機能があり、拡張性が高いです。
+ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
 置換では、有限回数展開するSKIコンビネータ計算が実装されているようです[@Leijen201604], pdf p.94。
 SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com/SourceControl/latest#test/new/extra_ski.text>
 
@@ -55,7 +57,7 @@ SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com
 [source_of_me]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk "「サイト作りました」のソース"
 
 
-以下は機能の紹介とテストのために、サンプルを挙げます。
+以下では機能の紹介とテストのために、サンプルを挙げます。
 
 ##文献言及(citation)
 ~ Sample
@@ -70,9 +72,9 @@ SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com
 $\sum_{i}^{n}$
 ~
 
-数式は、LaTeXまたはXeLaTeXで描画され、svg画像として出力されます。
+数式は、LaTeXで描画され、svg画像として出力されます。
 また、MathJaxなどで数式を描画するような設定にもできます。
-LaTeXやXeLaTeXの方は、ライブラリがそれらのものを使えるので、可換図式なども通常のLaTeXと同じように書けますが、面倒なのでサンプルは載せません。
+LaTeXの方は、パッケージが使える(MathJaxでもあるものは使えます)ので、可換図式なども通常のLaTeXと同じように書けますが、面倒なのでサンプルは載せません。
 
 ##リスト
 
@@ -106,8 +108,26 @@ It is proof.
 
 ~
 
-**参照** Theorem [#javataro_thm].
+~ Theorem {caption: "███の定理"}
+
+~~ Proof
+███
+~~
+
+~
+
+Theorem [#javataro_thm]. を参照
 ~ End Sample
+
+デフォルトでは**定理**、**証明**といった言葉は英語でしたが、以下のreplacerで日本語に変えました。
+```madoko
+.theorem { replace: "/Theorem/定理/" }
+.proof { replace: "/Proof/証明/" }
+```
+
+replacerでは、css風のセレクタに対し、正規表現でどう置換するかを指定できます[^replacer]。
+
+[^replacer]: セレクタを使わずとも、htmlの`style`属性のように、要素に対して個別に指定することもできます。
 
 ##脚注
 
@@ -132,9 +152,9 @@ Madokoの置換を利用して定義。
 * [獅子]{.ruby; rtext: "ライオン"}
 ~
 
-**今回使われたサンプルコード書法**
+**今回使われたサンプルコード記法**
 
-今回使われたMadokoによるMadokoに対するサンプルコード書法は公式のレファレンスに載っているものを参考にして書きました。
+今回使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
 
 ```madoko
 Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
@@ -148,7 +168,7 @@ Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 "}
 ```
 
-サンプルコード書法のサンプルコード
+サンプルコード記法のサンプルコード
 
 ~~ Sample
 ~ Sample

@@ -36,6 +36,9 @@ Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 ~ End Sampleblock&nl;\
 "}
 
+.theorem { replace: "/Theorem/定理/" }
+.proof { replace: "/Proof/証明/" }
+
 #update { html-elem: date; }
 #pubdate { html-elem: date; html-pubdate: pubdate}
 Bib: ../article/biblio.bib
