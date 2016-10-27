@@ -21,7 +21,7 @@ Haskell、計算機科学などに関心があります。
 あとは[トップページ](/ "ayu-mushi.github.io")に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
 
 #Madoko
-本サイトで使用した主な技術。
+本サイトで記事を生成するのに使いました。
 
 Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。
 公式サイトは["Welcome to Madoko"][official_site]。
@@ -30,17 +30,18 @@ Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーで
 
 BibTeXかCitation Languageかによる参考文献の管理、
 LaTeXによる数式描画、
-amsthmのhtml版、
+amsthmのHTML版、
 あらゆる要素のナンバリングと参照(番号は表示しないようにもできる)、
-をサポートしているため、学術文書の執筆に適しています。
+をサポートしているため、**学術文書の執筆**に適しています。
 
-同じソースからpdfもhtmlも出力できます。
-テストとして、[サイト作りました pdf版][pdf_version_of_me]としてこのページのpdf版をアップしました。
-pdf出力には、LaTeXとXeLaTeXとが使えます。
-pdfで日本語を使う場合、XeLaTeXを使用し、フォントを指定する必要があります。
+同じソースからPDFもHTMLも出力できます。
+テストとして、[サイト作りました PDF版][pdf_version_of_me]としてこのページのPDF版をアップしました。
+PDF出力には、LaTeXと[XeLaTeX][XeTeX_WP]とが使えます。
+PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定する必要があります。
 具体的なコードは、[madokoを使う | 情報分析・システム開発のタロスカイ株式会社][specify_ja_font]を参照して下さい。
 
 [specify_ja_font]: https://tarosky.co.jp/tarog/1279 "XeLaTeX用にフォント指定"
+[XeTeX_WP]: https://ja.wikipedia.org/wiki/XeTeX "XeTeX - Wikipedia"
 
 ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
 置換では、有限回数展開するSKIコンビネータ計算が実装されているようです[@Leijen201604], pdf p.94。
@@ -53,7 +54,7 @@ SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com
 
 [このページのソースはGithubにあります][source_of_me]。
 
-[pdf_version_of_me]: ./pdf/new-site-is-started.pdf "「サイト作りました」のpdf版"
+[pdf_version_of_me]: ./pdf/new-site-is-started.pdf "「サイト作りました」のPDF版"
 [source_of_me]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk "「サイト作りました」のソース"
 
 
@@ -127,7 +128,7 @@ Theorem [#javataro_thm]. を参照
 
 replacerでは、css風のセレクタに対し、正規表現でどう置換するかを指定できます[^replacer]。
 
-[^replacer]: セレクタを使わずとも、htmlの`style`属性のように、要素に対して個別に指定することもできます。
+[^replacer]: セレクタを使わずとも、HTMLの`style`属性のように、要素に対して個別に指定することもできます。
 
 ##脚注
 
@@ -138,8 +139,8 @@ replacerでは、css風のセレクタに対し、正規表現でどう置換す
 [^1]: ちなみに、
 ~
 
-##自分で定義したやつのテスト
-**ルビ**
+##自分で定義したやつ
+###ルビ
 
 Madokoの置換を利用して定義。
 `&source;`が置換元の内容を表す変数。
@@ -152,9 +153,9 @@ Madokoの置換を利用して定義。
 * [獅子]{.ruby; rtext: "ライオン"}
 ~
 
-**今回使われたサンプルコード記法**
+###サンプルコード記法
 
-今回使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
+この記事で使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
 
 ```madoko
 Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\

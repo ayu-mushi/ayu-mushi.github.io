@@ -1,6 +1,8 @@
 [INCLUDE=bootstrap]
 Css: ../mytheme/main.css
+@if null == site-name {
 Site Name: ayu-mushi.github.io
+}
 .newword { font-weight: bold }
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
 Cite Style: natural
@@ -19,6 +21,7 @@ Embed: 0
 @if Update == null { #date {display: none}}
 @if Draft { #date {display: none} }
 @if not Draft { #draft {display: none} }
+@if null == subtitle { #post-subtitle { display: none} }
 
 .ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
 
@@ -38,9 +41,11 @@ Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 
 .theorem { replace: "/Theorem/定理/" }
 .proof { replace: "/Proof/証明/" }
+.header { padding-bottom: 1em;}
 
 #update { html-elem: date; }
 #pubdate { html-elem: date; html-pubdate: pubdate}
+
 Bib: ../article/biblio.bib
 Toc depth: 5
 Heading Depth: 5
@@ -57,12 +62,21 @@ JS Header:
 }
 [INCLUDE=../mytheme/nav.html]
 
+~ HtmlOnly
+<main>
+~
+
+~ Begin Header
+
 ~ Begin  HtmlOnly
 
-<main>
 [&site-name;]{.site-name}
 
 [&Title;]{#post-title}
+
+~ {#post-subtitle}
+〜 &Subtitle; 〜
+~
 
 ~ End  HtmlOnly
 
@@ -86,4 +100,8 @@ Source of This Page(GitHub)
   : &github-source;
 ~
 
+~ End Header
+
 [TOC]
+
+
