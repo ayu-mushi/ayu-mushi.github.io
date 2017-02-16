@@ -1,0 +1,165 @@
+Title : 束と順序集合
+Pubdate : 2016-10-06
+Update: &date;
+Description: 束
+Keywords: 束, 計算機科学
+Bib: ./biborder_and_CS.bib
+<!--Draft: True-->
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+はじめに
+=======
+束と順序集合の理論について、プログラミング言語意味論への応用を中心に書く。
+
+プログラミング言語意味論では、再帰的定義の途中に出てくる中間形式とかを表すため、部分関数が用いられる。
+そしてその中間形式の階層が有向完備半順序という順序集合の一種を為し、その最小上界として再帰関数が定義されるのだ。
+
+執筆では[@DaveyPriestley200204]を参照した。
+
+順序集合と単調写像
+=======
+~ Begin Definition {caption: " 半順序集合、前順序集合"}
+  集合$S$と関係$\leq$との対$(S, \leq)$が[ 半順序集合]{.newword}であるとは、反射律・推移律・反対称律、すなわち、
+
+  ~ Aligned
+    &\forall x \in S. x \leq x &(\mathrm{Reflexivity})\\
+    &\forall x, y, z \in S. x \leq y \& y \leq z \Rightarrow x \leq z &(\mathrm{Transivity})\\
+    &\forall x, y \in S. x \leq y \& y \leq x \Rightarrow x = y &(\mathrm{Antisymmetry})
+  ~
+
+  が成り立つことである。
+  半順序集合より条件をゆるくして、$S$上の関係$\leq$に対し反射律・推移律が成り立つとき、そのときに限り、対$(S, \leq)$を[ 前順序集合]{.newword}であると言うこととする。
+
+~ End Definition
+
+
+~ Begin Definition {caption: " 全順序集合"}
+  対$(S, \leq)$が[ 全順序集合]{.newword}であるとは、半順序集合$(S, \leq)$について全順序律、すなわち、
+
+~ Equation
+  \forall x, y \in S. x \leq y \lor y \leq x
+~
+
+  が成り立つことである。
+~ End Definition
+
+
+~ Begin Definition
+  $x \leq y \& x \neq y$を$x \lt y$とか$y \gt x$とかと書く。
+  $x \leq y$を$y \geq x$とも書く。$\lnot(x \leq y)$を$x \nleq y$とか$y \ngeq x$とかと書く。$x \nleq y \& x \ngeq y$を$x \parallel y$と書き、$x$と$y$とが[ 比較不能]{.newword}であるという。
+
+  「比較不能」という言葉を使って言い換えると、全順序集合とは、比較不能な元の無い半順序集合のことである。
+~ End Definition
+
+
+~ Definition {caption: " 被覆"}
+  $x$が$y$に[ 被覆]{.newword; .ruby; rtext: "ひふく"}(covering)されるとは、$x \leq y$、かつ、$x \lt z \lt y$なる$z$が存在しないことであり、これを$x \lessdot y$と書く(表記はWikipediaに倣った)。
+~
+
+~ Begin Lemma
+  $P$が有限順序集合のとき、$x, y \in P$として、$x = x_0 \lessdot x_1 \lessdot \cdots x_n = y$なる系列$x_0, \cdots x_n \in P$(つまり$x_0 = x$、$x_n = y$かつ、$\forall i. x_i \lessdot x_{i+1}$なる系列)が存在することと、$x \lt y$なこととは同値。
+
+~ Proof
+  $\Rightarrow$は、推移性から明らか。
+
+  $\Leftarrow$を示そう。
+  列$X$を用意し、$X_0 = x$として初期化。
+  $P$は有限なので、$\{ z \in P | x < z < y\}$(以下、$A$と呼ぶ)には極小なものがあるか、空集合。
+
+  極小のものがあるなら、1つとって$X$に追加し、それを$x$の代わりに、この操作を繰り返す。
+  空集合になったら$y$を$X$に追加して終わり。
+  このとき、$A$が空集合となったことから、前に1つとったやつ$X_i$は、それより大きく$y$より小さいものが無いので、$X_i \lessdot y$となる。
+
+  $P$の有限性から$A$も有限で、この操作で濃度が$1$ずつ減っていくので、いつか停止する。
+  $x$より大きいなかで極小のものというのは$x \lessdot z$な$z$であることだから、列$X$は最終的に、$x = X_0 \lessdot X_1 \lessdot \cdots X_n = y$というようになっている。
+~
+
+~ End Lemma
+
+~ Definition {caption: "上方集合、下方集合"}
+  $Q \subseteq P$について、$x \in Q$で$y \in P$で$x \leq y$なら$y \in Q$となるような$Q$を$P$の上方集合(up-set)という。
+  双対で、$x \in Q$で$y \in P$で$y \leq x$なら$y \in Q$となるような$Q$を$P$の下方集合(down-set)という。
+
+  また、$P$の下方集合の族を$\downsetlattice{P}$と書く。
+  $\downsetlattice{P}$は関係$\subseteq$のもとで順序集合である。
+~
+
+~ Begin Theorem
+  $P$を順序集合とし、$x, y \in P$とする。
+
+  以下は同値:
+
+  1. $x \leq y$
+  2. $\downX{x} \subseteq \downX{y}$
+  3. $\forall Q \in \downsetlattice{P}. y \in Q \Rightarrow x \in Q$ (どんな$P$の下方集合$Q$についても、$y \in Q$ならば、$x \in Q$であること)
+
+つまり、$x \mapsto \downX{x}$は$(P, \leq)$から$(\downsetlattice{P}, \subseteq)$への順序埋め込みである。
+
+~ Proof
+  (1) $\Rightarrow$ (2). $x \leq y$、$z \in \downX{x}$とする。
+  $z \leq x$となり、推移性から$z \leq y$も分かる。
+  したがって、$z \in \downX{y}$。
+  $z$は任意に取ったから、$\downX{x} \subseteq \downX{y}$が示された。
+
+  (2) $\Rightarrow$ (1). $x \in \downX{x}$である。
+  仮定から$x \in \downX{y}$となり、$x \leq y$が分かる。
+
+  (2) $\Rightarrow$ (3). $\downX{x} \subseteq \downX{y}$とし、$y \in Q \in \downsetlattice{P}$とする。
+  (2)$\Rightarrow$(1)は分かっているので、$x \leq y$が分かり、$Q$は下方集合だから、$x \in Q$。
+
+  (3) $\Rightarrow$ (1) $x \leq y$の否定を仮定する。
+  すると、$x \notin \downX{y}$。
+  $\downX{y}$は下方集合だから、$\downX{y} \in \downsetlattice{P}$。
+  $y \in \downX{y}$は明らか。
+  ここで$x \nleq y$が(3)と矛盾。
+  よって$x \leq y$である。
+  ($x \leq y$でないとしたとき、(3)の$Q$の部分に$\downX{y}$を入れると、反例となってしまうという背理法)
+~
+
+~ End Theorem
+
+~ Begin Theorem
+  $L$を完備束とする。
+  このとき、$L$から$L$への任意の単調関数は不動点をもつ。
+
+~ Proof
+  $A = \{x \in L | f(x) \leq x\}$、そして、
+  $a = \bigwedge A$としよう。
+
+  さらに、$x \in A$とする。
+  $a$の最小性により、$a \leq x$。
+  単調性により、$f(a) \leq f(x)$。
+  $A$の定義により、$f(x) \leq x$。
+
+  $f(a) \leq a$
+
+  これは最小不動点の構成であり、双対により最大不動点も得られる。
+~
+
+~ End Theorem
+
+~ Begin Theorem
+  半順序集合$X$から半順序集合$Y$への関数$f$が連続関数のとき、$f$は単調関数である。
+
+~ Proof
+  $x, y \in X$に対し、$y \leq x$とすると、$\{x, y\}$は有向集合である。
+  Connecting Lemmaにより$x = \bigvee \{x, y\}$だが、連続性から$f(x) = \bigvee \{f(x), f(y)\}$。
+  ふたたびConnecting Lemmaにより、$f(y) \leq f(x)$。
+  $x, y \in X$は任意に取ったので単調性が示された。
+~
+~ End Theorem
+
+~ Begin Theorem
+  半順序集合$A$から半順序集合$B$への関数$f$は、単調かつ有限呼び出しのとき、そのときに限り、連続である。
+
+~ Proof
+(単調&有限呼び出し$\Rightarrow$連続)
+
+
+(単調&有限呼び出し$\Leftarrow$連続)
+~
+
+~ End Theorem
+
+[BIB]
