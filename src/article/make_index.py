@@ -80,9 +80,9 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 {% for doc in doc_list %}
-* [{{ doc.title }}]({{ doc.file_base }} "{{doc.title}}")
-  {% if doc.description != "" %}: 説明: {{ doc.description }}{% endif %}
-  {% if doc.description != "" %}: キーワード: {{doc.keywords}}{% endif %}
+* [{{ doc.title }}]({{ doc.file_base }} "{{doc.title}}"){% if doc.description != "" %}
+  : 説明: {{ doc.description }}{% endif %}{% if doc.keywords != "" %}
+  : キーワード: {{doc.keywords}}{% endif %}
   : ソース: <{{doc.github_source}}>
   : 投稿日: {{doc.pubdate}}
   : 最終更新日: {{doc["update"]}}{% if doc.isthere_pdf_of %}
@@ -91,6 +91,11 @@ Author: ayu-mushi
 
     t = Template(index_template_mdk)
     print(t.render(doc_list=doc_list).encode("utf-8"))
+
+def drafts():
+    files = filter(lambda filename: getid_maybe(filename, "pubdate") is None, files)
+    detailed_files = map(doc_detail, files)
+    all_to_mdk(detailed_files)
 
 files = filter(lambda filename: getid_maybe(filename, "pubdate") is not None, files)
 detailed_files = map(doc_detail, files)
