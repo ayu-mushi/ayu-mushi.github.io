@@ -1,0 +1,199 @@
+Title: Ubuntuのセッティング
+Author: ayu-mushi
+Keywords: えへへー☆
+Description: セッティング
+Pubdate: 2016-12-10
+Update: 2016-12-10
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+#はじめに
+次やるときのための個人的なマニュアル。
+
+#CDへ
+isoファイルをダウンロード、
+BIOSセットアップを出し、ブート優先順位でisoファイルを入れたメモリを一番上にする。
+
+
+#英語版から日本語入力設定
+[IBus MozcからFcitx Mozcへの切り替え | 普段使いのArch Linux](http://archlinux-blogger.blogspot.jp/2016/02/ibus-mozcfcitx-mozc.html)
+
+英語キーボードになってるため、Zenkaku_Hankakuが使えない。
+そこで、日本語キーボード+英語入力(Keyboard Japanese)とfcitx-mozcとの組をセットしてZenkaku_Hankakuで切り替えるようにする
+
+#設定
+Dropboxを入れたら、まず[共通の設定][dotfiles]を持ってくる。
+
+[dotfiles]: https://github.com/ayu-mushi/dotfiles
+
+#アプリケーション
+入れるやつ
+
+* XMonad
+* Vim クリップボード、ルア
+* zsh
+* w3m
+* Git
+* Emacs
+* fbterm
+* stack
+* urxvt
+  * `apt install rxvt-unicode`
+* newsbeuter
+* alarm-clock-applet
+* Mendeley
+
+##XMonad
+`man xmonad` でキーバインディングを見る
+
+> mod-shift-return
+>  :      Launch terminal
+> 
+> mod-p 
+>  : Launch dmenu
+> mod-shift-p
+>  :      Launch gmrun
+> 
+> mod-shift-c
+>  :     Close the focused window
+> 
+> mod-space
+>  :     Rotate through the available layout algorithms
+> 
+> mod-shift-space
+>  :     Reset the layouts on the current workspace to default
+> 
+> mod-n 
+> : Resize viewed windows to the correct size
+> mod-tab
+> :       Move focus to the next window
+> 
+> mod-shift-tab
+> :       Move focus to the previous window
+> 
+> mod-j 
+> : Move focus to the next window
+> mod-k 
+> : Move focus to the previous window
+> mod-m 
+> : Move focus to the master window
+> mod-return
+> : Swap the focused window and the master window
+> 
+> mod-shift-j
+> :      Swap the focused window with the next window
+> 
+> mod-shift-k
+> :       Swap the focused window with the previous window
+> 
+> mod-h 
+> : Shrink the master area
+> mod-l 
+> : Expand the master area
+> mod-t 
+  : Push window back into tiling
+> ...
+
+##Xmobar
+
+##w3m
+テキストブラウザ。
+lynxでも可。
+
+> 訪れたことがあるリンクは色を変える (*)YES  ( )NO
+
+> 訪れたことがあるリンクの色 [紫  ]
+
+訪れたことのあるリンクの色をオプション(o)で変える。
+
+##Dropbox
+[インストール - Dropbox](https://www.dropbox.com/install-linux) を参照。
+
+以下に従う。
+
+> コマンド ラインを使った Dropbox のヘッドレス インストール
+
+> Dropbox デーモンは 32 ビットおよび 64 ビット Linux サーバで機能します。Linux ターミナルで次のコマンドを実行するとインストールできます。
+
+> 32-bit:
+> ```
+> cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86" | tar xzf -
+> ```
+> 64-bit:
+> ```
+> cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+> ```
+
+> 新規作成した.dropbox-distフォルダから Dropbox デーモンを実行してください。
+
+> ```
+> ~/.dropbox-dist/dropboxd
+> ```
+
+> サーバで初めて Dropbox を実行する場合、使用中のブラウザでリンクをコピー、貼り付けをして新規アカウントを作成するか、既存のアカウントとサーバを連携させるように指示が表示されます。その後、Dropbox フォルダがホーム ディレクトリに作成されます。コマンド ラインから Dropbox を管理するには Python スクリプト をダウンロードしてください。アクセスしやすくするには、PATH のどこかでスクリプトに symlink します。
+
+[pyscript]: https://www.dropbox.com/download?dl=packages/dropbox.py
+
+そしたら.xsessionrcからdropboxを自動起動するようにする
+
+##Fbterm
+X Window System が死んだとき[^die]に日本語を使うため必要。
+
+[Fbterm - ArchWiki](fbterm)
+
+``` sh
+sudo apt-get install fbterm
+```
+
+[^die]: たまにあると思う
+[fbterm]: https://wiki.archlinuxjp.org/index.php/Fbterm
+
+##Stack: The Haskell Tool
+[Install/upgrade - The Haskell Tool Stack](stack)
+
+> Linux (generic)¶
+
+> Installer script¶
+
+> Run:
+
+> `curl -sSL https://get.haskellstack.org/ | sh`
+
+> or:
+
+> `wget -qO- https://get.haskellstack.org/ | sh`
+
+[stack]: https://docs.haskellstack.org/en/stable/install_and_upgrade/#linux
+
+#問題と対処: ケーススタディ
+自分が遭遇した問題だけ書くので経験論というやつですね。
+まあこの文章は基本的に自分用なので(自分用でも網羅的な方が便利なのかもしれないけど、それぞれの問題の頻度とかわからないし......)。
+
+ここに書くやつ以外にも、
+
+* Pythonを削除して死
+* パスを追加するとき上書きしてしまう
+* 権限を失う
+
+などがある
+
+##X Window Systemがクラッシュ
+```
+sudo searvice lightdm restart
+```
+
+##ログイン画面がループする
+[Ubuntuで認証画面を無限ループさせる方法と対処][loop]
+> 対処
+
+> まずはシェルを起動する。
+> 簡単な方法としては以下のものがある。
+> ・sudoが使える別ユーザでログイン
+> ・Ctrl+Alt+F1とかを押してCUIでログイン
+> sudoを使えるユーザでログインすることが重要。そして以下のファイルを削除する。
+
+> .ICEauthority  : 複数のXクライアント同士で直接通信するときの認証に使われる。内部にランダムなCookieを保有していて、これが同じXクライアント同士が通信できる
+
+> .Xauthority    : Xサーバの認証に使うファイル。詳しくはxauthで調べる。
+
+[loop]: http://poppycompass.hatenablog.jp/entry/2015/11/07/121105

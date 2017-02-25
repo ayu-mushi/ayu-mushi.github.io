@@ -6,10 +6,22 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 
-* [サイト作りました](new-site-is-started.html "サイト作りました")
-  : 説明: Madokoでサイトを作った
+* [Ubuntuのセッティング](ubuntu-setup.html "Ubuntuのセッティング")
+  : 説明: セッティング
+  : キーワード: えへへー☆
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/ubuntu-setup.mdk>
+  : 投稿日: 2016-12-10
+  : 最終更新日: 2016-12-10
+* [束と順序集合](lattice-and-order.html "束と順序集合")
+  : 説明: 束
+  : キーワード: 束, 計算機科学
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/lattice-and-order.mdk>
+  : 投稿日: 2016-10-06
+  : 最終更新日: 2017-02-16
+* [Madokoでサイト作りました](new-site-is-started.html "Madokoでサイト作りました")
+  : 説明: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
   : キーワード: ayu-mushi, madoko
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk>
   : 投稿日: 2016-10-05
   : 最終更新日: 2016-10-20
-  : [pdf版](pdf/new-site-is-started.pdf "サイト作りました pdf版")
+  : [pdf版](pdf/new-site-is-started.pdf "Madokoでサイト作りました pdf版")
