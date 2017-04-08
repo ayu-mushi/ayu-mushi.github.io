@@ -6,6 +6,12 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 
+* [自分が使ってるw3mの設定と拡張](w3m.html "自分が使ってるw3mの設定と拡張")
+  : 説明: テキストブラウザw3mの設定や拡張などを紹介します
+  : キーワード: w3m
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/w3m.mdk>
+  : 投稿日: 2017-04-08
+  : 最終更新日: 2017-04-08
 * [Ubuntuのセッティング](ubuntu-setup.html "Ubuntuのセッティング")
   : 説明: セッティング
   : キーワード: えへへー☆
@@ -17,7 +23,7 @@ Author: ayu-mushi
   : キーワード: 束, 計算機科学
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/lattice-and-order.mdk>
   : 投稿日: 2016-10-06
-  : 最終更新日: 2017-02-16
+  : 最終更新日: 2017-04-08
 * [Madokoでサイト作りました](new-site-is-started.html "Madokoでサイト作りました")
   : 説明: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
   : キーワード: ayu-mushi, madoko
