@@ -1,9 +1,9 @@
-Title : サイト作りました
+Title : Madokoでサイト作りました
 Author: ayu-mushi
 Keywords: ayu-mushi, madoko
 Description: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
 Pubdate: 2016-10-5
-Update: 2016-10-20
+Update: 2017-8-15
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -23,7 +23,10 @@ Haskell、計算機科学などに関心があります。
 #Madoko
 本サイトで記事を生成するのに使いました。
 
-Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。
+Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。プログラミング言語Kokaの開発者Daan Leijen氏によって、Kokaで書かれました[^koka]。
+
+[^koka]: KokaはEffectを扱える言語で、その名を「効果」、すなわちEffectに由来するそうな。
+
 公式サイトは["Welcome to Madoko"][official_site]。
 
 [official_site]: https://www.madoko.net/ "Madoko 公式サイト"
