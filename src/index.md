@@ -1,10 +1,9 @@
 ---
 title: 'About me'
-date: '2015-8-13'
 ---
 
 Twitter
-  ~ [\@mushi\_ayumu](https://twitter.com/mushi_ayumu)
+  ~ [\@ayu\_mushi](https://twitter.com/ayu_mushi)
 
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
@@ -18,6 +17,9 @@ ask.fm
 
 SoundCloud
   ~ [ayu-mushi](https://soundcloud.com/ayu-mushi)
+
+読書メーター
+  ~ [ayu-mushi](https://bookmeter.com/users/726704)
 
 email
   ~ ayu.mushi2015 {at} gmail.com
