@@ -3,7 +3,7 @@ Author: ayu-mushi
 Keywords: ayu-mushi, madoko
 Description: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
 Pubdate: 2016-10-5
-Update: 2017-8-15
+Update: 2017-9-2
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -47,8 +47,6 @@ PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定す�
 [XeTeX_WP]: https://ja.wikipedia.org/wiki/XeTeX "XeTeX - Wikipedia"
 
 ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
-置換では、有限回数展開するSKIコンビネータ計算が実装されているようです[@Leijen201604], pdf p.94。
-SKIコンビネータ計算を実装したコード: <http://madoko.codeplex.com/SourceControl/latest#test/new/extra_ski.text>
 
 ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
 自分の設定ファイルは["ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub"][myprelude]として公開しました。
