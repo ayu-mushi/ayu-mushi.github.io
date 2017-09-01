@@ -67,7 +67,7 @@
 <dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:92" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:92"></span><date id="pubdate" pubdate="pubdate">2016-10-5</date><span data-line="8;src/article/../mytheme/myprelude.mdk:92"></span>
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
-<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:94" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:94"></span><date id="update">2017-8-15</date></dd></dl></div>
+<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:94" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:94"></span><date id="update">2017-9-2</date></dd></dl></div>
 <div id="source" data-line="8;src/article/../mytheme/myprelude.mdk:102">
 <dl class="dl compact" data-line="8;src/article/../mytheme/myprelude.mdk:103">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
@@ -119,45 +119,42 @@ PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定す�
 具体的なコードは、<span data-line="44"></span><a href="https://tarosky.co.jp/tarog/1279" title="XeLaTeX用にフォント指定" data-linkid="specify_ja_font">madokoを使う | 情報分析・システム開発のタロスカイ株式会社</a><span data-line="44"></span>を参照して下さい。
 </p>
 <p class="p noindent" data-line="49"><span data-line="49"></span>ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
-置換では、有限回数展開するSKIコンビネータ計算が実装されているようです<span data-line="50"></span><span class="citations" style="target-element:bibitem">(<span class="cite-authors">Leijen</span>,&nbsp;<a href="#leijen201604" title="Madoko Reference
-Leijen, 2016" class="bibref localref" style="target-element:bibitem"><span class="cite-year">2016</span></a>)</span><span data-line="50"></span>, pdf p.94。
-SKIコンビネータ計算を実装したコード: <span data-line="51"></span><a href="http://madoko.codeplex.com/SourceControl/latest#test/new/extra_ski.text" class="texturl monospace">http://&#8203;madoko.&#8203;codeplex.&#8203;com/&#8203;SourceControl/&#8203;latest#&#8203;test/&#8203;new/&#8203;extra_&#8203;ski.&#8203;text</a><span data-line="51"></span>
 </p>
-<p class="p indent" data-line="53"><span data-line="53"></span>ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
-自分の設定ファイルは<span data-line="54"></span><a href="https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/mytheme/myprelude.mdk" title="myprelude.mdk" data-linkid="myprelude">&#8220;ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub&#8221;</a><span data-line="54"></span>として公開しました。
+<p class="p indent" data-line="51"><span data-line="51"></span>ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
+自分の設定ファイルは<span data-line="52"></span><a href="https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/mytheme/myprelude.mdk" title="myprelude.mdk" data-linkid="myprelude">&#8220;ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub&#8221;</a><span data-line="52"></span>として公開しました。
 </p>
-<p class="p noindent" data-line="58"><span data-line="58"></span><a href="https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk" title="「サイト作りました」のソース" data-linkid="source_of_me">このページのソースはGithubにあります</a><span data-line="58"></span>。
+<p class="p noindent" data-line="56"><span data-line="56"></span><a href="https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk" title="「サイト作りました」のソース" data-linkid="source_of_me">このページのソースはGithubにあります</a><span data-line="56"></span>。
 </p>
-<p class="p noindent" data-line="64"><span data-line="64"></span>以下では機能の紹介とテストのために、サンプルを挙げます。
-</p><h3 id="sec-citation" class="h2" data-line="66" data-heading-depth="2" style="display:block"><span data-line="66"></span><span class="heading-before"><span class="heading-label">3.1</span>.&#8194;</span><span data-line="66"></span>文献言及(citation)</h3>
-<div class="sample" data-line="67">
-<div class="sampleblock panel panel-default" data-line="68">
-<div class="samp-code-body panel-body" data-line="69">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="70" data-line-first="71" style="display:block"><code data-line="71">例えば、Madoko Reference[<span style="color:maroon">@Leijen201604</span>]を参照。
+<p class="p noindent" data-line="62"><span data-line="62"></span>以下では機能の紹介とテストのために、サンプルを挙げます。
+</p><h3 id="sec-citation" class="h2" data-line="64" data-heading-depth="2" style="display:block"><span data-line="64"></span><span class="heading-before"><span class="heading-label">3.1</span>.&#8194;</span><span data-line="64"></span>文献言及(citation)</h3>
+<div class="sample" data-line="65">
+<div class="sampleblock panel panel-default" data-line="66">
+<div class="samp-code-body panel-body" data-line="67">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="68" data-line-first="69" style="display:block"><code data-line="69">例えば、Madoko Reference[<span style="color:maroon">@Leijen201604</span>]を参照。
 見よ!
 
 ぐへへへ[<span style="color:maroon">@Leijen201604</span>]。</code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="77">
-<p class="p noindent" data-line="78"><span data-line="78"></span>例えば、Madoko Reference<span data-line="78"></span><span class="citations" style="target-element:bibitem">(<span class="cite-authors">Leijen</span>,&nbsp;<a href="#leijen201604" title="Madoko Reference
-Leijen, 2016" class="bibref localref" style="target-element:bibitem"><span class="cite-year">2016</span></a>)</span><span data-line="78"></span>を参照。
+<div class="samp-code-footer panel-footer" data-line="75">
+<p class="p noindent" data-line="76"><span data-line="76"></span>例えば、Madoko Reference<span data-line="76"></span><span class="citations" style="target-element:bibitem">(<span class="cite-authors">Leijen</span>,&nbsp;<a href="#leijen201604" title="Madoko Reference
+Leijen, 2016" class="bibref localref" style="target-element:bibitem"><span class="cite-year">2016</span></a>)</span><span data-line="76"></span>を参照。
 見よ!
 </p>
-<p class="p indent" data-line="81"><span data-line="81"></span>ぐへへへ<span data-line="81"></span><span class="citations" style="target-element:bibitem">(<span class="cite-authors">Leijen</span>,&nbsp;<a href="#leijen201604" title="Madoko Reference
-Leijen, 2016" class="bibref localref" style="target-element:bibitem"><span class="cite-year">2016</span></a>)</span><span data-line="81"></span>。</p></div></div></div><h3 id="section" class="h2" data-line="74" data-heading-depth="2" style="display:block"><span data-line="74"></span><span class="heading-before"><span class="heading-label">3.2</span>.&#8194;</span><span data-line="74"></span>数式</h3>
-<div class="sample" data-line="75">
-<div class="sampleblock panel panel-default" data-line="76">
-<div class="samp-code-body panel-body" data-line="77">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="78" data-line-first="79" style="display:block"><code data-line="79">$\sum_{i}^{n}$</code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="82">
-<p class="p noindent" data-line="83"><span data-line="83"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.3503em;height:1.2120em;width:1.7166em" viewBox='34.669 53.551 16.349 11.543' ><desc>$\sum_{i}^{n}$</desc><g id='page1'><use x='34.869' xlink:href='#g1-80' y='54.364'/><use x='45.385' xlink:href='#g0-110' y='56.827'/><use x='45.385' xlink:href='#g0-105' y='64.824'/></g></svg></p></div></div></div>
-<p class="p noindent" data-line="79"><span data-line="79"></span>数式は、LaTeXで描画され、svg画像として出力されます。
+<p class="p indent" data-line="79"><span data-line="79"></span>ぐへへへ<span data-line="79"></span><span class="citations" style="target-element:bibitem">(<span class="cite-authors">Leijen</span>,&nbsp;<a href="#leijen201604" title="Madoko Reference
+Leijen, 2016" class="bibref localref" style="target-element:bibitem"><span class="cite-year">2016</span></a>)</span><span data-line="79"></span>。</p></div></div></div><h3 id="section" class="h2" data-line="72" data-heading-depth="2" style="display:block"><span data-line="72"></span><span class="heading-before"><span class="heading-label">3.2</span>.&#8194;</span><span data-line="72"></span>数式</h3>
+<div class="sample" data-line="73">
+<div class="sampleblock panel panel-default" data-line="74">
+<div class="samp-code-body panel-body" data-line="75">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="76" data-line-first="77" style="display:block"><code data-line="77">$\sum_{i}^{n}$</code></pre></div>
+<div class="samp-code-footer panel-footer" data-line="80">
+<p class="p noindent" data-line="81"><span data-line="81"></span><svg  class="math-inline math-render-svg math" style="vertical-align:-0.3503em;height:1.2120em;width:1.7166em" viewBox='34.669 53.551 16.349 11.543' ><desc>$\sum_{i}^{n}$</desc><g id='page1'><use x='34.869' xlink:href='#g1-80' y='54.364'/><use x='45.385' xlink:href='#g0-110' y='56.827'/><use x='45.385' xlink:href='#g0-105' y='64.824'/></g></svg></p></div></div></div>
+<p class="p noindent" data-line="77"><span data-line="77"></span>数式は、LaTeXで描画され、svg画像として出力されます。
 また、MathJaxなどで数式を描画するような設定にもできます。
 LaTeXの方は、パッケージが使える(MathJaxでもあるものは使えます)ので、可換図式なども通常のLaTeXと同じように書けますが、面倒なのでサンプルは載せません。
-</p><h3 id="section" class="h2" data-line="83" data-heading-depth="2" style="display:block"><span data-line="83"></span><span class="heading-before"><span class="heading-label">3.3</span>.&#8194;</span><span data-line="83"></span>リスト</h3>
-<div class="sample" data-line="85">
-<div class="sampleblock panel panel-default" data-line="86">
-<div class="samp-code-body panel-body" data-line="87">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="88" data-line-first="89" style="display:block"><code data-line="89"><span style="color:blue">* </span>A
+</p><h3 id="section" class="h2" data-line="81" data-heading-depth="2" style="display:block"><span data-line="81"></span><span class="heading-before"><span class="heading-label">3.3</span>.&#8194;</span><span data-line="81"></span>リスト</h3>
+<div class="sample" data-line="83">
+<div class="sampleblock panel panel-default" data-line="84">
+<div class="samp-code-body panel-body" data-line="85">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="86" data-line-first="87" style="display:block"><code data-line="87"><span style="color:blue">* </span>A
 <span style="color:blue">* </span>B
 
 
@@ -169,28 +166,28 @@ LaTeXの方は、パッケージが使える(MathJaxでもあるものは使え�
 <span style="color:blue">1. </span>A
 <span style="color:blue">2. </span>B
 </code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="103">
-<ul class="ul list-star compact" data-line="104">
-<li class="li ul-li list-star-li compact-li" data-line="104"><span data-line="104"></span>A
+<div class="samp-code-footer panel-footer" data-line="101">
+<ul class="ul list-star compact" data-line="102">
+<li class="li ul-li list-star-li compact-li" data-line="102"><span data-line="102"></span>A
 </li>
-<li class="li ul-li list-star-li compact-li" data-line="105"><span data-line="105"></span>B
+<li class="li ul-li list-star-li compact-li" data-line="103"><span data-line="103"></span>B
 </li></ul>
 
-<dl class="dl compact" data-line="108">
+<dl class="dl compact" data-line="106">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">被定義項A</dt>
-<dd class="dd" data-line="108" style="margin-left:1.5em"><span data-line="108"></span>定義項A
+<dd class="dd" data-line="106" style="margin-left:1.5em"><span data-line="106"></span>定義項A
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">被定義項B</dt>
-<dd class="dd" data-line="110" style="margin-left:1.5em"><span data-line="110"></span>定義項B</dd></dl>
-<ol class="ol compact" data-line="113">
-<li class="li ol-li compact-li" data-line="113"><span data-line="113"></span>A
+<dd class="dd" data-line="108" style="margin-left:1.5em"><span data-line="108"></span>定義項B</dd></dl>
+<ol class="ol compact" data-line="111">
+<li class="li ol-li compact-li" data-line="111"><span data-line="111"></span>A
 </li>
-<li class="li ol-li compact-li" data-line="114"><span data-line="114"></span>B
-</li></ol></div></div></div><h3 id="section" class="h2" data-line="101" data-heading-depth="2" style="display:block"><span data-line="101"></span><span class="heading-before"><span class="heading-label">3.4</span>.&#8194;</span><span data-line="101"></span>定理環境</h3>
-<div class="sample" data-line="103">
-<div class="sampleblock panel panel-default" data-line="104">
-<div class="samp-code-body panel-body" data-line="105">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="106" data-line-first="107" style="display:block"><code data-line="107">
+<li class="li ol-li compact-li" data-line="112"><span data-line="112"></span>B
+</li></ol></div></div></div><h3 id="section" class="h2" data-line="99" data-heading-depth="2" style="display:block"><span data-line="99"></span><span class="heading-before"><span class="heading-label">3.4</span>.&#8194;</span><span data-line="99"></span>定理環境</h3>
+<div class="sample" data-line="101">
+<div class="sampleblock panel panel-default" data-line="102">
+<div class="samp-code-body panel-body" data-line="103">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="104" data-line-first="105" style="display:block"><code data-line="105">
 <span style="padding-bottom:1em;color:blue">~ Theorem </span><span style="color:gray">{</span><span style="color:gray">#javataro_thm; caption: &quot;ジャバ太郎の定理&quot;</span><span style="color:gray">}</span>
 
 <span style="padding-bottom:1em;color:blue">~~ Proof</span>
@@ -210,58 +207,58 @@ It is proof.
 <span style="padding-bottom:1em;color:blue">~</span>
 
 Theorem [<span style="color:maroon">#javataro_thm</span>]. を参照</code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="129">
+<div class="samp-code-footer panel-footer" data-line="127">
 
-<div id="javataro_thm" class="theorem" data-line="131" style="display:block;margin:1ex 0pt">
-<p class="p noindent" data-line="132"><span data-line="132"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">1</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic">ジャバ太郎の定理</span>)</span><br>
-</span><span data-line="132"></span>
+<div id="javataro_thm" class="theorem" data-line="129" style="display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="130"><span data-line="130"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">1</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic">ジャバ太郎の定理</span>)</span><br>
+</span><span data-line="130"></span>
 </p>
-<div class="proof" data-line="133" style="theorem-caption-end: ;display:block;margin:1ex 0pt">
-<p class="p noindent" data-line="134"><span data-line="134"></span><span class="proof-before"><strong class="strong-star2">証明</strong>. <span class="theorem-caption"></span> </span><span data-line="134"></span>すごい証明。
+<div class="proof" data-line="131" style="theorem-caption-end: ;display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="132"><span data-line="132"></span><span class="proof-before"><strong class="strong-star2">証明</strong>. <span class="theorem-caption"></span> </span><span data-line="132"></span>すごい証明。
 </p>
-<p class="p indent" data-line="136"><span data-line="136"></span>It is proof.</p></div></div>
-<div class="theorem" data-line="141" style="display:block;margin:1ex 0pt">
-<p class="p noindent" data-line="142"><span data-line="142"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">2</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic">███の定理</span>)</span><br>
-</span><span data-line="142"></span>
+<p class="p indent" data-line="134"><span data-line="134"></span>It is proof.</p></div></div>
+<div class="theorem" data-line="139" style="display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="140"><span data-line="140"></span><span class="theorem-before"><strong class="strong-star2">定理&#160;<span class="theorem-label">2</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic">███の定理</span>)</span><br>
+</span><span data-line="140"></span>
 </p>
-<div class="proof" data-line="143" style="theorem-caption-end: ;display:block;margin:1ex 0pt">
-<p class="p noindent" data-line="144"><span data-line="144"></span><span class="proof-before"><strong class="strong-star2">証明</strong>. <span class="theorem-caption"></span> </span><span data-line="144"></span>███</p></div></div>
-<p class="p noindent" data-line="149"><span data-line="149"></span>Theorem<span data-line="149"></span>&nbsp;<a href="#javataro_thm" title="ジャバ太郎の定理" class="localref" style="target-element:theorem"><span class="theorem-label">1</span></a><span data-line="149"></span>. を参照</p></div></div></div>
-<p class="p noindent" data-line="126"><span data-line="126"></span>デフォルトでは<span data-line="126"></span><strong class="strong-star2">定理</strong><span data-line="126"></span>、<span data-line="126"></span><strong class="strong-star2">証明</strong><span data-line="126"></span>といった言葉は英語でしたが、以下のreplacerで日本語に変えました。
+<div class="proof" data-line="141" style="theorem-caption-end: ;display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="142"><span data-line="142"></span><span class="proof-before"><strong class="strong-star2">証明</strong>. <span class="theorem-caption"></span> </span><span data-line="142"></span>███</p></div></div>
+<p class="p noindent" data-line="147"><span data-line="147"></span>Theorem<span data-line="147"></span>&nbsp;<a href="#javataro_thm" title="ジャバ太郎の定理" class="localref" style="target-element:theorem"><span class="theorem-label">1</span></a><span data-line="147"></span>. を参照</p></div></div></div>
+<p class="p noindent" data-line="124"><span data-line="124"></span>デフォルトでは<span data-line="124"></span><strong class="strong-star2">定理</strong><span data-line="124"></span>、<span data-line="124"></span><strong class="strong-star2">証明</strong><span data-line="124"></span>といった言葉は英語でしたが、以下のreplacerで日本語に変えました。
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="127" data-line-first="128" style="display:block"><code data-line="128"><span style="color:navy">.theorem {</span><span style="color:gray"> replace: &quot;/Theorem/定理/&quot; </span><span style="color:gray">}</span>
+<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="125" data-line-first="126" style="display:block"><code data-line="126"><span style="color:navy">.theorem {</span><span style="color:gray"> replace: &quot;/Theorem/定理/&quot; </span><span style="color:gray">}</span>
 <span style="color:navy">.proof {</span><span style="color:gray"> replace: &quot;/Proof/証明/&quot; </span><span style="color:gray">}</span></code></pre>
-<p class="p noindent para-continued" data-line="132"><span data-line="132"></span>replacerでは、css風のセレクタに対し、正規表現でどう置換するかを指定できます<span data-line="132"></span><sup id="back-fn-replacer" ><a href="#fn-replacer" title="2.セレクタを使わずとも、HTMLのstyle属性のように、要素に対して個別に指定することもできます。
-&#8617;" class="footnote-ref localref" ><span class="footnote-label">2</span></a></sup><span data-line="132"></span>。
-</p><h3 id="section" class="h2" data-line="136" data-heading-depth="2" style="display:block"><span data-line="136"></span><span class="heading-before"><span class="heading-label">3.5</span>.&#8194;</span><span data-line="136"></span>脚注</h3>
-<div class="sample" data-line="138">
-<div class="sampleblock panel panel-default" data-line="139">
-<div class="samp-code-body panel-body" data-line="140">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="141" data-line-first="142" style="display:block"><code data-line="142">脚注![<span style="color:maroon">^1</span>]
+<p class="p noindent para-continued" data-line="130"><span data-line="130"></span>replacerでは、css風のセレクタに対し、正規表現でどう置換するかを指定できます<span data-line="130"></span><sup id="back-fn-replacer" ><a href="#fn-replacer" title="2.セレクタを使わずとも、HTMLのstyle属性のように、要素に対して個別に指定することもできます。
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">2</span></a></sup><span data-line="130"></span>。
+</p><h3 id="section" class="h2" data-line="134" data-heading-depth="2" style="display:block"><span data-line="134"></span><span class="heading-before"><span class="heading-label">3.5</span>.&#8194;</span><span data-line="134"></span>脚注</h3>
+<div class="sample" data-line="136">
+<div class="sampleblock panel panel-default" data-line="137">
+<div class="samp-code-body panel-body" data-line="138">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="139" data-line-first="140" style="display:block"><code data-line="140">脚注![<span style="color:maroon">^1</span>]
 
 
 [<span style="color:gray">^1</span>]<span style="color:gray">:</span> ちなみに、</code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="148">
-<p class="p noindent" data-line="149"><span data-line="149"></span>脚注<span data-line="149"></span>!<span data-line="149"></span><sup id="back-fn-1" ><a href="#fn-1" title="3.ちなみに、
-&#8617;" class="footnote-ref localref" ><span class="footnote-label">3</span></a></sup><span data-line="149"></span>
-</p></div></div></div><h3 id="section" class="h2" data-line="145" data-heading-depth="2" style="display:block"><span data-line="145"></span><span class="heading-before"><span class="heading-label">3.6</span>.&#8194;</span><span data-line="145"></span>自分で定義したやつ</h3><h4 id="section" class="h3" data-line="146" data-heading-depth="3" style="display:block"><span data-line="146"></span><span class="heading-before"><span class="heading-label">3.6.1</span>.&#8194;</span><span data-line="146"></span>ルビ</h4>
-<p class="p noindent" data-line="148"><span data-line="148"></span>Madokoの置換を利用して定義。
-<span data-line="149"></span><code class="code code1">&amp;source;</code><span data-line="149"></span>が置換元の内容を表す変数。
+<div class="samp-code-footer panel-footer" data-line="146">
+<p class="p noindent" data-line="147"><span data-line="147"></span>脚注<span data-line="147"></span>!<span data-line="147"></span><sup id="back-fn-1" ><a href="#fn-1" title="3.ちなみに、
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">3</span></a></sup><span data-line="147"></span>
+</p></div></div></div><h3 id="section" class="h2" data-line="143" data-heading-depth="2" style="display:block"><span data-line="143"></span><span class="heading-before"><span class="heading-label">3.6</span>.&#8194;</span><span data-line="143"></span>自分で定義したやつ</h3><h4 id="section" class="h3" data-line="144" data-heading-depth="3" style="display:block"><span data-line="144"></span><span class="heading-before"><span class="heading-label">3.6.1</span>.&#8194;</span><span data-line="144"></span>ルビ</h4>
+<p class="p noindent" data-line="146"><span data-line="146"></span>Madokoの置換を利用して定義。
+<span data-line="147"></span><code class="code code1">&amp;source;</code><span data-line="147"></span>が置換元の内容を表す変数。
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="150" data-line-first="151" style="display:block"><code data-line="151"><span style="color:navy">.ruby {</span><span style="color:gray"> replace: &quot;&lt;ruby&gt;&lt;rb&gt;&amp;source;&lt;/rb&gt;&lt;rp&gt;《&lt;/rp&gt;&lt;rt&gt;&amp;rtext;&lt;/rt&gt;&lt;rp&gt;》&lt;/rp&gt;&lt;/ruby&gt;&quot; </span><span style="color:gray">}</span></code></pre>
-<div class="sample" data-line="154">
-<div class="sampleblock panel panel-default" data-line="155">
-<div class="samp-code-body panel-body" data-line="156">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="157" data-line-first="158" style="display:block"><code data-line="158"><span style="color:blue">* </span>[死喰い人]<span style="color:gray">{</span><span style="color:gray">.ruby; rtext: &quot;デスイーター&quot;</span><span style="color:gray">}</span>
+<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="148" data-line-first="149" style="display:block"><code data-line="149"><span style="color:navy">.ruby {</span><span style="color:gray"> replace: &quot;&lt;ruby&gt;&lt;rb&gt;&amp;source;&lt;/rb&gt;&lt;rp&gt;《&lt;/rp&gt;&lt;rt&gt;&amp;rtext;&lt;/rt&gt;&lt;rp&gt;》&lt;/rp&gt;&lt;/ruby&gt;&quot; </span><span style="color:gray">}</span></code></pre>
+<div class="sample" data-line="152">
+<div class="sampleblock panel panel-default" data-line="153">
+<div class="samp-code-body panel-body" data-line="154">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="155" data-line-first="156" style="display:block"><code data-line="156"><span style="color:blue">* </span>[死喰い人]<span style="color:gray">{</span><span style="color:gray">.ruby; rtext: &quot;デスイーター&quot;</span><span style="color:gray">}</span>
 <span style="color:blue">* </span>[獅子]<span style="color:gray">{</span><span style="color:gray">.ruby; rtext: &quot;ライオン&quot;</span><span style="color:gray">}</span></code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="162">
-<ul class="ul list-star compact" data-line="163">
-<li class="li ul-li list-star-li compact-li" data-line="163"><span data-line="163"></span><span class="ruby" style="rtext:\30C7 \30B9 \30A4 \30FC \30BF \30FC "><ruby><rb>死喰い人</rb><rp>《</rp><rt>デスイーター</rt><rp>》</rp></ruby></span><span data-line="163"></span>
+<div class="samp-code-footer panel-footer" data-line="160">
+<ul class="ul list-star compact" data-line="161">
+<li class="li ul-li list-star-li compact-li" data-line="161"><span data-line="161"></span><span class="ruby" style="rtext:\30C7 \30B9 \30A4 \30FC \30BF \30FC "><ruby><rb>死喰い人</rb><rp>《</rp><rt>デスイーター</rt><rp>》</rp></ruby></span><span data-line="161"></span>
 </li>
-<li class="li ul-li list-star-li compact-li" data-line="164"><span data-line="164"></span><span class="ruby" style="rtext:\30E9 \30A4 \30AA \30F3 "><ruby><rb>獅子</rb><rp>《</rp><rt>ライオン</rt><rp>》</rp></ruby></span></li></ul></div></div></div><h4 id="section" class="h3" data-line="159" data-heading-depth="3" style="display:block"><span data-line="159"></span><span class="heading-before"><span class="heading-label">3.6.2</span>.&#8194;</span><span data-line="159"></span>サンプルコード記法</h4>
-<p class="p noindent" data-line="161"><span data-line="161"></span>この記事で使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
+<li class="li ul-li list-star-li compact-li" data-line="162"><span data-line="162"></span><span class="ruby" style="rtext:\30E9 \30A4 \30AA \30F3 "><ruby><rb>獅子</rb><rp>《</rp><rt>ライオン</rt><rp>》</rp></ruby></span></li></ul></div></div></div><h4 id="section" class="h3" data-line="157" data-heading-depth="3" style="display:block"><span data-line="157"></span><span class="heading-before"><span class="heading-label">3.6.2</span>.&#8194;</span><span data-line="157"></span>サンプルコード記法</h4>
+<p class="p noindent" data-line="159"><span data-line="159"></span>この記事で使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="163" data-line-first="164" style="display:block"><code data-line="164"><span style="color:navy">Sample {</span><span style="color:gray"> replace: &quot;~ Begin Sampleblock </span><span style="color:gray">{</span><span style="color:gray">.panel .panel-default</span><span style="color:gray">}</span><span style="color:gray">&amp;nl;</span><span style="color:maroon">\</span>
+<pre class="para-block pre-fenced pre-fenced3 language-madoko lang-madoko madoko colorized" data-line="161" data-line-first="162" style="display:block"><code data-line="162"><span style="color:navy">Sample {</span><span style="color:gray"> replace: &quot;~ Begin Sampleblock </span><span style="color:gray">{</span><span style="color:gray">.panel .panel-default</span><span style="color:gray">}</span><span style="color:gray">&amp;nl;</span><span style="color:maroon">\</span>
 ~ Begin samp-code-body <span style="color:gray">{</span><span style="color:gray">.panel-body</span><span style="color:gray">}</span><span style="color:maroon">&amp;nl;</span><span style="color:maroon">\</span>
 <span style="padding-bottom:1em;color:blue">````madoko&amp;nl;&amp;source;&amp;nl;````&amp;nl;\</span>
 <span style="color:navy">~ End samp-code-body&amp;nl;\</span>
@@ -270,47 +267,47 @@ Theorem [<span style="color:maroon">#javataro_thm</span>]. を参照</code></pre
 <span style="color:navy">~ End samp-code-footer&amp;nl;\</span>
 <span style="color:navy">~ End Sampleblock&amp;nl;\</span>
 <span style="color:navy">&quot;}</span></code></pre>
-<p class="p noindent para-continued" data-line="175"><span data-line="175"></span>サンプルコード記法のサンプルコード
+<p class="p noindent para-continued" data-line="173"><span data-line="173"></span>サンプルコード記法のサンプルコード
 </p>
-<div class="sample" data-line="177">
-<div class="sampleblock panel panel-default" data-line="178">
-<div class="samp-code-body panel-body" data-line="179">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="180" data-line-first="181" style="display:block"><code data-line="181"><span style="padding-bottom:1em;color:blue">~ Sample</span>
+<div class="sample" data-line="175">
+<div class="sampleblock panel panel-default" data-line="176">
+<div class="samp-code-body panel-body" data-line="177">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="178" data-line-first="179" style="display:block"><code data-line="179"><span style="padding-bottom:1em;color:blue">~ Sample</span>
 <span style="font-weight:bold">**</span><span style="font-weight:bold">こんにちは!!</span><span style="font-weight:bold">**</span>
 <span style="color:maroon">&amp;delta;</span>
 -----そう
 ......なんだって
 <span style="padding-bottom:1em;color:blue">~</span></code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:3">
-<div class="sample" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:4">
-<div class="sampleblock panel panel-default" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:5">
-<div class="samp-code-body panel-body" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:6">
-<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:7" data-line-first="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:8" style="display:block"><code data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:8"><span style="font-weight:bold">**</span><span style="font-weight:bold">こんにちは!!</span><span style="font-weight:bold">**</span>
+<div class="samp-code-footer panel-footer" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:3">
+<div class="sample" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:4">
+<div class="sampleblock panel panel-default" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:5">
+<div class="samp-code-body panel-body" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:6">
+<pre class="para-block pre-fenced pre-fenced4 language-madoko lang-madoko madoko colorized" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:7" data-line-first="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:8" style="display:block"><code data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:8"><span style="font-weight:bold">**</span><span style="font-weight:bold">こんにちは!!</span><span style="font-weight:bold">**</span>
 <span style="color:maroon">&amp;delta;</span>
 -----そう
 ......なんだって</code></pre></div>
-<div class="samp-code-footer panel-footer" data-line="191">
-<p class="p noindent" data-line="192"><span data-line="192"></span><strong class="strong-star2">こんにちは!!</strong><span data-line="192"></span>
+<div class="samp-code-footer panel-footer" data-line="189">
+<p class="p noindent" data-line="190"><span data-line="190"></span><strong class="strong-star2">こんにちは!!</strong><span data-line="190"></span>
 </p>
-<p class="p indent" data-line="193"><span data-line="193"></span>&#948;<span data-line="193"></span>
-<span data-line="194"></span>&#8212;<span data-line="194"></span>&#8211;<span data-line="194"></span>そう
-<span data-line="195"></span>&#8230;<span data-line="195"></span>&#8230;<span data-line="195"></span>なんだって</p></div></div></div></div></div></div>
-<div class="bibl" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:1" style="bbl-file:/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk"><h2 id="sec-references" class="clearnum h1 heading-references" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:2" data-heading-depth="1" style="display:block"><span data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:2"></span>References</h2>
-<div class="bibliography bib-numeric" data-hanging-indent="0" data-cite-style="numeric:&#39;[&#39;,&#39;]&#39;,&#39;, &#39;" data-style="madoko-numeric" data-line="187;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:3" style="bibstyle:madoko-numeric">
+<p class="p indent" data-line="191"><span data-line="191"></span>&#948;<span data-line="191"></span>
+<span data-line="192"></span>&#8212;<span data-line="192"></span>&#8211;<span data-line="192"></span>そう
+<span data-line="193"></span>&#8230;<span data-line="193"></span>&#8230;<span data-line="193"></span>なんだって</p></div></div></div></div></div></div>
+<div class="bibl" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:1" style="bbl-file:/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk"><h2 id="sec-references" class="clearnum h1 heading-references" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:2" data-heading-depth="1" style="display:block"><span data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:2"></span>References</h2>
+<div class="bibliography bib-numeric" data-hanging-indent="0" data-cite-style="numeric:&#39;[&#39;,&#39;]&#39;,&#39;, &#39;" data-style="madoko-numeric" data-line="185;/home/ayu-mushi/Notes/ayu-mushi.github.io/build/article/new-site-is-started-bib.bbl.mdk:3" style="bibstyle:madoko-numeric">
 <div id="leijen201604" class="bibitem" data-cite-year="2016" data-cite-authors="Leijen" data-cite-authors-long="Leijen" data-cite-label="1" data-line="src/article/../article/biblio.bib:1" style="text-indent:-1em;margin-left:1em;searchterm:Madoko%20Reference%20Leijen%2C%202016;bibitem-label:\5C [1\5C ]"><span class="bibitem-before" style="display:none">[1]</span>Daan Leijen. &#8220;Madoko Reference.&#8221; Microsoft Research. Apr. 2016. <a href="http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html" class="bib-url texturl monospace">http://&#8203;research.&#8203;microsoft.&#8203;com/&#8203;en-&#8203;us/&#8203;um/&#8203;people/&#8203;daan/&#8203;madoko/&#8203;doc/&#8203;reference.&#8203;html</a>.&nbsp;<a href="http://google.co.jp/search?q=Madoko%20Reference%20Leijen%2C%202016" class="bibsearch">&#128270;</a></div></div></div>
-<p class="p noindent" data-line="189"><span data-line="189"></span></main></p><span data-line=""></span>
+<p class="p noindent" data-line="187"><span data-line="187"></span></main></p><span data-line=""></span>
 <div class="footnotes madoko">
 <hr >
 
 <div id="fn-koka" class="footnote" data-line="28" style="line-adjust:0">
 <p class="p noindent" data-line="28"><span data-line="28"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="28"></span>KokaはEffectを扱える言語で、その名を「効果」、すなわちEffectに由来するそうな。
 <span data-line="29"></span><span data-line="29"></span><a href="#back-fn-koka" class="footnote-backref localref">&#8617;</a></p></div>
-<div id="fn-replacer" class="footnote" data-line="134" style="line-adjust:0">
-<p class="p noindent" data-line="134"><span data-line="134"></span><span class="footnote-before"><sup><span class="footnote-label">2</span>.</sup></span><span data-line="134"></span>セレクタを使わずとも、HTMLの<span data-line="134"></span><code class="code code1">style</code><span data-line="134"></span>属性のように、要素に対して個別に指定することもできます。
-<span data-line="135"></span><span data-line="135"></span><a href="#back-fn-replacer" class="footnote-backref localref">&#8617;</a></p></div>
-<div id="fn-1" class="footnote" data-line="152" style="line-adjust:0">
-<p class="p noindent" data-line="152"><span data-line="152"></span><span class="footnote-before"><sup><span class="footnote-label">3</span>.</sup></span><span data-line="152"></span>ちなみに、
-<span data-line="153"></span><span data-line="153"></span><a href="#back-fn-1" class="footnote-backref localref">&#8617;</a></p></div></div></div>
+<div id="fn-replacer" class="footnote" data-line="132" style="line-adjust:0">
+<p class="p noindent" data-line="132"><span data-line="132"></span><span class="footnote-before"><sup><span class="footnote-label">2</span>.</sup></span><span data-line="132"></span>セレクタを使わずとも、HTMLの<span data-line="132"></span><code class="code code1">style</code><span data-line="132"></span>属性のように、要素に対して個別に指定することもできます。
+<span data-line="133"></span><span data-line="133"></span><a href="#back-fn-replacer" class="footnote-backref localref">&#8617;</a></p></div>
+<div id="fn-1" class="footnote" data-line="150" style="line-adjust:0">
+<p class="p noindent" data-line="150"><span data-line="150"></span><span class="footnote-before"><sup><span class="footnote-label">3</span>.</sup></span><span data-line="150"></span>ちなみに、
+<span data-line="151"></span><span data-line="151"></span><a href="#back-fn-1" class="footnote-backref localref">&#8617;</a></p></div></div></div>
 <svg id='math-svg-paths' style='display:none' version='1.1' viewBox='0 0 0 0' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
 <defs>
 <path d='M2.26 -4.359C2.26 -4.47 2.176 -4.624 1.981 -4.624C1.792 -4.624 1.59 -4.442 1.59 -4.24C1.59 -4.122 1.681 -3.975 1.869 -3.975C2.071 -3.975 2.26 -4.17 2.26 -4.359ZM0.837 -0.816C0.809 -0.725 0.774 -0.642 0.774 -0.523C0.774 -0.195 1.053 0.07 1.437 0.07C2.134 0.07 2.441 -0.893 2.441 -0.997C2.441 -1.088 2.35 -1.088 2.329 -1.088C2.232 -1.088 2.225 -1.046 2.197 -0.969C2.036 -0.411 1.73 -0.126 1.458 -0.126C1.318 -0.126 1.283 -0.216 1.283 -0.37C1.283 -0.53 1.332 -0.663 1.395 -0.816C1.465 -1.004 1.541 -1.193 1.618 -1.374C1.681 -1.541 1.932 -2.176 1.96 -2.26C1.981 -2.329 2.001 -2.413 2.001 -2.483C2.001 -2.81 1.723 -3.075 1.339 -3.075C0.649 -3.075 0.328 -2.127 0.328 -2.008C0.328 -1.918 0.425 -1.918 0.446 -1.918C0.544 -1.918 0.551 -1.953 0.572 -2.029C0.753 -2.629 1.06 -2.88 1.318 -2.88C1.43 -2.88 1.492 -2.824 1.492 -2.636C1.492 -2.476 1.451 -2.371 1.276 -1.939L0.837 -0.816Z' id='g0-105'/>
