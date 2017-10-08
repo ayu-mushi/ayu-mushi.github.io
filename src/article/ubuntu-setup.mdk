@@ -30,7 +30,7 @@ Dropboxを入れたら、まず[共通の設定][dotfiles]を持ってくる。
 入れるやつ
 
 * XMonad
-* Vim クリップボード、ルア
+* Vim クリップボード、ルア [Linuxでのビルド方法](http://vim-jp.org/docs/build_linux.html)
 * zsh
 * w3m
 * Git
@@ -197,3 +197,8 @@ sudo searvice lightdm restart
 > .Xauthority    : Xサーバの認証に使うファイル。詳しくはxauthで調べる。
 
 [loop]: http://poppycompass.hatenablog.jp/entry/2015/11/07/121105
+
+<!-- grub マルチブート -->
+
+##ネットワーク設定をCUIから編集したい
+nm-connection-editor

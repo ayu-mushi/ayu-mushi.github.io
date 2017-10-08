@@ -21,5 +21,11 @@ SoundCloud
 読書メーター
   ~ [ayu-mushi](https://bookmeter.com/users/726704)
 
+将棋倶楽部24
+  ~ ayu\_mushi
+
+はてなブックマーク
+  ~ [ayu-mushi@はてな](http://b.hatena.ne.jp/ayu-mushi/)
+
 email
   ~ ayu.mushi2015 {at} gmail.com

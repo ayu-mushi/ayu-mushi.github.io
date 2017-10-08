@@ -8,24 +8,27 @@ Update: 2017-4-8
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 #はじめに
-w3mは表や画像が表示できたりする[^w3mimg]テキストブラウザです。
+w3mはタブが使えたり、表や画像が表示できたりする[^w3mimg]、軽量テキストブラウザです。
 w3mでは、キーによる操作を拡張するkeymapや、CGIをローカルで実行できるローカルCGIなどを使って、機能を追加・拡張することができます。
 この記事では私がこれを利用して作った機能を紹介します。
 
 [^w3mimg]: w3m-imgを使えば。
 
-その前に、ローカルCGIについて。
 
 #ローカルCGI
+作ったものを紹介する前ににローカルCGIについて説明します。
+
 w3mではシェルスクリプトやPerlで書かれたCGIをローカルで実行でき、CGIのテストや、w3mに機能を追加したいときに使えます。
-公式で提供されているものとして、google.cgiがあります。
-これを改変し、Google Scholar用のも作っておくと便利。
-CGIは、urimethodmapに短縮URLを書いておくと使いやすいです。(私のurimethodmapは[dotfiles/urimethodmap at master · ayu-mushi/dotfiles][urimethodmap])
+公式で提供されているものとして、Googleで検索できるgoogle.cgiや、w3mmail.cgiなどがあります。
+CGIは、urimethodmapに短縮URLを書いておくと使いやすいです。[^urimethodmap]
+
+[^urimethodmap]: 私のurimethodmapは[dotfiles/urimethodmap at master · ayu-mushi/dotfiles][urimethodmap]
+
 ローカルCGIでシェルスクリプトを使う場合、理由は知りませんが、空白echoをはさみながらechoしないとうまく出力されません。
 
 [urimethodmap]: https://github.com/ayu-mushi/dotfiles/blob/master/urimethodmap
 
-詳しくは、[w3m の local CGI 機能][local_cgi]
+local CGIについて詳しくは、[w3m の local CGI 機能][local_cgi]
 ["w3m Tips | インサイドフラッギング"][w3m_tips]
 などを参照してください。
 

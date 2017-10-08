@@ -3,7 +3,7 @@ Author: ayu-mushi
 Keywords: ayu-mushi, madoko
 Description: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
 Pubdate: 2016-10-5
-Update: 2017-9-2
+Update: &date;
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -20,12 +20,16 @@ Haskell、計算機科学などに関心があります。
 
 あとは[トップページ](/ "ayu-mushi.github.io")に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
 
+#サイト生成の構造
+Makefileで生成、gh-pagesに送り込んでる。
+
 #Madoko
 本サイトで記事を生成するのに使いました。
 
 Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。プログラミング言語Kokaの開発者Daan Leijen氏によって、Kokaで書かれました[^koka]。
+名前は"*Ma*rk*do*wn in *Ko*ka"に由来します[@Leijen201604]。
 
-[^koka]: KokaはEffectを扱える言語で、その名を「効果」、すなわちEffectに由来するそうな。
+[^koka]: KokaはEffectを扱える言語で、その名を日本語の「効果(Koka)」、すなわちEffectに由来するそうな。
 
 公式サイトは["Welcome to Madoko"][official_site]。
 
@@ -49,7 +53,7 @@ PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定す�
 ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
 
 ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
-自分の設定ファイルは["ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub"][myprelude]として公開しました。
+このサイトの設定ファイルは["ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub"][myprelude]として公開しました。
 
 [myprelude]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/mytheme/myprelude.mdk "myprelude.mdk"
 
@@ -71,12 +75,31 @@ PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定す�
 
 ##数式
 ~ Sample
-$\sum_{i}^{n}$
+~~ Equation {#def_sum}
+\sum_{k=1}^{n} k = 1 + 2 + 3 + \dots + n
+~~
+
+~~ Equation
+\int _ {b}^{a} f(x) dx
+~~
+
+参照する[#def_sum]。
 ~
 
 数式は、LaTeXで描画され、svg画像として出力されます。
 また、MathJaxなどで数式を描画するような設定にもできます。
-LaTeXの方は、パッケージが使える(MathJaxでもあるものは使えます)ので、可換図式なども通常のLaTeXと同じように書けますが、面倒なのでサンプルは載せません。
+LaTeXの方は、パッケージが使える(MathJaxでもあるものは使えます)ので、可換図式なども通常のLaTeXと同じように書けます。
+
+``` Madoko
+Package: tikz-cd
+TikzCd { replace:"~ Math &nl; \begin{tikzcd}&source;\end{tikzcd}&nl;~ &nl;" }
+```
+
+~~ Sample
+~ TikzCd
+A \arrow{rd} \arrow{r}{\phi} & B \\ & C
+~
+~~
 
 ##リスト
 
@@ -100,7 +123,7 @@ LaTeXの方は、パッケージが使える(MathJaxでもあるものは使え�
 
 ~ Begin Sample
 
-~ Theorem {#javataro_thm; caption: "ジャバ太郎の定理"}
+~ Theorem {#javataro_thm; caption: "定理A"}
 
 ~~ Proof
 すごい証明。
