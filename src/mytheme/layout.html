@@ -8,8 +8,11 @@
     <meta name="description" content="$abstract$">
     $endif$
     <meta name="keywords" content="$for(tags)$$tags$,$endfor$">
-    <meta name="twitter:site" content="mushi_ayumu">
+    <meta name="twitter:site" content="ayu_mushi">
     <meta name="generator" content="pandoc">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"  class="link">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"  class="link">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0//bootstrap.min.css"  class="link">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     $for(author-meta)$
     <meta name="author" content="$author-meta$">
@@ -60,10 +63,10 @@ $highlighting-css$
     $endfor$
     <header>
       $if(title-prefix)$
-      <h1 class="title">$title-prefix$</h1>
+      <h1 class="site-name">$title-prefix$</h1>
       $endif$
       $if(title)$
-      <h2 class="post-title">$title$</h2>
+      <h2 id="post-title">$title$</h2>
       $endif$
       $if(date)$
       <div class='date-header'>
@@ -83,6 +86,7 @@ $highlighting-css$
       <ul>
         <li><a href="/">About</a></li>
         <li><a href="/article">Article</a></li>
+        <li><a href="./games.html">Game</a></li>
       </ul>
     </nav>
     <main>

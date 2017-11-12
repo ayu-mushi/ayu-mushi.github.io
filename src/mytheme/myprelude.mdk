@@ -8,7 +8,7 @@ Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
 Cite Style: natural
 Bib Search Url: google.co.jp
 Html Header: <head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">
-HTML Meta: name="twitter:site" content="mushi_ayumu"
+HTML Meta: name="twitter:site" content="ayu_mushi"
 HTML Meta: name="twitter:card" content="summary"
 HTML Meta: property="og:title" content="&title;"
 HTML Meta: property="og:type" content="article"
@@ -40,8 +40,13 @@ Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 "}
 
 .theorem { replace: "/Theorem/定理/" }
+.lemma {replace : "/Lemma/補題/"}
+.definition { replace: "/Definition/定義/" }
 .proof { replace: "/Proof/証明/" }
+.example { replace: "/Example/例/"}
 .header { padding-bottom: 1em;}
+
+Gist { replace: "<script src='https://gist.github.com/&gistcode;'></script>"}
 
 #update { html-elem: date; }
 #pubdate { html-elem: date; html-pubdate: pubdate}
@@ -56,6 +61,13 @@ JS Header:
         i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-34234538-2', 'auto');
     ga('send', 'pageview');
+
+Package: tikz
+Package: tikz-cd
+TikzPicture { replace:"~~Snippet &nl; \begin{tikzpicture}&nl;&source;&nl;\end{tikzpicture}&nl;~~&nl;" }
+TikzCd { replace:"~ Math &nl; \begin{tikzcd}&source;\end{tikzcd}&nl;~ &nl;" }
+
+HTML Footer: <script src="../elastic-text/js/elastictext.js"> </script>
 
 @if tex {
 [INCLUDE=../mytheme/myprelude_pdf.mdk]
@@ -104,4 +116,12 @@ Source of This Page(GitHub)
 
 [TOC]
 
-
+~ MathDefs
+\newcommand{\downsetlattice}[1]{\mathcal{O}(#1)}
+\newcommand{\downX}[1]{\downarrow #1}
+\newcommand{\powerset}[1]{\mathbb{P}(#1)}
+\newcommand{\dual}[1]{{#1^{\mathrm{op}}}}
+\newcommand{\defset}[2]{\{#1 \mid #2\}}
+\newcommand{\maxel}{\mathrm{Max}}
+\newcommand{\minel}{\mathrm{Min}}
+~
