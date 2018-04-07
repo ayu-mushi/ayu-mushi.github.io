@@ -6,6 +6,24 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 
+* [Makefile っぽいことをシェルコマンドでする](instead-of-makefile.html "Makefile っぽいことをシェルコマンドでする")
+  : 説明: Makefileは便利ですが、ファイル構造が複雑な場合(正規表現でも使わないと書けないときとか)など、自分でああいう動きをやりたいときがあります。
+  : キーワード: Makefile, シェルスクリプト
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/instead-of-makefile.mdk>
+  : 投稿日: 2017-12-10
+  : 最終更新日: 2018-04-08
+* [読んだ本の感想文  八木沢『分析哲学入門』など](book_report.html "読んだ本の感想文  八木沢『分析哲学入門』など")
+  : 説明: 八木沢『分析哲学入門』など
+  : キーワード: 本, 哲学
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/book_report.mdk>
+  : 投稿日: 2017-11-26
+  : 最終更新日: 2018-04-08
+* [2017後半の日記](2017-later.html "2017後半の日記")
+  : 説明: 日記
+  : キーワード: 日記
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/2017-later.mdk>
+  : 投稿日: 2017-11-01
+  : 最終更新日: 2018-04-08
 * [自分が使ってるw3mの設定と拡張](w3m.html "自分が使ってるw3mの設定と拡張")
   : 説明: テキストブラウザw3mの設定や拡張などを紹介します
   : キーワード: w3m
@@ -23,11 +41,12 @@ Author: ayu-mushi
   : キーワード: 束, 計算機科学
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/lattice-and-order.mdk>
   : 投稿日: 2016-10-06
-  : 最終更新日: 2017-04-08
+  : 最終更新日: 2018-04-08
+  : [pdf版](pdf/lattice-and-order.pdf "束と順序集合 pdf版")
 * [Madokoでサイト作りました](new-site-is-started.html "Madokoでサイト作りました")
   : 説明: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
   : キーワード: ayu-mushi, madoko
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk>
   : 投稿日: 2016-10-05
-  : 最終更新日: 2016-10-20
+  : 最終更新日: 2018-04-08
   : [pdf版](pdf/new-site-is-started.pdf "Madokoでサイト作りました pdf版")
