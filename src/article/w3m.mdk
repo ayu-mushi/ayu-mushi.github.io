@@ -1,9 +1,10 @@
 Title : 自分が使ってるw3mの設定と拡張
 Author: ayu-mushi
 Keywords: w3m
-Description: テキストブラウザw3mの設定や拡張などを紹介します
+Description: テキストブラウザw3mの設定や拡張などを紹介します。ページごとにメモを取る、ページのはてなブックマーク情報を見る、ダウンロードしたPDFファイルの履歴、カーソルが載ってる単語から英単語辞書を引くなど。
+
 Pubdate: 2017-4-8
-Update: 2017-4-8
+Update: &date;
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -35,7 +36,7 @@ local CGIについて詳しくは、[w3m の local CGI 機能][local_cgi]
 [local_cgi]: [http://www.mnet.ne.jp/~tnomura/w3m2.html]
 [w3m_tips]:http://insideflag.blogspot.jp/2009/08/w3m-tips.html
 
-#ページごとにコメントを付ける
+#ページごとにメモを取る
 1つ目。
 
 あるページをフォーカスしてるときctrl-Aを押すと、タイトルとURLとを書き込んだファイルを生成し、そのファイルにメモできるようにします。
@@ -95,7 +96,7 @@ doctitleはPDFファイルからタイトルを抽出するのに使います。
 ~ Gist { gistcode: '994b98ef5eb4f83161153196e18c9ec3.js' }
 ~
 
-#カレントワードから英単語辞書を引く
+#カーソルが載ってる単語から英単語辞書を引く
 w3mはそのときカーソルがある単語を記録しており、`printenv`で出力できます(日本語は無理っぽいですが)。
 それを使って、英単語辞書を引くことが可能。
 
