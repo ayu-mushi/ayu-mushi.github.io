@@ -10,7 +10,7 @@ Author: ayu-mushi
   : 説明: Makefileは便利ですが、ファイル構造が複雑な場合(正規表現でも使わないと書けないときとか)など、自分でああいう動きをやりたいときがあります。
   : キーワード: Makefile, シェルスクリプト
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/instead-of-makefile.mdk>
-  : 投稿日: 2017-12-10
+  : 投稿日: 2018-04-08
   : 最終更新日: 2018-04-08
 * [読んだ本の感想文  八木沢『分析哲学入門』など](book_report.html "読んだ本の感想文  八木沢『分析哲学入門』など")
   : 説明: 八木沢『分析哲学入門』など
