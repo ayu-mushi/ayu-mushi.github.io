@@ -50,7 +50,7 @@ Keywords: 束, 計算機科学
 ~ Begin Example {caption: " 順序集合の例"}
 半順序集合の例としては、何らかの集合$A$についてのその冪集合$\powerset{A}$とその間の部分集合関係、自然数とその間の整除(割り切れる)関係、$A \to B$の部分関数の集合とその間の「どんな$A$の$x$についても$f(x)$が定義されるならば、$g(x)$も定義されて$f(x)=f(g)$」という関係、文字列の集合と始切片関係、数学的対象の集合以外だと、モジュール・知識・理解・存在者などとその間の諸依存関係(これは相互依存があるなら[前]{.ruby; rtext: プレ}順序)、出来事のクラスとその間の因果関係、生物個体の集まりとその間の先祖と子孫の関係、など。
 
-全順序集合の例としては、自然数・整数・実数・超限順序数の間の大小関係、任意の集合についてその間の同一性$=$関係、太陽系の惑星の集合と地球に近い順の順序、など。
+全順序集合の例としては、自然数・整数・実数・超限順序数の間の大小関係、任意の集合についてその間の同一性$=$関係、太陽系の惑星の集合と太陽に近い順の順序、など。
 
 また、定義から分かるように全ての全順序集合は半順序集合でもある。
 ~ End Example
@@ -305,14 +305,6 @@ $P$の上界の中で、最小のものを、$P$の上限$\bigvee P$と呼ぶ(�
 ~ End Theorem
 
 
-Now, the great theorem <a data-et="collapse-myCollapseAria">proves the claim</a>.
-<div class="collapse" id="myCollapseAria">It can be checked by the greatness of the great theorem.</div>
-
-~ Proof {.collapse; #desu}
-
-~
-
-Here, we recall the first <a data-et="modal-desu">important remark</a>.
 
 
 [BIB]
