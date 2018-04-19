@@ -5,33 +5,35 @@ read PAGENAME
 
 FILE="./src/article/$PAGENAME.mdk"
 
-touch $FILE
+RESULT=""
 
 echo "ページのタイトルは?"
 read TITLE
 
-printf "Title: %s\n" "$TITLE" > $FILE
+RESULT+="Title: $TITLE\n"
 
-printf "Pubdate: %s\n" "$(date "+%Y-%m-%d")" >> $FILE
-printf "Update: &date;\n" >> $FILE
+RESULT+="Pubdate: $(date "+%Y-%m-%d")\n"
+RESULT+="Update: &date;\n"
 
 echo "ページの説明は?"
 read DESK
-printf "Description: %s\n" "$DESK" >> $FILE
+RESULT+="Description: $DESK\n"
 
 echo "キーワードは?"
 read KEY
-printf "Keywords: %s\n" "$KEY" >> $FILE
+RESULT+="Keywords: $KEY\n"
 
 echo "下書き?(y/n)"
 read IS_DRAFT
 
 case $IS_DRAFT in
-  [yY] ) printf "Draft: True\n" "$KEY" >> $FILE
+  [yY] ) RESULT+="Draft: True\n"
 esac
 
 echo "vimをすぐ開く?(y/n)"
 read IS_VIM
+
+printf "$RESULT" > $FILE
 
 case $IS_VIM in
   [yY] ) vim $FILE;;
