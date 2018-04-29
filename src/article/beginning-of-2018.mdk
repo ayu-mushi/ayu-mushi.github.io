@@ -1,0 +1,91 @@
+Title : 2018年にやりたいこと
+Pubdate : 2018-4-30
+Update: &date;
+Description: 遅すぎた抱負
+Keywords: 抱負
+[INCLUDE="../mytheme/myprelude.mdk"]
+<!--Draft: True-->
+
+
+#2018年の抱負
+
+もう5月になり、遅すぎだけど、抱負を書きたいです(今年度の抱負ということにしてほしい)
+
+目標は
+
+* Unityの勉強
+* ウディタか何かでRPGを作る
+* 人工生命シミュレータ作成
+  * Tierraっぽいの
+  * 生態系シミュレータっぽいの
+  * ブラウザで動くといいかな?
+* RTS作成
+* 小説を書く
+* ニコニコ動画に動画を上げる
+  * 人口生命など
+* ミリカンの『目的と意味の世界』を読む
+
+あたりをやりたいかなー
+
+あと定期的には、
+
+* ツイートをする
+* 記事を書く
+  * コンピュータ、哲学、その他など
+* Habiticaやカレンダーなどで日課や目標を設定し、守る
+
+をしたい
+
+記事書くのは、一ヶ月に一回か、一週間に一回か…。
+
+記事を書くのを手軽にするために、以下のようなスクリプトを書いた。
+
+make\_page.sh
+
+``` shellscript
+#!/bin/bash
+
+echo "ページのファイル名(拡張子除く)は?"
+read PAGENAME
+
+FILE="./src/article/$PAGENAME.mdk"
+
+RESULT=""
+
+echo "ページのタイトルは?"
+read TITLE
+
+RESULT+="Title: $TITLE\n"
+
+RESULT+="Pubdate: $(date "+%Y-%m-%d")\n"
+RESULT+="Update: &date;\n"
+
+echo "ページの説明は?"
+read DESK
+RESULT+="Description: $DESK\n"
+
+echo "キーワードは?"
+read KEY
+RESULT+="Keywords: $KEY\n"
+
+echo "下書き?(y/n)"
+read IS_DRAFT
+
+case $IS_DRAFT in
+  [yY] ) RESULT+="Draft: True\n"
+esac
+
+RESULT+='[INCLUDE="../mytheme/myprelude.mdk"]\n'
+
+echo "vimをすぐ開く?(y/n)"
+read IS_VIM
+
+echo "$RESULT" > $FILE
+
+case $IS_VIM in
+  [yY] ) vim "$FILE";;
+  * ) echo "$FILE is created.";;
+esac
+```
+
+ツイートはどうしよう、一日一回を目指すべきか、一週間に10回みたいな基準がいいのか。
