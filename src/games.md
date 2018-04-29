@@ -9,3 +9,6 @@ title: 'ゲーム'
 
 [ghcjs-test](https://ayu-mushi.github.io/ghcjs-test)
   ~ ghcjsとreflex-domのサンプル。
+
+[clicker](https://ayu-mushi.github.io/ghcjs-test/clicker)
+  ~ クッキークリッカーのクローン
