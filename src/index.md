@@ -5,6 +5,9 @@ title: 'About me'
 Twitter
   ~ [\@ayu\_mushi](https://twitter.com/ayu_mushi)
 
+aclog
+  : [ayu-mushi](https://aclog.rhe.jp/ayu_mushi)
+
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
