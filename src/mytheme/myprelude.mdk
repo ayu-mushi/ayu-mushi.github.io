@@ -1,5 +1,18 @@
 [INCLUDE=bootstrap]
-Diary { before: "\[**[&label;](#&id;)**</a>&nl;\]"; border: 1px solid ; border-radius: 0.1em; border: 0.09em dotted; margin-bottom: 10px; padding:4px;}
+Diary {
+  before: "[ [&label;](#&id;)&nl; ]{.diary-title}";
+  border-radius: 0.1em;
+  border: 0.09em dotted;
+  margin-bottom: 10px;
+  padding:4px;
+}
+
+.need-cite { after: "[\[要出典\]]{.need-cite-display}"}
+.need-cite-display { font-weight: bold }
+
+hr { border: none; border-top: dotted 1px; height: 1px; width: 10em }
+.diary-title { border-right: 0.09em solid; border-left: 0.09em solid; border-radius: 0.5em 0.5em 0.5em 0.5em; margin-right: 4px; text-align: center; padding: 2px}
+
 Css: ../mytheme/main.css
 @if null == site-name {
 Site Name: ayu-mushi.github.io
