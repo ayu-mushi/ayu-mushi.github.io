@@ -30,12 +30,14 @@ case $IS_DRAFT in
   [yY] ) RESULT+="Draft: True\n"
 esac
 
+RESULT+='[INCLUDE="../mytheme/myprelude.mdk"]\n'
+
 echo "vimをすぐ開く?(y/n)"
 read IS_VIM
 
 printf "$RESULT" > $FILE
 
 case $IS_VIM in
-  [yY] ) vim $FILE;;
+  [yY] ) vim "$FILE";;
   * ) echo "$FILE is created.";;
 esac
