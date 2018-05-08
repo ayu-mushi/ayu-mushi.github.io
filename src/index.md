@@ -13,7 +13,8 @@ Github
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
 
 将棋ウォーズ
-  ~ [mushi2000](http://shogiwars.heroz.jp/users/history/mushi2000)
+  ~ [mushi2000 - 棋譜](http://shogiwars.heroz.jp/users/history/mushi2000)
+  ~ [mushi2000 - profile](http://shogiwars.heroz.jp/users/mushi2000)
 
 ask.fm
   ~ [ayu\_mushi](http://ask.fm/ayu_mushi)
