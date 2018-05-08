@@ -67,7 +67,7 @@
 <dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:114" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:114"></span><date id="pubdate" pubdate="pubdate">2018-4-30</date><span data-line="6;src/article/../mytheme/myprelude.mdk:114"></span>
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
-<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:116" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:116"></span><date id="update">2018-05-05</date></dd></dl></div>
+<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:116" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:116"></span><date id="update">2018-05-08</date></dd></dl></div>
 <div id="source" data-line="6;src/article/../mytheme/myprelude.mdk:124">
 <dl class="dl compact" data-line="6;src/article/../mytheme/myprelude.mdk:125">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
@@ -126,17 +126,21 @@
 <li class="li ul-li list-star-li compact-li" data-line="35"><span data-line="35"></span>コンピュータ、哲学、その他など
 </li></ul></li>
 <li class="li ul-li list-star-li compact-li" data-line="36"><span data-line="36"></span>Habiticaやカレンダーなどで日課や目標を設定し、守る
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="37"><span data-line="37"></span>手を動かす
+</li>
+<li class="li ul-li list-star-li compact-li" data-line="38"><span data-line="38"></span>アウトプットをする
 </li></ul>
 
-<p class="p noindent" data-line="38"><span data-line="38"></span>をしたい
+<p class="p noindent" data-line="40"><span data-line="40"></span>をしたい
 </p>
-<p class="p indent" data-line="40"><span data-line="40"></span>記事書くのは、一ヶ月に一回か、一週間に一回か…。
+<p class="p indent" data-line="42"><span data-line="42"></span>記事書くのは、一ヶ月に一回か、一週間に一回か…。
 </p>
-<p class="p indent" data-line="42"><span data-line="42"></span>記事を書くのを手軽にするために、以下のようなスクリプトを書いた。
+<p class="p indent" data-line="44"><span data-line="44"></span>記事を書くのを手軽にするために、以下のようなスクリプトを書いた。
 </p>
-<p class="p indent" data-line="44"><span data-line="44"></span>make<span data-line="44"></span>_<span data-line="44"></span>page.sh
+<p class="p indent" data-line="46"><span data-line="46"></span>make<span data-line="46"></span>_<span data-line="46"></span>page.sh
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-shellscript lang-shellscript shellscript" data-line="46" data-line-first="47" style="display:block"><code data-line="47">#!/bin/bash
+<pre class="para-block pre-fenced pre-fenced3 language-shellscript lang-shellscript shellscript" data-line="48" data-line-first="49" style="display:block"><code data-line="49">#!/bin/bash
 
 echo &quot;ページのファイル名(拡張子除く)は?&quot;
 read PAGENAME
@@ -173,15 +177,15 @@ RESULT+=&#39;[INCLUDE=&quot;../mytheme/myprelude.mdk&quot;]\n&#39;
 echo &quot;vimをすぐ開く?(y/n)&quot;
 read IS_VIM
 
-echo &quot;$RESULT&quot; &gt; $FILE
+echo -e &quot;$RESULT&quot; &gt; $FILE
 
 case $IS_VIM in
   [yY] ) vim &quot;$FILE&quot;;;
   * ) echo &quot;$FILE is created.&quot;;;
 esac</code></pre>
-<p class="p noindent para-continued" data-line="92"><span data-line="92"></span>ツイートはどうしよう、一日一回以上を目指すべきか、一週間に10回以上みたいな基準がいいのか。
+<p class="p noindent para-continued" data-line="94"><span data-line="94"></span>ツイートはどうしよう、一日一回以上を目指すべきか、一週間に10回以上みたいな基準がいいのか。
 </p>
-<p class="p indent" data-line="94"><span data-line="94"></span></main></p><span data-line=""></span></div>
+<p class="p indent" data-line="96"><span data-line="96"></span></main></p><span data-line=""></span></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
