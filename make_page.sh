@@ -35,7 +35,7 @@ RESULT+='[INCLUDE="../mytheme/myprelude.mdk"]\n'
 echo "vimをすぐ開く?(y/n)"
 read IS_VIM
 
-printf "$RESULT" > $FILE
+echo -e "$RESULT" > $FILE
 
 case $IS_VIM in
   [yY] ) vim "$FILE";;
