@@ -1,0 +1,28 @@
+\usepackage{amsthm}
+\usepackage{amsmath}
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{axiom}[theorem]{公理}
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{inferenceRule}[theorem]{推論規則}
+\renewcommand{\proofname}{\textbf {証明}}
+\newcommand{\infname}[1]{\mbox{\sc (#1)}}
+\newcommand{\intensional}[2]{\{ #1 \, | \, #2 \}}
+\newcommand{\powerset}[1]{\mathcal{P}(#1)}
+\newcommand{\cross}[2]{\mathbf{Cross}(#1, #2)}
+\newcommand{\UniqlyExis}{\exists!}
+\newcommand{\newword}[1]{\textbf {#1}}
+\newcommand{\important}[1]{\textbf {#1}}
+
+\makeatletter
+\newenvironment{note}[1][\textbf 補足]{\par
+  \normalfont
+  \topsep6\p@\@plus6\p@ \trivlist
+  \item[\hskip\labelsep{\bfseries #1}\@addpunct{\bfseries.}]\ignorespaces
+}{%
+  \endtrivlist
+}
+\makeatother

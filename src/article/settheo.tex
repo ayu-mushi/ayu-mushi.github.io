@@ -1,0 +1,443 @@
+\documentclass[uplatex,papersize,dvipdfmx]{jsarticle}
+\usepackage{mystyle}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\title{公理的集合論についてのノート}
+\author{ayu-mushi}
+\begin{document}
+  \maketitle
+  \section{この文書について}
+    この文書では厳密な記述を心掛け、些細な定理でも書き留めるようにする。
+    定理・系・補題と言っているものは特筆の無い限りZFCで証明できるものであり、しかもその番号までで定義された公理のみを使って証明できるものである。
+    尚、推移的な述語$P$について$a P b P c \dots$という連鎖的な記法を用いるが、
+    混乱を避けるためその場合にのみ二重条件法として$\Leftrightarrow$の代わりに$\iff$を使う。
+  \section{公理系 ZFC}
+    \begin{definition}[ZFC]
+      (メタ的な定義)ZFCは$=$に加えて$\in$という引数$2$の述語を備えた理論であって、
+      公理として以下に述べる外延性公理・非順序対の公理・置換公理図式・正則性の公理・無限公理・合併集合の公理・冪集合の公理・選択公理を含む。
+      尚、以下では古典論理の述語論理を使用し、議論領域は非空とする。
+    \end{definition}
+    \begin{definition}[集合]
+      (メタ的な定義)ZFCの議論領域に属する対象を、集合と呼ぶ。
+      \begin{note}
+        ZFCの議論領域に集合以外の対象が存在しても良いと考える数学者も居るらしいが、
+        古典論理なら少なくともどんな対象$X$についても、$(\exists x. x \in X) \lor \lnot (\exists x. x \in X)$は成り立つはずで、後者が正しいなら$X$は空集合(後述)と等しくなるはずで、あまり気にしなくていいかな? (分かりません)
+      \end{note}
+    \end{definition}
+    \begin{definition}[属する]
+      $x \in a$のとき、そしてそのときに限り、$x$は$a$に\newword{属する}と言い、$a \ni x$とも書く。
+    \end{definition}
+    \begin{definition}[部分集合]
+      任意の$a, b$について、$\forall x. x \in a \Rightarrow x \in b$のとき、そしてそのときに限り、$a$は$b$の\newword{部分集合}であると言い、$a \subseteq b$と書く。
+    \end{definition}
+    \begin{definition}[真部分集合]
+      任意の$a, b$について、$a \subseteq b \land \lnot (b \subseteq a)$のとき、そしてそのときに限り、$a$は$b$の\newword{真部分集合}であると言い、$a \subsetneq b$と書く。
+    \end{definition}
+    \begin{axiom}[外延性公理]
+      $\forall a. \forall b. a = b \Leftrightarrow (\forall x. x \in a \Leftrightarrow x \in b)$
+      \begin{note}
+        即ち、「同じ対象が属するときに限り集合は等しい」。
+      \end{note}
+    \end{axiom}
+    \begin{theorem}
+      任意の$a, b, c$について以下の命題は成り立つ。
+      \begin{align}
+        &a \subseteq a &(反射律) \label{eq:subseteq-is-reflexive}\\
+        &(a \subseteq b \land b \subseteq c) \Rightarrow a \subseteq c &(推移律) \label{eq:subseteq-is-assoc}\\
+        &(a \subseteq b \land b \subsetneq c) \Rightarrow a \subsetneq c &(推移律) \label{eq:subsetneq-is-assoc}\\
+        &a = a &(反射律) \label{eq:eq-is-reflexive}\\
+        &a = b \Rightarrow b = a &(対称律)\label{eq:eq-is-commu}\\
+        &(a = b \land b = c) \Rightarrow a = c &(推移律) \label{eq:eq-is-assoc}
+      \end{align}
+      \begin{proof}
+        \eqref{eq:subseteq-is-reflexive}は、任意の$x$について、$x \in a$ならば$x \in a$であることから分かる。
+
+        \eqref{eq:subseteq-is-assoc}を示す。
+        $\forall x. x \in a \Rightarrow x \in b$かつ$\forall x. x \in b \Rightarrow x \in c$とすると、カットによって$\forall x. x \in a \Rightarrow x \in c$が分かる。証明終わり。
+
+        \eqref{eq:subsetneq-is-assoc}を示す。
+        $(\forall x. (x \in a \Rightarrow x \in b))$
+        かつ$(\forall x. (x \in b \Rightarrow x \in c)) \land (\lnot \forall x.(x \in c \Rightarrow x \in b))$
+        なら、$\lnot (x \in c \Rightarrow x \in b)$なる$x$が存在するが、
+        $(\forall x. (x \in a \Rightarrow x \in b))$の対偶を取ればそのような$x$について$\lnot(x \in a)$。
+        それと\eqref{eq:subseteq-is-assoc}から従って、
+        $(\forall x. (x \in a \Rightarrow x \in c)) \land (\lnot \forall x.(x \in c \Rightarrow x \in a))$。
+        真部分集合の定義に基づいて変形すれば、証明終わり。
+
+        \eqref{eq:eq-is-reflexive}を示す。
+        \eqref{eq:subseteq-is-reflexive}を2回使って総合すれば良い。
+
+        \eqref{eq:eq-is-commu}を示す。
+        $(\forall x. x \in a \Rightarrow x \in b) \land (\forall x. x \in b \Rightarrow x \in a)$から、
+        $(\forall x. x \in a \Leftrightarrow x \in b)$が分かる。
+        二重条件法は可換だから証明終わり。
+
+        \eqref{eq:eq-is-assoc}を示す。
+        $a \subseteq b \land b \subseteq a$と$b \subseteq c \land c \subseteq b$を仮定する。
+        最初の仮定と次の仮定のそれぞれ連言の$1$番目の方に\eqref{eq:subseteq-is-assoc}を適用して$a \subseteq c$。
+        それぞれ連言の$2$番目の方に適用して$c \subseteq a$。
+        ふたつを総合して$a = c$となる。証明終わり。
+      \end{proof}
+    \end{theorem}
+    \begin{axiom}[非順序対の公理]
+      $\forall a. \forall b. \exists A. \forall x. x \in A \Leftrightarrow (a = x \lor b = x)$
+    \end{axiom}
+    \begin{corollary}
+      \label{cor:pair-is-unique}
+      $\forall a. \forall b. \UniqlyExis A. \forall x. x \in A \Leftrightarrow (a = x \lor b = x)$
+      \begin{proof}
+       任意の$a, b, A, B$について、$\forall x. x \in A \Leftrightarrow a = x \lor b = x$かつ$\forall x. x \in B \Leftrightarrow a = x \lor b = x$とすれば任意の$x$について$x \in A \iff a = x \lor b = x \iff x \in B$だから、外延性公理によって$A = B$。
+       それと非順序対の公理によって一意的に存在する。
+      \end{proof}
+    \end{corollary}
+    \begin{definition}[非順序対]
+      任意の$a, b$に対し、\ref{cor:pair-is-unique}によって一意的に存在する$\forall x. x \in A \Leftrightarrow a = x \lor b = x$なる$A$を$a$と$b$の\newword{非順序対}と呼び、$\{a, b\}$と書く。
+    \end{definition}
+    \begin{definition}[単元集合]
+      任意の$a$に対し、$\{a, a\}$を$a$の\newword{単元集合}あるいは\newword{シングルトン}と呼び、$\{a\}$と書く。
+    \end{definition}
+    \begin{example}
+      $\{\varnothing\}$や$\{\varnothing, \{\varnothing\}\}$などは集合である。
+    \end{example}
+    \begin{corollary}
+      $\forall x. x \in \{a\} \Leftrightarrow x = a$
+      \begin{proof}
+        定義により$x \in \{a\} \Leftrightarrow (x = a \lor x = a)$。
+        明らかに、$x = a \Rightarrow (x = a \lor x = a)$。従って、$\Leftarrow$は示された。
+        更に場合分けを使って、$x = a \Leftarrow (x = a \lor x = a)$。従って、$\Rightarrow$は示された。
+        $x$は任意に取ったから証明終わり。
+      \end{proof}
+    \end{corollary}
+    \begin{corollary}
+      $\forall x. \forall y. \{x, y\} = \{x\} \Leftrightarrow x = y$
+      \begin{proof}
+        $\Rightarrow$を示す。
+        $(w = x \lor w = y) \Leftrightarrow w = x$を仮定する。
+        仮定により$w = x \lor w = y \Rightarrow w = x$だが、。
+
+        $\Leftarrow$を示す。
+        $x = y$としよう。
+        $w \in \{x\}$によって、$x = w$。従って、$x = w \lor y = w$。
+        $w$は任意、$x, y$も任意だから証明終わり。
+      \end{proof}
+    \end{corollary}
+    \begin{definition}[順序対]
+      任意の$a, b$に対し、$\{\{a\}, \{a, b\}\}$を$a$と$b$の\newword{順序対}と呼び、$(a, b)$と書く。
+    \end{definition}
+    \begin{corollary}
+      $(a, b) = (a', b') \Leftrightarrow (a = a' \land b = b')$
+      \begin{proof}
+        $\Leftarrow$は自明だから$\Rightarrow$を示す。
+        $\{\{a\}, \{a, b\}\} = \{\{a'\}, \{a', b'\}\}$とする。
+        更に$\lnot(a = a')$を仮定しよう。
+        すると$\lnot(\{a\} = \{a'\})$だから$\{a\} = \{a', b'\}$となり、
+        ここから$a = a' = b'$が分かる。
+        よって、パースの法則
+        \footnote{パースの法則とは、$((a \Rightarrow b) \Rightarrow a) \Rightarrow a$のこと。これは直観論理上で背理法と等価である。
+        ここでは$((a \Rightarrow \bot) \Rightarrow a) \Rightarrow a$即ち「$a$の否定を仮定して$a$を導けることから、$a$を導けること」として使われている。}から$a = a'$。
+
+        つぎに$\lnot(b = b')$としよう。
+        $a = a'$だから$\{a\} = \{a', b'\}$。すなわち$a = a' = b'$。
+        一方$\{a, b\} = \{a'\}$。すなわち$a = b = a'$。
+        総合して$a = a' = b' = b$となる。
+        よって、パースの法則から$b = b'$。
+      \end{proof}
+    \end{corollary}
+    \begin{axiom}[合併集合の公理]
+      $\forall A. \exists B. \forall x. x \in B \Leftrightarrow \exists C. (C \in A \land x \in C)$
+    \end{axiom}
+    \begin{definition}[合併集合]
+      合併集合の公理によって任意の$A$についてただ$1$つ存在(このことの証明は省く)する$\forall x. x \in B \Leftrightarrow \exists C. (C \in A \land x \in C)$なる$B$を\newword{$A$に含まれる集合全体の合併集合}と呼び、$\bigcup A$と書く。
+      また、任意の$a, b$について、$\bigcup \{a, b\}$を$a$と$b$の\newword{合併}と呼び、$a \cup b$と書く。
+    \end{definition}
+    \begin{corollary}
+      $\forall x. (x \in a \cup b \Leftrightarrow x \in a \lor x \in b)$
+      \begin{proof}
+        $\Rightarrow$を示すため、$x \in a \cup b$を仮定して$x \in a \lor x \in b$を導く。
+        仮定により、
+        $\exists C. x \in \{a, b\} \land x \in C$
+        即ち$\exists C. (C = a \lor C = b) \land x \in C$だが、
+        $(C = a \lor C = b) \land x \in C$では$C$が何であれ外延性公理によって$x \in a \lor x \in b$だから、
+        存在量化の除去により、$x \in a \lor x \in b$。
+
+        $\Leftarrow$は単にこの議論を逆に進めれば良い。
+      \end{proof}
+    \end{corollary}
+    \begin{theorem}
+      任意の$a, b, c$に対し以下の命題は成り立つ。
+      \begin{align}
+        &a \cup a = a &(冪等律) \label{eq:cup-is-idem}\\
+        &a \cup b = b \cup a &(交換律) \label{eq:cup-is-commu}\\
+        &(a \cup b) \cup c = a \cup (b \cup c) &(結合律) \label{eq:cup-is-assoc}\\
+        &a \subseteq b \Leftrightarrow a \cup b = b\label{eq:cup-of-its-subset-is-it}
+      \end{align}
+      \begin{proof}
+        \eqref{eq:cup-is-idem}を示す。
+        $x \in a \cup a$と仮定する。すなわち$x \in a \lor x \in a$。すなわち$x \in a$。すなわち$x$は任意なので$\forall x. x \in a$。
+
+        \eqref{eq:cup-is-commu}は、論理和の可換性から$\{a, b\} = \{b, a\}$、合併集合の一意性を使って証明終わり。
+
+        \eqref{eq:cup-is-assoc}を示す。$x \in (a \cup b) \cup c \iff x \in (a \cup b) \lor x \in c \iff (x \in a \lor x \in b) \lor x \in c$だが、論理和の結合性によって$x \in a \cup (b \cup c)$と等価。
+
+        \eqref{eq:cup-of-its-subset-is-it}を示す。
+        まず、$\Rightarrow$のため$\forall x. x \in a \Rightarrow x \in b$から$\forall x. (x \in a \lor x \in b) \Leftrightarrow x \in b$を導こう。
+        $x \in a$のとき、仮定によって$x \in b$。$x \in b$のとき、$x \in b$。
+        よって場合分けにより$\forall x. (x \in a \lor x \in b) \Rightarrow x \in b$は示された。
+        一方、$x \in b$から$x \in a \lor x \in b$が導かれる。
+        よって$\forall x. (x \in a \lor x \in b) \Leftarrow x \in b$も示された。
+
+        $\Leftarrow$のため、$\forall x. (x \in a \lor x \in b) \Leftrightarrow x \in b$から、どんな$x$についても$x \in a$から$x \in b$を導けることを示すが、$x \in a$なので$x \in a \lor x \in b$。よって仮定により$x \in b$。
+      \end{proof}
+    \end{theorem}
+    \begin{definition}[集合の外延的記法]
+      (メタ的な定義)集合の長さが1以上の有限の列が$a, b, c, d, \dots$などと与えられたとき、$\{a\} \cup \{b\} \cup \{c\} \cup \{d\} \cup \dots$を$\{a, b, c, d, \dots\}$と表記する。
+    \end{definition}
+    \begin{axiom}[置換公理図式\footnote{公理図式とは、公理を付け足すルールである。これにより、無限個の公理を表現できる。}]
+      $P$を2項述語としよう。
+      すると、$\forall a. \forall x. (x \in a \Rightarrow \forall y. \forall z. (P(x, y) \land P(x, z) \Rightarrow y = z))
+      \Rightarrow \exists b. \forall u. u \in b \Leftrightarrow (\exists x. x \in a \land P(x, u))$は公理。
+      \begin{note}
+        2項述語$P$が$\forall x. x \in a \Rightarrow \forall y. \forall z. ((P(x, y) \land P(x, z)) \Rightarrow y = z)$を満たすという事は、その二項述語が部分函数の性質(右一意性)を備えている事である。
+        故に、置換公理図式はHaskellの\verb| mapMaybe :: (a -> Maybe b) -> [a] -> [b]|のように、部分函数で集合を"写して"集合を作れると言っているのだ。
+      \end{note}
+    \end{axiom}
+    \begin{definition}[集合の置換記法]
+      $x$と$y$とを自由変数とする論理式のうち$x$が決まれば$y$が一意に決まるようなもの$F$と、項$X$とに対し、置換公理図式によって一意的に存在する、$\forall u. u \in b \Leftrightarrow (\exists x. x \in X \land F(x, u))$なる$b$を、$\intensional{F(x)}{x \in X}$と書く。
+    \end{definition}
+    \begin{theorem}[空集合の公理\footnote{空集合の公理は現在では定理である。}]
+      $\exists a. \forall x. \lnot(x \in a)$
+      \begin{proof}
+        2項述語$P$を$P(x, y) = \lnot(x = x)$で定義しよう。
+        $X$を任意にとって、$a \in \intensional{P(x)}{x \in X}$としよう。
+        集合の置換記法の定義より、$\exists x. x \in X \land \lnot(x = x)$となるが、$x$がなんであれ$\lnot(x = x)$を導き、したがって矛盾する。
+        よって、仮定した命題の否定が示され、$a$は任意だから、$\forall a. \lnot (a \in \intensional{P(x)}{x \in X})$が示された。
+        項$\intensional{P(x)}{x \in X}$は$a$を含んでいないから、$\exists b. \forall a. \lnot (a \in b)$が分かる。
+        $X$は任意であるから、証明終わり。
+      \end{proof}
+      \begin{note}
+        議論領域が非空である事に注意せよ。
+        つまり、元から何らかの集合は存在する。
+        再びHaskellのアナロジーを使えば、2項述語$\lnot(x = x)$は\verb+ const Nothing :: a -> Maybe b +である。
+        この証明は\verb| mapMaybe (const Nothing) :: [a] -> [b] |のようなものを"何らかの集合"に適用する事で(それが何であれ)何も属さない集合を得られると言っているのだ。
+      \end{note}
+    \end{theorem}
+    \begin{definition}[空、空集合]
+      $\forall x. \lnot(x \in a)$なときに限り、$a$を\newword{空}であるという。
+      一意的に存在する、空な対象を\newword{空集合}と呼び、$\varnothing$と書く。
+    \end{definition}
+    \begin{theorem}
+      任意の$a$について以下が成り立つ。
+      \begin{align}
+        &\varnothing \subseteq a\label{eq:nothing-is-part-of-all}\\
+        &a \cup \varnothing = a\label{eq:cup-has-id}
+      \end{align}
+      \begin{proof}
+        \eqref{eq:nothing-is-part-of-all}を示す。任意の$x$について、$x \in \varnothing$を仮定すれば$\bot$が帰結するから、爆発律によって$x \in a$。証明終わり。
+
+        \eqref{eq:cup-has-id}は\eqref{eq:cup-of-its-subset-is-it}を\eqref{eq:nothing-is-part-of-all}に適用することで得られる。
+      \end{proof}
+    \end{theorem}
+    \begin{definition}
+      $\exists x. x \in A \land x \in B$のときに限り、$A$と$B$は\newword{交わる}または\newword{交わりを持つ}といい、$\cross{A}{B}$と書く。
+      \begin{note}
+        広く使われている表記ではないです。
+      \end{note}
+    \end{definition}
+    \begin{axiom}[正則性の公理]
+      $\forall A. (A \neq \varnothing \Rightarrow (\exists x. x \in A \land \lnot \cross{A}{x}))$
+      \begin{note}
+        即ち、空でないどんな集合もそれ自身と交わらない元を持つ。
+      \end{note}
+    \end{axiom}
+    \begin{corollary}
+      $\forall x. \lnot(x \in x)$
+      \begin{proof}
+        正則性公理を$\{a\}$で例化。
+        $\{a\} \neq \varnothing$だから、\begin{equation}\exists x. x \in \{a\} \land \lnot \cross{\{a\}}{x}。\label{eq:x-nin-x-lemma}\end{equation}
+        $x$が何であれ$x \in \{a\} \land \lnot \cross{\{a\}}{x}$なら、定義により$x = a \land \lnot \cross{\{a\}}{x}$、
+        外延性公理によって$\lnot \cross{\{a\}}{a}$、ド・モルガンの法則により$\forall x. \lnot (x = a \land x \in a)$、外延性公理により$\forall x. \lnot(x \in x)$が導かれる。
+        このことと\eqref{eq:x-nin-x-lemma}から$\forall x. \lnot(x \in x)$が分かる。
+      \end{proof}
+    \end{corollary}
+    \begin{lemma}
+      $\forall a. \forall x. \exists b. \forall t. (x \in a) \Rightarrow (b \subseteq a \land (t \in b \Leftrightarrow (t \in a \land \lnot (t = x))))$
+      \begin{proof}
+        $x \in a$としよう。
+        排中律により、$x = \{a\}$または$x \neq \{a\}$である。
+        前者の場合、$\varnothing \subseteq x \land (t \in \varnothing \Leftrightarrow (t \in a \land \lnot (t = x)))$が分かる。
+      \end{proof}
+    \end{lemma}
+    \begin{theorem}[分出公理図式\footnote{分出公理図式は現在では(メタ)定理である。}]
+      (メタ定理)$P$を1引数の述語とする。すると$\forall a. \exists b. \forall x. (x \in b \Leftrightarrow x \in a \land P(x))$は定理。
+      \begin{proof}
+        置換公理により、$Q(x, y) := (x = y \land P(x))$
+      \end{proof}
+    \end{theorem}
+    \begin{definition}[集合の分出記法]
+      $x$を自由変数とする論理式$P(x)$と、項$X$とに対し、分出公理図式によって一意的に存在する、$\forall x. (x \in y \Leftrightarrow x \in X \land P(x))$なる$y$を、$\intensional{x \in X}{P(x)}$と書く。
+    \end{definition}
+    \begin{definition}[共通部分]
+      $a, b$に対し、$\intensional{x \in a}{x \in b}$を$a$と$b$との共通部分と呼び、$a \cap b$と書く。
+    \end{definition}
+    \begin{theorem}
+      \begin{align}
+        &a \cap a = a &(冪等律)\\
+        &a \cap b = b \cap a &(交換律)\\
+        &a \cap (b \cap c) = (a \cap b) \cap c &(結合律)\\
+        &a \subseteq b \Leftrightarrow a \cap b = a \label{eq:subset-and-cap}\\
+        &a \cap \varnothing = \varnothing \label{eq:cap-and-nothing}
+      \end{align}
+      \begin{proof}
+        冪等律・交換律・結合律は自明であるし、合併集合の場合と同じ形で証明できるから省略する。
+        \eqref{eq:subset-and-cap}を示す。まず、$\Rightarrow$のため、$\forall x. x \in a \Rightarrow x \in b$から
+        $x \in \intensional{x \in a}{x \in b} \Rightarrow x \in a$と
+        $x \in \intensional{x \in a}{x \in b} \Leftarrow x \in a$
+        とをそれぞれ示す。
+        前者を示そう。仮定と分出記法の定義から、$x \in a \land x \in b$が分かる。
+        したがって、$x \in a$。
+        後者を示そう。仮定$x \in a$と$\forall x. x \in a \Rightarrow x \in b$から、$x \in b$が分かる。
+        したがって、$x \in a \land x \in b$。
+        分出記法の定義により、$x \in \intensional{x \in a}{x \in b}$が示された。
+
+        $\Leftarrow$のため、$\forall x. x \in a \land x \in b \Leftrightarrow x \in a$と$y \in a$とから$y \in b$を導くが、ひとつめの仮定の$\Leftarrow$とふたつめの仮定とから、$x \in a \land x \in b$。したがって、$x \in b$。
+
+        \eqref{eq:cap-and-nothing}は\eqref{eq:subset-and-cap}を\eqref{eq:nothing-is-part-of-all}に適用して得られる。
+      \end{proof}
+    \end{theorem}
+    \begin{axiom}[冪集合の公理]
+      $\forall a. \exists b. \forall x. x \in b \Leftrightarrow x \subseteq a$
+      \begin{note}
+        すなわち、「どんな集合に対しても、その部分集合全てが、そしてそれらのみが属する集合が存在する」。
+      \end{note}
+    \end{axiom}
+    \begin{definition}[冪集合]
+      証明は省略するが、冪集合の公理から、どんな$a$に対しても$x \in b \Leftrightarrow x \subseteq a$なる$b$が一意的に存在することが分かり、そのような$b$を$\powerset{a}$と書く。
+    \end{definition}
+    \begin{example}
+      以下が成り立つ。
+      \begin{align}
+        \powerset{\varnothing} = \{\varnothing\} \\
+        \powerset{\{\varnothing\}} = \{\{\varnothing\}, \varnothing\}
+      \end{align}
+    \end{example}
+    \begin{theorem}
+      $a, b$について以下が成り立つ。
+      \begin{align}
+        a \subseteq b \Leftrightarrow \powerset{a} \subseteq \powerset{b}\label{eq:subset-and-powerset}\\
+        \powerset{a \cap b} = \powerset{a} \cap \powerset{b}\label{eq:cap-and-powerset}\\
+        \powerset{a} \cup \powerset{b} \subseteq \powerset{a \cup b}\label{eq:cup-and-powerset}
+      \end{align}
+      \begin{proof}
+        \eqref{eq:subset-and-powerset}を示す。
+        $\Rightarrow$のため、$a \subseteq b$と$y \in \powerset{a}$から、$y \in \powerset{b}$を示す。
+        2番目の仮定と冪集合の定義により、$y \subseteq a$だが、それと1番目の仮定と部分集合の推移性により、$y \subseteq b$;
+        それと冪集合の定義により、$y \in \powerset{b}$。
+        $y$は任意に取ったから、証明終わり。
+
+        $\Leftarrow$を示す。
+        $a \in \powerset{a}$だから、仮定により$a \in \powerset{b}$。
+        すなわち、冪集合の定義により、$a \subseteq b$である。
+
+        \eqref{eq:cap-and-powerset}のため、$x \subseteq a \cap b$から$x \subseteq a \land x \subseteq b$を示す。
+
+        \eqref{eq:cup-and-powerset}のため、
+      \end{proof}
+      \begin{note}
+        $\powerset{a} \cup \powerset{b} \subsetneq \powerset{a \cup b}$なる$a, b$が存在する。
+        たとえば、$a \subseteq b$でも$b \subseteq a$でもないとき、$a \cup b \in \powerset{a \cup b}$だが、$\lnot (a \cup b \in \powerset{a})$かつ$\lnot (a \cup b \in \powerset{b})$である。
+      \end{note}
+    \end{theorem}
+    \begin{axiom}[無限公理]
+      $\exists a. \varnothing \in a \land \forall x. (x \in a \Rightarrow x \cup \{x\} \in a)$
+    \end{axiom}
+  \section{直積と対応}
+    \begin{corollary}
+      任意の$a, b, c, d$に就いて以下の事が成り立つ:
+      \begin{align}
+        &(a \cup b) \times c = (a \times c) \cup (b \times c) \label{eq:cup-times-dist} \\
+        &(a \cap b) \times c = (a \times c) \cap (b \times c) \label{eq:cap-times-dist} \\
+        &(a \subseteq c \land b \subseteq d) \Rightarrow a \times b \subseteq c \times d \label{eq:times-save-subseteq}
+      \end{align}
+      \begin{proof}
+        \eqref{eq:cup-times-dist}を等式変換で証明する。
+        \begin{align}
+          &(a \cup b) \times c\\
+          &= \intensional{(x, y) \in \powerset{\powerset{(a \cup b) \cup c}}}{x \in a \cup b \land y \in c} \label{eq:def-of-times}\\
+          &= \intensional{(x, y) \in \powerset{\powerset{(a \cup b) \cup c}}}{(x \in a \lor x \in b) \land y \in c} \label{eq:def-of-cup} \\
+          &= \intensional{(x, y) \in \powerset{\powerset{(a \cup b) \cup c}}}{(x \in a \land y \in c) \lor (x \in b \land y \in c)} \label{eq:dist-betw-land-lor}\\
+          &= \intensional{(x, y) \in \powerset{\powerset{(a \cup b) \cup c}}}{x \in a \land y \in c} \cup \intensional{(x, y) \in \powerset{\powerset{(a \cup b) \cup c}}}{x \in b \land y \in c} \label{eq:def-of-cup-and-intension}\\
+          &= (a \times c) \cup (b \times c)\label{eq:left}
+        \end{align}
+        直積の定義により\eqref{eq:def-of-times}、合併の定義により\eqref{eq:def-of-cup}、
+        論理和と論理積の分配法則により\eqref{eq:dist-betw-land-lor}、合併と内包記法の定義により\eqref{eq:def-of-cup-and-intension}、
+        再び直積の定義を使って\eqref{eq:left}が分かる。
+
+        \eqref{eq:cap-times-dist}についても等式変換によって示す。
+        \begin{align}
+          & (a \cap b) \times c = (a \times c) \cap (b \times c) \\
+          & = \intensional{ (x, y) \in \powerset{\powerset{(a \cap b) \cup c}}}{(x \in a \cap b) \land y \in c} \label{eq:def-of-times2}\\
+          & = \intensional{(x, y) \in \powerset{\powerset{(a \cap b) \cup c}}}{x \in a \land x \in b \land y \in c} \label{eq:def-of-cap}\\
+          & = \intensional{(x, y) \in \powerset{\powerset{(a \cap b) \cup c}}}{(x \in a \land y \in c) \land (x \in b \land y \in c)} \label{eq:land-is-semilattice}\\
+          & = \intensional{(x, y) \in \powerset{\powerset{a \cup c}}}{x \in a \land y \in c} \cap \intensional{(x, y) \in \powerset{\powerset{b \cup c}}}{x \in b \land y \in c} \label{eq:def-of-cap-and-intension}\\
+          & = (a \times c) \cap (b \times c) \label{eq:left2}
+        \end{align}
+        直積の定義により\eqref{eq:def-of-times2}、共通部分の定義により\eqref{eq:def-of-cap}、
+        論理積は半束なので\eqref{eq:land-is-semilattice}、共通部分と内包記法の定義により\eqref{eq:def-of-cap-and-intension}、
+        再び直積の定義を使って\eqref{eq:left2}が分かる。
+
+        \eqref{eq:times-save-subseteq}を示すため、$a \subseteq c$と$b \subseteq d$を仮定して$a \times b \subseteq c \times d$を導く。
+        $x \in a$、$y \in b$とすると、直積の定義によって$(x, y) \in a \times b$。
+        $a \subseteq c$から$x \in c$、$b \subseteq d$から$y \in d$。
+        よって$(x, y) \in c \times d$が分かる。
+        $x \in a$と$y \in b$は任意に取ったので、証明終わり。
+      \end{proof}
+    \end{corollary}
+  \section{関係と演算}
+    \begin{lemma}
+      $G$を群、$a$を$G$空間とする。
+      $f = \intensional{(x, y) \in a \times a}{\exists g. (g \in G \land g(x) = y)}$
+      とすると、$f$は$a$上の同値関係となる。
+      \begin{proof}
+        反射律を示す。群の定義により$e \in G$($e$は単位元)で、空間の定義により$e$が単位元なら$e(x) = x$である。よってどんな$x \in a$に対しても$(x, x) \in f$となる。
+
+        対称律を示すのに$(x, y) \in f$を仮定して$(y, x) \in f$を導く。
+        仮定により$g \in G \land g(x) = y$なる$g$が存在する。
+        群の定義により$g$に対し逆元$g^{-1} \in G$が存在するが、
+        群の作用の定義より$g \cdot g^{-1}(y) = g(g^{-1}(y)) = e(y) = y$。
+        よって$g(x) = y$と$g$の単射性(怪しい)から$g^{-1}(y) = x$が分かり、
+        $(y, x) \in f$。
+
+        推移律を示すため
+        \begin{align}(x, y) \in f\label{eq:hyp1.1}\\ (y, z) \in f\label{eq:hyp1.2}\end{align}から$(x, z) \in f$を導く。
+        仮定\eqref{eq:hyp1.1}から$g_0(x) = y$なる$g_0 \in G$が存在する。
+        同様に仮定\eqref{eq:hyp1.2}から$g_1(y) = z$なる$g_1 \in G$が存在する。
+        群の演算は閉じているから$g_1 \cdot g_0 \in G$だが、群の作用の定義と写像の性質により$g_1 \cdot g_0 (x) = g_1 (g_0 (x)) = z$。
+        よって$(x, z) \in f$が分かる。
+      \end{proof}
+    \end{lemma}
+    \begin{theorem}
+      $a = \bigcup b$で$b$の各元がお互いに素なとき、$f = \intensional{(x, y) \in a \times a}{\exists z. (z \in b \land x \in z \land y \in z)}$とすると$f$は$a$上の同値関係となる。そして$x \in z$かつ$z \in b$ならば、$f(x) = z$である。
+      \begin{proof}
+        反射律についてはどんな$x \in a$に対しても$z \in b \land x \in z \land x \in z$なる$z$が($b$が空でなければ)仮定$a = \bigcup b$により存在するため満たされる。
+
+        対称律は$z \in b \land x \in z \land y \in z$なる$z$が存在するなら
+        論理積の可換性から同値な命題として、$z \in b \land y \in z \land x \in z$なる$z$も存在する、という事から分かる。
+
+        推移律を示すため、$(x, y) \in f$と$(y, z) \in f$を仮定して$(x, z) \in f$を示す。
+        仮定により$b$の元$v, u$で$x, y \in v$、$y, z \in u$なものが存在するが、$b$の各元は交わりを持たないので$v = u$。
+        したがって$x, z \in v$だから$(x, z) \in f$。
+
+        $x \in z $と$z \in b$を仮定して$f(x) = z$を導く。
+        $(x, y) \in f \Leftrightarrow y \in z$を示せば十分だが、これは$((x, y) \in a \times a) \land (\exists z'. (z \in b \land x \in z' \land y \in z')) \Leftrightarrow y \in z$と等価。
+        $\Leftarrow$は自明だから、$\Rightarrow$を示そう。
+        どんな$z'$に対しても$x \in z' \in b$なら、$b$の各元はお互いに素だから$x \in z \in b$によって$z' = z$。
+        仮定によって$y \in z$が分かる。
+      \end{proof}
+    \end{theorem}
+  \begin{thebibliography}{99}
+    \bibitem{iyanaga-et-al1990}
+      彌永健一, 彌永昌吉、1990、『集合と位相』、岩波基礎数学選書
+    \bibitem{bourbaki-1968}
+      N. ブルバキ、1968、『ブルバキ数学原論 集合論1』、東京図書株式会社
+  \end{thebibliography}
+\end{document}
