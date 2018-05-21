@@ -1,0 +1,407 @@
+Title : 束と順序集合  下書き
+Pubdate : 2016-10-06
+Update: &date;
+Description: 束
+Keywords: 束, 計算機科学
+Draft: True
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+はじめに
+=======
+これは束と順序集合についての勉強ノートである。
+束と順序集合の理論について、プログラミング言語意味論への応用をゴールとして書く。
+領域理論では、計算可能関数を近似するのに有向完備半順序集合(CPO)間の連続関数を使うため、順序集合と束についての成果が使われる。
+
+<!-- 漸近列の一般化、連続性の一般化 -->
+
+[@DaveyPriestley200204]、[@BirthOfLinearLogic]を参照した。
+
+順序集合と単調写像
+=======
+~ Begin Definition {caption: " 半順序集合、前順序集合"}
+  集合$S$と関係$\leq$との対$(S, \leq)$が[ 半順序集合]{.newword}であるとは、反射律・推移律・反対称律、すなわち、
+
+  ~ Aligned
+    &\forall x \in S. x \leq x &(\mathrm{Reflexivity})\\
+    &\forall x, y, z \in S. x \leq y \& y \leq z \Rightarrow x \leq z &(\mathrm{Transivity})\\
+    &\forall x, y \in S. x \leq y \& y \leq x \Rightarrow x = y &(\mathrm{Antisymmetry})
+  ~
+
+  が成り立つことである。$\leq$を半順序である、半順序関係であるとも言う。
+  半順序集合より条件をゆるくして、$S$上の関係$\leq$に対し反射律・推移律が成り立つとき、そのときに限り、対$(S, \leq)$を[ 前順序集合]{.newword; .ruby; rtext: プレじゅんじょ}であると言うこととする。
+  なお、以下では半順序集合を単に順序集合と呼ぶことがある。
+  半順序が以下よく使う順序なので。
+  また、普通の代数構造とかと同じく、ラフに集合Sを順序集合だと言ったり、よく使う順序関係$\leq$を$S$の"デフォルトの"順序として$S$を$(S, \leq)$と同一視したりする。
+  Pを順序集合としたとき、その順序関係を$\le_P$で表す。
+~ End Definition
+
+
+~ Begin Definition {caption: " 全順序集合"}
+  対$(S, \leq)$が[ 全順序集合]{.newword}あるいは[ 鎖]{.newword}、[ 線形順序集合]{.newword}であるとは、半順序集合$(S, \leq)$について全順序律、すなわち、
+
+~ Equation
+  \forall x, y \in S. x \leq y \lor y \leq x
+~
+
+  が成り立つことである。
+~ End Definition
+
+~ Begin Example {caption: " 順序集合の例"}
+半順序集合の例としては、何らかの集合$A$についてのその冪集合$\powerset{A}$とその間の部分集合関係、自然数とその間の整除(割り切れる)関係、$A \to B$の部分関数の集合とその間の「どんな$A$の$x$についても$f(x)$が定義されるならば、$g(x)$も定義されて$f(x)=f(g)$」という関係、文字列の集合と始切片関係、命題の集合と帰結関係、概念の集合と包括関係、数学的対象の集合以外だと、モジュール・知識・理解・存在者などとその間の諸依存関係(これは相互依存があるなら[前]{.ruby; rtext: プレ}順序)、出来事のクラスとその間の因果関係、生物個体の集まりとその間の先祖と子孫の関係、など。
+
+全順序集合の例としては、自然数・整数・実数・超限順序数の間の大小関係、任意の集合についてその間の同一性$=$関係、太陽系の惑星の集合と太陽に近い順の順序、など。
+
+また、定義から分かるように全ての全順序集合は半順序集合でもある。
+~ End Example
+
+~ Collorary
+前順序集合$(P, \leq)$を同値関係$x \leq y \& y \leq x$で割れば、半順序集合になる。
+~
+
+~ Begin Example {caption: "バイナリ列"}
+半順序集合の例として、正規表現`[01]*`で指定されるようなバイナリ列(自然数の二進数表示と考えても良いが、001と1は同一視されない)の集合、つまり有限文字列でどの文字も$0$か$1$なものの集合$\Sigma^{\ast}$を考える($\ast$は[クリーネ閉包][kleene])。
+[kleene]: https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%8D%E9%96%89%E5%8C%85 "クリーネ閉包 - Wikipedia"
+また、無限列も含めたものを$\Sigma^{\ast \ast}$とする。
+順序関係として、$x \leq y$なのは$x$が$y$の始部分列(すなわち、$x$の長さは$y$より短く、どんな$x$の$i$番目の値についても$y$の$i$番目と同じである、$x$は$y$のプレフィックスである)であるという関係を入れる。
+つまり、$010 \leq 01$だが、$010 \leq 10$ではない。
+順序関係的に小さい方が文字数的に長くなってることに注意。
+
+
+n文字のバイナリ列を、$\downX{n-1} \to \downX{2}$で表した時、
+$\Sigma^{\ast}$とは、$\bigcup _ {n= 0} \[\down{n} \to \downX{2}\]$を基集合とし、
+
+順序関係を、$\mathrm{dom}(f) \subseteq \mathrm{dom}(g)$かつ、どんなxについても、$f(x)=y$のとき、$g(x)=y$ならば、$g \leq f$と定義する。
+
+$\Sigma^{\ast \ast}$に関しては、自然数全体の集合から$\mathbf{2}$への写像も要素として考えれば良い。
+
+~ End Example
+
+~ Begin Definition
+  $x \leq y \& x \neq y$を$x \lt y$とか$y \gt x$とかと書く。
+  $x \leq y$を$y \geq x$とも書く。$\lnot(x \leq y)$を$x \nleq y$とか$y \ngeq x$とかと書く。$x \nleq y \& x \ngeq y$を$x \parallel y$と書き、$x$と$y$とが[ 比較不能]{.newword}であるという。
+
+  「比較不能」という言葉を使って言い換えると、全順序集合とは、比較不能な元の無い半順序集合のことである。
+~ End Definition
+
+
+~ Definition {caption: "順序同型"}
+半順序集合$P$と$Q$について全射$f : P \to Q$が存在して、どんな$x,y$にも、$x \leq y$と$f(x) \leq f(y)$が同値ならば、$P$と$Q$を[順序同型]{.newword}と言い、そのような$f$を順序同型写像と言う。
+
+順序同型写像は必ず、全単射である。
+まず、定義より全射である。さらに、$f(x) = f(y)$と仮定しよう。
+反射律から$f(x) \leq f(y)$かつ$f(y) \leq f(x)$。
+そして、$f$は順序同型写像だから、$x \leq y$と$y \leq x$が分かる。
+最後に、反対称律により、$x = y$が分かる。
+$x, y$は任意なので、これは、$f$が単射であることを示す。
+~
+
+~ Definition {caption: " 被覆"}
+  $x$が$y$に[ 被覆]{.newword; .ruby; rtext: "ひふく"}(covering)されるとは、$x \lt y$、かつ、$x \lt z \lt y$なる$z$が存在しないことであり、これを$x \lessdot y$と書く(表記は[Wikipedia](https://en.wikipedia.org/wiki/Covering_relation "Covering Relation")に倣った)。
+  これは、後に述べるハッセ図を書くために使う。
+~
+
+~ Begin Lemma
+  $P$が有限順序集合のとき、$x, y \in P$として、$x = x_0 \lessdot x_1 \lessdot \cdots x_n = y$なる系列$x_0, \cdots x_n \in P$(つまり$x_0 = x$、$x_n = y$かつ、$\forall i. x_i \lessdot x _ {i+1}$なる系列)が存在することと、$x \lt y$なこととは同値。
+
+~ Proof
+  $\Rightarrow$は、推移性から明らか。
+
+  $\Leftarrow$を示そう。
+  $P$は有限なので、$P$の濃度に関する帰納法を用いる。Pの濃度が$2$以下の場合とそうでない場合で場合分けしよう。
+  $P$の濃度が$0$や$1$の場合はそもそも前提の$x \lt y$という関係が満たされないので、自明に成り立つ。
+  $P$の濃度が$2$の場合、異なる$x, y \in P$について、$x \lt y$が成り立つならば、異なる$z$は存在しないので、$x \lessdot y$であるから、成り立つ。
+  $n$の濃度を持つ全ての順序集合について既に成り立ったとして、$P$の濃度が$n+1$の場合を示そう。
+  要素数は2つ以上あるから、$a \in P$と仮定する。$P \setminus \{a\} $を考えると、帰納法の仮定によりどんな$x \leq y$についても系列$x = x_0 \lessdot x_1 \lessdot \cdots x_n = y$が存在する。
+  $a$を付け加えても、$P \setminus \{a\}$の部分については、元通り成り立つ。$x \lt a$を仮定して、系列の存在を示そう。
+  $y \lessdot a$なる$y \in P \setminus \{a\}$が存在しないとする。
+  すると、$P \setminus \{a\}$は空ではないので、どんな$y \lt a$についても$y \lt z \lt a$なる$z$が存在することになる。
+  つまり、$\defset{z \in P}{y \lt z \lt a}$は極大元が存在しない、だから無限集合である。
+  これは$P$が有限集合であることと矛盾。
+  したがって、$y \lessdot a$なる$y$は存在する。
+  $y$については「元通り」成り立つのだったから$x$と$y$を繋ぐ系列があり、つなげば$x$と$a$をつなぐ系列の存在が示される。ひっくり返した$a \lt x$の場合も同様である。従って、任意の場合について系列の存在が示される。
+~
+
+~ End Lemma
+
+~ Definition {caption: " 稠密順序"}
+$P$上の半順序関係$\le$が稠密であるとは、どんな$x, y \in P$についても$x \lt y$ならば、$x \lt z$かつ$z \lt y$なる$z$が存在することである。
+
+言い換えれば、稠密順序には被覆関係で結ばれるような$x, y$が存在しない。
+有理数や、実数や、$[0, 1]$と実数の通常の順序は稠密だが、自然数や超限順序数はそうではない。有理数の例から分かるように、連続性とは異なるので注意[^aristotele]。
+[^aristotele]: ちなみに、アリストテレスなどは、ここでいう稠密性のことを連続性と呼んでいたかも。
+~
+
+~ Definition {caption: " ハッセ図"}
+有限順序集合$(P, \leq)$については、ハッセ図という図で表示できる。
+P上の各$p$を平面上の点$(x, y)$に対応づけ($(x, y) = F(p)$)、その点を中心として円を描く(図では、名前を入れた)。
+このとき、$p \lessdot q$ならば、$F(p)$は$F(q)$より下の点にマッピングする。つまり、$F(p) = (x_1, y_1)$、$F(q) = (x_2, y_2)$として、$y_1 \lt y_2$。
+さらに同じ条件のとき、点$F(p)$と$F(q)$とを線で繋ぐ。
+$p \neq r$かつ$q \neq r$ならば、$F(r)$は$F(p)$と$F(q)$を繋ぐ線と交わらないようにする。
+
+~
+
+~~ Figure { caption : " ハッセ図の例" }
+~ TikzPicture
+\node (max) at (0,4) {$\{a, b, c\}$};
+\node (a) at (-2,2) {$\{a, b\}$};
+\node (b) at (0,2) {$\{a, c\}$};
+\node (c) at (2,2) {$\{b, c\}$};
+\node (d) at (-2,0) {$\{a\}$};
+\node (e) at (0,0) {$\{b\}$};
+\node (f) at (2,0) {$\{c\}$};
+\node (min) at (0,-2) {$\varnothing$};
+\draw (min) -- (d) -- (a) -- (max) -- (b) -- (f)
+(e) -- (min) -- (f) -- (c) -- (max)
+(d) -- (b);
+\draw[preaction={draw=white, -,line width=6pt}] (a) -- (e) -- (c);
+~
+~~
+
+~ Definition {caption: "順序集合の双対"}
+半順序集合$P$に対し双対順序集合$\dual{P}$を、集合は$P$と同じで、順序関係を、$x \leq _ {\dual{P}} y$なのは、$y \leq _ P x$であるときそのときに限ると定める。
+順序集合についての述語$P$の$\leq$と$\geq$を入れ替えることで、双対順序集合について成り立つ双対的な述語$P^{op}$が得られる。
+また、すべての順序集合になりたつような言明$S$に上記のような入れ替えをした双対言明$S^{op}$は、すべての順序集合について成り立つ。
+ちなみに、このような言明を修飾して、「(○○と)双対的に(○○の部分は文脈で補完される)」という意味の"Dually"という副詞が使われてたりする。「双対的に定義される」「双対的に示される」などの用法がある。
+~
+
+~ Definition {caption: "順序集合を作る"}
+適当な関係について、反射推移閉包を取ってx R y & y R xのとき同じになるように同値関係で割れば半順序集合が作れる。
+例: 後者関係$x + 1 = y$にこの操作を適用すると自然数の通常の順序が得られる。
+一方で、全順序集合をこのような方法の延長で作るのは無理っぽい。
+~
+
+
+~ Begin Definition {caption: "最小元、最大元、極小元、極大元"}
+$x$が順序集合$P$の[最小元(bot)]{.newword}であるとは、どんな$y \in P$についても$x \leq y$であることをいう(双対により、[最大元(top)]{.newword}も定義できる)。
+$x$が順序集合$P$の[極小元(minimal element)]{.newword}であるとは、$y \lt x$となるような$y \in P$が存在しないことをいう(双対により、[極大元(maximal element)]{.newword}も定義できる)。
+
+反対称律から最小元、最大元は1つに定まるので、それぞれ$\bot$と$\top$と書く。
+極小元と極大元は1つには定まらないので、$P$の極小元の集合を$\minel P$、極大元の集合を$\maxel P$と書くことにする。
+例としては、自然数の最小元は$0$(または$1$)である。最大元は存在しない[^aristotele2]。
+実数、整数には最大元も最小元も存在しない。
+
+[@DaveyPriestley200204]によると、計算機科学者は停止しない計算を表すため最小元が存在するモデルをよく使うが、最大元は無しにすることを好むらしい。
+計算機科学における最大元の例は、Javaなどのオブジェクト指向言語において全てのクラスの親クラスになるObjectクラスがある。
+
+[^aristotele2]: 昔の人はどんな $x$ についても $y$ が存在して $x \leq y$ となるんだから、どんな$x$についても$x \leq y$となるような$y$が存在するんだろうという論法を頻繁に使い、自然数やその他にも最大値(無限大)があると結論していたらしい。分析哲学者のピーター・ギーチは、このことと、アリストテレス論理学が多重量化を扱えないため、「全ての$x$について$y$が存在して、$P(x, y)$」と「ある$y$が存在して、全ての$x$について、$P(x, y)$」との区別をうまく表現できなかったことと結びつけているようだ[@Iida198710]。
+~ End Definition
+
+<!-- draft add -->
+~~ Figure { caption : "極大元" }
+~ TikzPicture
+\node (z) at (3,-3) {$\maxel_A$};
+\node (a) at (1,0) {$\maxel_B$};
+\node (c) at (2,-1) {$3$};
+\node (d) at (0,-3) {$\minel_A$};
+\node (e) at (4,-2) {$\minel_B$};
+\draw (a) -- (c)
+(a) -- (e)
+(c) -- (d);
+~
+~~
+<!-- draft add -->
+
+
+~ Begin Lemma
+さっき順序集合$P$に極大元が存在せず、空でない場合には$P$は無限集合であるという事実を証明なしで使ったが、証明をやってみる。
+~ Begin Proof
+対偶、すなわち空でない順序集合$P$について、有限なら極大元が存在することを、示そう。
+$P$の濃度に関する帰納法を用いる。
+$P$は空でないから、濃度が0の場合は問題ない。
+$P$がシングルトンの場合、唯一の要素こそが、それより小さい要素はそれ以外無いから、極大元である。
+濃度$n$の全ての集合に極大元があったとして、濃度$n+1$の$P$に極大元があることを示そう。
+濃度は2以上だから$a \in P$とする。帰納法の仮定により$P \setminus \{a\}$は極大元を持つ。
+$x$を$P \setminus \{a\}$の極大元の1つとする。$x \leq a$か、そうでないかのいずれかである。
+もしそうなら、$a$は$P$の極大元である。
+そうでないなら、$x$は$P$の極大元でもある。
+いずれにせよ、極大元が存在する。
+~ End Proof
+~ End Lemma
+
+~ Begin Lemma {caption: " ミュンヒハウゼンのトリレンマ、後退論証"}
+$(A, \lt)$を前順序集合とする。
+以下の3つのうち、どれかが成り立つ。
+
+1. Aは無限集合である
+2. $\lt$は極大元を持つ
+3. $\lt$は反対称的でない
+
+~ End Lemma
+
+~ Definition {caption: "上界、上限"}
+半順序集合$P$の部分集合$Q$について、全ての$x \in Q$について$x \leq y$となる$y \in P$を、$P$の上界と呼ぶ。
+$P$の上界の中で、最小のものを、$P$の上限$\bigvee P$と呼ぶ(半順序なので、最小のものは唯一である)。
+双対によって、下界、下限も定義できる。
+また、演算$x \vee y$を$\{x, y\}$の上限として定義する。
+双対的に、演算$x \wedge y$を$\{x, y\}$の下限として定義する。
+~
+~ Example {caption: "上限、上界の例"}
+自然数と整除関係の順序集合において、上限は最小公倍数、下限が最大公約数。
+生物の集まりと先祖祖先関係からなる順序集合を考えると、現在存在する個体の集合の上限はミトコンドリア・イブやY染色体アダムに当たるかもしれない。
+生物種と先祖祖先関係であれば、上限は共通祖先である。
+~
+~ Example {caption: "妄想"}
+生物の集まりと先祖祖先関係からなる順序集合について、個体の集合が無限集合の場合の上限(極限)となる超限ミトコンドリア・イブについて想像してみよう。
+~
+
+<!-- Constructing and deconstructing order set のところ -->
+<!-- 下書き追加内容 -->
+
+~ Definition {caption: "最小元の追加"}
+順序集合$P$について、$P _ \bot$を、集合$P _ \bot = P \cup {\bot}$と、関係$x \leq _ \bot y$ iff $x = 0 \lor x \leq y \in P$で定めたときの$(P,\leq _ \bot)$で定める
+任意の集合$S$が与えられたとき、反鎖$\antichain{S}$として順序付けし、さらに$\antichain{S} _ {\bot}$を考えることができ、これを[flat]{.newword}と呼ぶ。
+~
+~~ Figure { caption : "$\antichain{\nat} _ {\bot}$" }
+~ TikzPicture
+\node (z) at (0,2) {$0$};
+\node (a) at (1,2) {$1$};
+\node (b) at (2,2) {$2$};
+\node (c) at (3,2) {$3$};
+\node (d) at (4,2) {$4$};
+\node (dot) at (5,2) {$\dots$};
+\node (min) at (2,0) {$\bot$};
+\draw (a) -- (min)
+(b) -- (min)
+(c) -- (min)
+(d) -- (min)
+(z) -- (min)
+(dot) -- (min);
+~
+~~
+
+
+~ Definition {caption: "順序集合の非交和 (disjoint union)"}
+順序集合$P$、$Q$について非交和$P \dunion Q$とは、関係$\leq _ {P \dunion Q}$を$x \leq _ {P \dunion Q} y$であるのは、$x,y \in P$かつ$x \leq_P y$のとき、$もしくは$x,y \in Q$かつ$x \leq_Q y$のとき、そのときに限るとしたときの、$(P \cup Q, \leq_{P \dunion Q})$と定める
+~
+
+~ Definition {caption:"順序集合の線形和 (linear sum)"}
+$P$と$Q$がお互いに素な(あるいはインデックスを振ってお互いに素にしても構わない)順序集合$(P, \leq)$と$(Q, \leq)$について、$P \bigoplus Q$を、$x \leq_{P \bigoplus Q} y \iff x, y \in P \& x \leq_P y \lor x, y \in Q \& x \leq_Q y \lor x \in P \& y \in Q$を関係として、$(\leq _ {P \bigoplus Q}, P \cup Q)$として定める。
+これは、演算の順番で先に来た方が順序においても左に来る、非可換な演算だ。
+線形和のグラフは$P$の下に$Q$を置き、$P$の各極小元から$Q$の各極大元に対して線を引けばいい。
+~
+
+<!-- 下書き追加内容 -->
+
+~ Definition {caption: "上方集合、下方集合"}
+  $Q \subseteq P$について、$x \in Q$で$y \in P$で$x \leq y$なら$y \in Q$となるような$Q$を$P$の上方集合(up-set)という。
+  双対的に、$x \in Q$で$y \in P$で$y \leq x$なら$y \in Q$となるような$Q$を$P$の下方集合(down-set)という。
+
+  また、$P$の下方集合の族を$\downsetlattice{P}$と書く。
+  $\downsetlattice{P}$は関係$\subseteq$のもとで順序集合である。
+~
+
+~ Begin Theorem
+  $P$を順序集合とし、$x, y \in P$とする。
+
+  以下は同値:
+
+  1. $x \leq y$
+  2. $\downX{x} \subseteq \downX{y}$
+  3. $\forall Q \in \downsetlattice{P}. y \in Q \Rightarrow x \in Q$ (どんな$P$の下方集合$Q$についても、$y \in Q$ならば、$x \in Q$であること)
+
+つまり、$x \mapsto \downX{x}$は$(P, \leq)$から$(\downsetlattice{P}, \subseteq)$への順序埋め込みである。
+
+~ Proof
+  (1) $\Rightarrow$ (2). $x \leq y$、$z \in \downX{x}$とする。
+  $z \leq x$となり、推移性から$z \leq y$も分かる。
+  したがって、$z \in \downX{y}$。
+  $z$は任意に取ったから、$\downX{x} \subseteq \downX{y}$が示された。
+
+  (2) $\Rightarrow$ (1). $x \in \downX{x}$である。
+  仮定から$x \in \downX{y}$となり、$x \leq y$が分かる。
+
+  (2) $\Rightarrow$ (3). $\downX{x} \subseteq \downX{y}$とし、$y \in Q \in \downsetlattice{P}$とする。
+  (2)$\Rightarrow$(1)は分かっているので、$x \leq y$が分かり、$Q$は下方集合だから、$x \in Q$。
+
+  (3) $\Rightarrow$ (1) $x \leq y$の否定を仮定する。
+  すると、$x \notin \downX{y}$。
+  $\downX{y}$は下方集合だから、$\downX{y} \in \downsetlattice{P}$。
+  $y \in \downX{y}$は明らか。
+  ここで$x \nleq y$が(3)と矛盾。
+  よって$x \leq y$である。
+  ($x \leq y$でないとしたとき、(3)の$Q$の部分に$\downX{y}$を入れると、反例となってしまうという背理法)
+~
+
+~ End Theorem
+
+
+~ Definition  {caption: " イデアル、フィルター"}
+$L$を束とする。$L$の非空な部分集合のうち下方集合かつ上限について閉じているものを[イデアル]{.newword}という。
+双対的に、$L$の非空な部分集合のうち上方集合かつ下限について閉じているもの[フィルター]{.newword}という。
+~
+
+~ Begin Theorem
+  $L$を完備束とする。
+  このとき、$L$から$L$への任意の単調関数は不動点をもつ。
+
+~ Proof
+  $A = \defset{x \in L}{f(x) \leq x}$、そして、
+  $a = \bigwedge A$としよう。
+
+  さらに、$x \in A$とする。
+  $a$の最小性により、$a \leq x$。
+  単調性により、$f(a) \leq f(x)$。
+  $A$の定義により、$f(x) \leq x$。
+
+  $f(a) \leq a$
+
+  これは最小不動点の構成であり、双対により最大不動点も得られる。
+~
+
+~ End Theorem
+
+~ Begin Theorem
+  半順序集合$X$から半順序集合$Y$への関数$f$が連続関数のとき、$f$は単調関数である。
+
+~ Proof
+  $x, y \in X$に対し、$y \leq x$とすると、$\{x, y\}$は有向集合である。
+  Connecting Lemmaにより$x = \bigvee \{x, y\}$だが、連続性から$f(x) = \bigvee \{f(x), f(y)\}$。
+  ふたたびConnecting Lemmaにより、$f(y) \leq f(x)$。
+  $x, y \in X$は任意に取ったので単調性が示された。
+~
+~ End Theorem
+
+~ Begin Theorem
+  半順序集合$A$から半順序集合$B$への関数$f$は、単調かつ有限呼び出しのとき、そのときに限り、連続である。
+
+~ Proof
+(単調&有限呼び出し$\Rightarrow$連続)
+
+
+(単調&有限呼び出し$\Leftarrow$連続)
+~
+
+~ End Theorem
+
+~ Definition
+木とは、最大限を持ち、どんなxについてもxの上方集合が常に全順序になるような半順序集合のことである。
+([@DaveyPriestley200204], Exacise 1.5)
+~
+
+~ Theorem
+無限列を含むバイナリ列$\Sigma^{\ast\ast}$の双対順序集合は木である。
+空文字列が最大限。
+
+$x \in \Sigma^{\ast\ast}$とする。
+上方集合はすでに半順序であることが分かっている。
+
+そこで、$f,g \in \downX{x}$について、$f\leq g$か、$g\leq f$であるか?
+
+$f \leq g$でないとしよう。すると、fの定義域がgの定義域を部分としないか、ある$x \in f \cap g$が存在して、$f(x) = g(x)$でないか、ということになる。
+
+ところが、後者の場合、$f,g \leq x$と矛盾する。
+
+よって、前者であることがわかった。
+このとき、$g \leq f$であることが示される。
+
+$g \leq f$でない場合も、同様の議論で、$f \leq g$であることが示される。
+
+ゆえに、$f \leq g$または$g \leq f$のどちらかである。
+
+~~ Proof
+
+~~
+~
+
+[BIB]
