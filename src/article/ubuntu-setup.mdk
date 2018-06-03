@@ -3,7 +3,7 @@ Author: ayu-mushi
 Keywords: えへへー☆
 Description: セッティング
 Pubdate: 2016-12-10
-Update: 2016-12-10
+Update: &date;
 
 [INCLUDE="../mytheme/myprelude.mdk"]
 
@@ -100,7 +100,7 @@ Dropboxを入れたら、まず[共通の設定][dotfiles]を持ってくる。
 テキストブラウザ。
 lynxでも可。
 
-> 訪れたことがあるリンクは色を変える (*)YES  ( )NO
+> 訪れたことがあるリンクは色を変える (\*)YES  ( )NO
 
 > 訪れたことがあるリンクの色 [紫  ]
 
@@ -164,6 +164,13 @@ sudo apt-get install fbterm
 > `wget -qO- https://get.haskellstack.org/ | sh`
 
 [stack]: https://docs.haskellstack.org/en/stable/install_and_upgrade/#linux
+
+##LaTeX
+mhchem などを使うときに、バージョンが高くないといけないようだし、tlgmr を使えたほうが便利なので、パッケージ管理システムを使わずにTeXLiveをインストールする。
+
+TeXLiveに標準で日本語環境がマージされているようなので、普通にTeXLive を入れると良い
+
+[Linux - TeX Wiki](https://texwiki.texjp.org/?Linux) を参照
 
 #問題と対処: ケーススタディ
 自分が遭遇した問題だけ書くので経験論というやつですね。
