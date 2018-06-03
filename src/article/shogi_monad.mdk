@@ -1,0 +1,36 @@
+Title: 合成可能な将棋の駒の動きをモナドで表す
+Pubdate: 2018-04-25
+Update: &date;
+Description: 将棋をモナドで表す
+Keywords: 将棋, Haskell, モナド
+Draft: True
+
+
+``` Haskell
+type PieceM = StateT ((Int, Int), Field) [] -- 駒モナド
+```
+
+飛車や角のような飛び道具の振る舞いを表す。
+
+```
+moveAll :: PieceM (Either (Piece, (Int, Int)) (Int, Int)) -> PieceM (Int, Int)
+moveAll move1 = moveAll' `mplus` use _1 where
+  moveAll' = do
+    loc2 <- move1
+    case loc2 of
+      Left (pie, xy) -> do
+        _1 .= xy
+        return (xy::(Int, Int))
+      Right xy -> do
+        _1 .= xy
+        moveAll move1
+```
+
+相手の駒を取るとストップし、自分のコマは飛び越せないので、そのへんの振る舞いを表すのに使う。
+
+竜や馬は「王または飛車、角」で表す。
+斜めを`縦>>横`で表そうとしたが、それはダメだ
+
+獅子
+
+量子将棋

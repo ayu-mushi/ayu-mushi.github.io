@@ -61,6 +61,7 @@ foreign import javascript interruptible "$1.onmousemove = function(e) { $c(e.cli
 細かい実装については分かりませんが、変数`$c`を使った場合には、一回の呼び出しにつきイベント発生回数が一回になる。
 そして、複数回別の継続がある場所で呼び出すことができます。
 これにより`mouseXY :: Element -> IO (Int, Int)`などのコールバックだった関数を、`read :: IO String` などと同じように扱えるので、便利です。
+ただし、複数使うと、競合するようです。
 
 ["継続モナドによるリソース管理 - Qiita"](https://qiita.com/tanakh/items/81fc1a0d9ae0af3865cb)も参照。
 

@@ -231,7 +231,8 @@ $(A, \lt)$を前順序集合とする。
 
 ~ Definition {caption: "上界、上限"}
 半順序集合$P$の部分集合$Q$について、全ての$x \in Q$について$x \leq y$となる$y \in P$を、$P$の上界と呼ぶ。
-$P$の上界の中で、最小のものを、$P$の上限$\bigvee P$と呼ぶ(半順序なので、最小のものは唯一である)。
+$P$の上界の中で、最小のものを、$P$の上限$\bigvee P$と呼ぶ(半順序なので、最小のものは唯一である)。`\vee`が上限、`\wedge`が下限
+
 双対によって、下界、下限も定義できる。
 また、演算$x \vee y$を$\{x, y\}$の上限として定義する。
 双対的に、演算$x \wedge y$を$\{x, y\}$の下限として定義する。
@@ -402,6 +403,20 @@ $g \leq f$でない場合も、同様の議論で、$f \leq g$であることが
 ~~ Proof
 
 ~~
+~
+
+~ Theorem
+$A = \bigcup _ {i \in I} A$としたとき、$\bigwedge A = \bigwedge _ {i \in I} (\bigwedge A_i)$
+
+すなわち、ある族の和集合の上限は、「その族の中の集合それぞれの上限の集合」の上限と一致する。
+
+~~ Proof
+$A_i \subseteq A$だから、$\bigwedge A_i \leq \bigwedge A$。
+したがって、$\bigwedge A$は$\{\bigwedge A_i | i \in I\}$の上界の1つである。
+$\bigwedge_ { i \in I} (\bigwedge A_i)$は$\{ \bigwedge A_i | i \in I\}$の上限を意味するから、$\bigwedge _ {i \in I} (\bigwedge A) \leq \bigwedge A$
+
+~~
+
 ~
 
 [BIB]
