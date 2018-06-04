@@ -44,4 +44,7 @@ build/%.html : src/%.md src/mytheme/main.css
 clean:
 	rm -f $(BUILDS) build/mytheme/main.css build/README.md $(ARTICLE_BUILDS)
 
+build/favicon.ico: src/images/favicon.png
+	convert $< $@
+
 rebuild: clean all
