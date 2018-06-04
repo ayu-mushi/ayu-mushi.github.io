@@ -94,6 +94,20 @@ Dropboxを入れたら、まず[共通の設定][dotfiles]を持ってくる。
   : Push window back into tiling
 > ...
 
+##Vim
+["vim-jp » Linuxでのビルド方法"](vim-build)
+
+[vim-build]: https://vim-jp.org/docs/build_linux.html
+
+
+[NeoBundleのインストール -- Qiita](https://qiita.com/Kuchitama/items/68b6b5d5ed40f6f96310)
+
+
+> ```
+> $ mkdir -p ~/.vim/bundle
+> $ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+> ```
+
 ##Xmobar
 
 ##w3m
