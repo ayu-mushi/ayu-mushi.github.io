@@ -19,6 +19,9 @@ Github
 ask.fm
   ~ [ayu\_mushi](http://ask.fm/ayu_mushi)
 
+マシュマロ
+  ~ [ayu\_mushi](https://marshmallow-qa.com/ayu\_mushi)
+
 SoundCloud
   ~ [ayu-mushi](https://soundcloud.com/ayu-mushi)
 
