@@ -130,9 +130,18 @@ lynxでも可。
 > ~/.dropbox-dist/dropboxd
 > ```
 
+
+
+
 > サーバで初めて Dropbox を実行する場合、使用中のブラウザでリンクをコピー、貼り付けをして新規アカウントを作成するか、既存のアカウントとサーバを連携させるように指示が表示されます。その後、Dropbox フォルダがホーム ディレクトリに作成されます。コマンド ラインから Dropbox を管理するには Python スクリプト をダウンロードしてください。アクセスしやすくするには、PATH のどこかでスクリプトに symlink します。
 
 [pyscript]: https://www.dropbox.com/download?dl=packages/dropbox.py
+
+[dropbox python script](pyscript)
+
+```
+wget https://www.dropbox.com/download?dl=packages/dropbox.py
+```
 
 そしたら.xsessionrcからdropboxを自動起動するようにする
 
