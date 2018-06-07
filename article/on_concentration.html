@@ -136,10 +136,12 @@ main <span style="color:blue">=</span> <span style="color:blue">do</span>
   myStatusBar &lt;- spawnPipe <span style="color:maroon">&quot;</span><span style="color:maroon">xmobar</span><span style="color:maroon">&quot;</span>
   isInConc &lt;- newMVar <span style="color:purple">False</span>
   xmonad $ defaults isInConc $ dynamicLogWithPP $ xmobarPP { ppOutput <span style="color:blue">=</span> hPutStrLn myStatusBar}
-</code></pre><h2 id="section" class="h1" data-line="74" data-heading-depth="1" style="display:block"><span data-line="74"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="74"></span>その他</h2>
-<p class="p noindent" data-line="75"><span data-line="75"></span>脳内イベントループを減らすこと
+</code></pre>
+<p class="p noindent para-continued" data-line="73"><span data-line="73"></span>どうしても変えたいときは<span data-line="73"></span><code class="code code1">xmonad --restart</code><span data-line="73"></span>すると変数も新しくなるので集中中ではなくなる。
+</p><h2 id="section" class="h1" data-line="76" data-heading-depth="1" style="display:block"><span data-line="76"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="76"></span>その他</h2>
+<p class="p noindent" data-line="77"><span data-line="77"></span>脳内イベントループを減らすこと
 </p>
-<p class="p indent" data-line="77"><span data-line="77"></span></main></p><span data-line=""></span>
+<p class="p indent" data-line="79"><span data-line="79"></span></main></p><span data-line=""></span>
 <div class="footnotes madoko">
 <hr >
 
