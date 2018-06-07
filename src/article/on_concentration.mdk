@@ -1,9 +1,75 @@
 Title: 集中力について
-Pubdate: 2018-05-20
+Pubdate: 2018-06-08
 Update: &date;
-Description: 
-Keywords: 
-Draft: True
+Description: 集中のためにXMonadなどをいじる
+Keywords: XMonad, 集中力
 [INCLUDE="../mytheme/myprelude.mdk"]
 
-イベントループを減らす
+
+#XMonadでの対策
+XMonadでワークスペースをカチャカチャ無意味に移動して集中できない問題への対策として、`mod-s`で一定時間ワークスペース間の移動を不可能にすることをした。
+
+方法は、愚直に集中中かどうかを変数を持ち回って、`mod-s`で変数に集中中を表す値を入れ、1分したら集中中でなくしている[^better]。
+そして、もとの`windows`を改変した`myWindows`は、集中中の場合に作動しないようにしている。
+ワークスペース間の移動について、`windows`を`myWindows`と差し替えている。
+
+[^better]: もっといいやり方があったら教えてほしい
+
+``` haskell
+import Control.Concurrent (forkIO, MVar, readMVar, newMVar, modifyMVar, modifyMVar_, putMVar, threadDelay)
+
+myWindows :: MVar Bool -> (WindowSet -> WindowSet) -> X ()
+myWindows v f = do
+  isInConc <- io $ readMVar v
+  when (not isInConc) $ windows f
+
+myKeys isInConc conf@(XConfig {XMonad.modMask = modm}) = M.fromList $ let windows_frzable = myWindows isInConc in
+[
+...
+, ((modm, xK_s), io $ do
+        i <- readMVar isInConc
+        when (not i) $ do
+          modifyMVar_ isInConc $ \x -> return True
+          forkIO $ do threadDelay (60 * 10^6)
+                      modifyMVar_ isInConc $ \x -> return False
+          return ()
+      )
+...
+]
+    ++
+
+    --
+    -- mod-[1..9], Switch to workspace N
+    -- mod-shift-[1..9], Move client to workspace N
+    --
+    [((m .|. modm, k), windows_frzable $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    ++
+
+    --
+    -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+    -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+    --
+    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows_frzable . f))
+        | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+
+
+
+defaults isInConc mLH = gnomeConfig {
+  ...
+  keys               = myKeys isInConc,
+  ...
+}
+
+main = do
+  myStatusBar <- spawnPipe "xmobar"
+  isInConc <- newMVar False
+  xmonad $ defaults isInConc $ dynamicLogWithPP $ xmobarPP { ppOutput = hPutStrLn myStatusBar}
+
+```
+
+
+#その他
+脳内イベントループを減らすこと
