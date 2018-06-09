@@ -68,24 +68,29 @@
 <dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:118" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:118"></span><date id="pubdate" pubdate="pubdate">2018-06-08</date><span data-line="6;src/article/../mytheme/myprelude.mdk:118"></span>
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
-<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:120" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:120"></span><date id="update">2018-06-08</date></dd></dl></div>
+<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:120" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:120"></span><date id="update">2018-06-09</date></dd></dl></div>
 <div id="source" data-line="6;src/article/../mytheme/myprelude.mdk:128">
 <dl class="dl compact" data-line="6;src/article/../mytheme/myprelude.mdk:129">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
 <dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:129" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:129"></span>https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/on_concentration.mdk</dd></dl></div></div><span data-line="6;src/article/../mytheme/myprelude.mdk:135"></span>
 <nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
 <div class="tocblock tocblock1">
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-xmonad" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;XMonad\u3067\u306E\u5BFE\u7B56" style="toctarget:sec-xmonad"><a href="#sec-xmonad" class="localref"><span class="heading-label">1</span>.&#8194;XMonadでの対策</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-xmonad" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;XMonad\u3067\u96C6\u4E2D\u3067\u304D\u306A\u3044\u5834\u5408\u306E\u5BFE\u7B56" style="toctarget:sec-xmonad"><a href="#sec-xmonad" class="localref"><span class="heading-label">1</span>.&#8194;XMonadで集中できない場合の対策</a></div>
 <div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u305D\u306E\u4ED6" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">2</span>.&#8194;その他</a></div></div></nav>
-<div class="mathdefs input-mathdefs" data-line="6;src/article/../mytheme/myprelude.mdk:137"></div><h2 id="sec-xmonad" class="h1" data-line="9" data-heading-depth="1" style="display:block"><span data-line="9"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="9"></span>XMonadでの対策</h2>
+<div class="mathdefs input-mathdefs" data-line="6;src/article/../mytheme/myprelude.mdk:137"></div><h2 id="sec-xmonad" class="h1" data-line="9" data-heading-depth="1" style="display:block"><span data-line="9"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="9"></span>XMonadで集中できない場合の対策</h2>
 <p class="p noindent" data-line="10"><span data-line="10"></span>XMonadでワークスペースをカチャカチャ無意味に移動して集中できない問題への対策として、<span data-line="10"></span><code class="code code1">mod-s</code><span data-line="10"></span>で一定時間ワークスペース間の移動を不可能にすることをした。
 </p>
 <p class="p indent" data-line="12"><span data-line="12"></span>方法は、愚直に集中中かどうかを変数を持ち回って、<span data-line="12"></span><code class="code code1">mod-s</code><span data-line="12"></span>で変数に集中中を表す値を入れ、1分したら集中中でなくしている<span data-line="12"></span><sup id="back-fn-better" ><a href="#fn-better" title="1.もっといいやり方があったら教えてほしい
 &#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="12"></span>。
 そして、もとの<span data-line="13"></span><code class="code code1">windows</code><span data-line="13"></span>を改変した<span data-line="13"></span><code class="code code1">myWindows</code><span data-line="13"></span>は、集中中の場合に作動しないようにしている。
 ワークスペース間の移動について、<span data-line="14"></span><code class="code code1">windows</code><span data-line="14"></span>を<span data-line="14"></span><code class="code code1">myWindows</code><span data-line="14"></span>と差し替えている。
+</p><!-- import が少ない-->
+
+
+
+<p class="p indent" data-line="20"><span data-line="20"></span>~<span data-line="20"></span>/.xmonad/xmonad.hs
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="18" data-line-first="19" style="display:block"><code data-line="19"><span style="color:blue">import</span> <span style="color:navy">Control.</span><span style="color:purple">Concurrent</span> (forkIO, <span style="color:purple">MVar</span>, readMVar, newMVar, modifyMVar, modifyMVar_, putMVar, threadDelay)
+<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="22" data-line-first="23" style="display:block"><code data-line="23"><span style="color:blue">import</span> <span style="color:navy">Control.</span><span style="color:purple">Concurrent</span> (forkIO, <span style="color:purple">MVar</span>, readMVar, newMVar, modifyMVar, modifyMVar_, putMVar, threadDelay)
 
 myWindows <span style="color:teal">::</span> <span style="color:teal">MVar</span> <span style="color:teal">Bool</span> <span style="color:teal">-&gt;</span> <span style="color:teal">(</span><span style="color:teal">WindowSet</span> <span style="color:teal">-&gt;</span> <span style="color:teal">WindowSet</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">X</span> <span style="color:teal">(</span><span style="color:teal">)</span>
 myWindows v f <span style="color:blue">=</span> <span style="color:blue">do</span>
@@ -137,11 +142,15 @@ main <span style="color:blue">=</span> <span style="color:blue">do</span>
   isInConc &lt;- newMVar <span style="color:purple">False</span>
   xmonad $ defaults isInConc $ dynamicLogWithPP $ xmobarPP { ppOutput <span style="color:blue">=</span> hPutStrLn myStatusBar}
 </code></pre>
-<p class="p noindent para-continued" data-line="73"><span data-line="73"></span>どうしても変えたいときは<span data-line="73"></span><code class="code code1">xmonad --restart</code><span data-line="73"></span>すると変数も新しくなるので集中中ではなくなる。
-</p><h2 id="section" class="h1" data-line="76" data-heading-depth="1" style="display:block"><span data-line="76"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="76"></span>その他</h2>
-<p class="p noindent" data-line="77"><span data-line="77"></span>脳内イベントループを減らすこと
+<p class="p noindent para-continued" data-line="77"><span data-line="77"></span>どうしても移動したいときは<span data-line="77"></span><code class="code code1">xmonad --restart</code><span data-line="77"></span>すると変数も新しくなるので集中中ではなくなる。
 </p>
-<p class="p indent" data-line="79"><span data-line="79"></span></main></p><span data-line=""></span>
+<p class="p indent" data-line="79"><span data-line="79"></span>TODO: 集中中かどうかをどこかに可視化する
+</p>
+<p class="p indent" data-line="81"><span data-line="81"></span>やってみた結果としては、それなりに集中できるように思う。
+</p><h2 id="section" class="h1" data-line="83" data-heading-depth="1" style="display:block"><span data-line="83"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="83"></span>その他</h2>
+<p class="p noindent" data-line="84"><span data-line="84"></span>脳内イベントループを減らすこと
+</p>
+<p class="p indent" data-line="86"><span data-line="86"></span></main></p><span data-line=""></span>
 <div class="footnotes madoko">
 <hr >
 
