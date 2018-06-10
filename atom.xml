@@ -2858,365 +2858,21 @@ W3M_CURRENT_COLUMN=15</code></pre>
   <meta name="viewport" content="initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="twitter:site" content="ayu_mushi" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:title" content="Ubuntuのセッティング" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ayu-mushi's website" />
+  <meta property="og:description" content="セッティング" />
   <meta name="keywords" content="えへへー☆" />
   <meta name="author" content="ayu-mushi" />
   <meta name="description" content="セッティング" />
   <title>Ubuntuのセッティング</title>
-  <style type="text/css"  class="link">
-  /*# sourceURL=madoko.css */
-  
-  .madoko .toc>.tocblock .tocblock .tocblock {
-    margin-left: 2.25em;
-  }
-  .madoko .toc>.tocblock .tocblock {
-    margin-left: 1.5em;
-  }
-  .madoko .toc-contents>.tocblock>.tocitem {
-    font-weight: bold;
-  }
-  .madoko .toc {
-    margin-top: 1em;
-  }
-  .madoko p.para-continue {
-    margin-bottom: 0pt;
-  }
-  .madoko .para-block+p {
-    margin-top: 0pt;
-  }
-  .madoko ul.para-block, .madoko ol.para-block {
-    margin-top: 0pt;
-    margin-bottom: 0pt;
-  }
-  .madoko ul.para-end, .madoko ol.para-end {
-    margin-bottom: 1em;
-  }
-  .madoko dl {
-    margin-left: 0em;
-  }
-  .madoko blockquote {
-    font-style: italic;
-  }
-  .madoko a.localref {
-    text-decoration: none;
-  }
-  .madoko a.localref:hover {
-    text-decoration: underline;
-  }
-  .madoko .footnotes {
-    font-size: smaller;
-    margin-top: 2em;
-  }
-  .madoko .footnotes hr {
-    width: 50%;
-    text-align: left;
-  }
-  .madoko .footnote { 
-    margin-left: 1em;
-  }
-  .madoko .footnote-before {
-    margin-left: -1em;
-    width: 1em;
-    display: inline-block;
-  }
-  .madoko .align-center, .madoko .align-center>p {
-    text-align: center !important;
-  }
-  .madoko .align-center pre {
-    text-align: left;
-  }
-  .madoko .align-center>* {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .madoko .align-left, .madoko .align-left>p {
-    text-align: left !important;
-  }
-  .madoko .align-left>* {
-    margin-left: 0pt !important;
-    margin-right: auto !important;
-  }
-  .madoko .align-right, .madoko .align-right>p {
-    text-align: right !important;
-  }
-  .madoko .align-right>* {
-    margin-left: auto !important;
-    margin-right: 0pt !important;
-  }
-  .madoko .align-center>table,
-  .madoko .align-left>table,
-  .madoko .align-right>table {
-    text-align: left !important;
-  }
-  .madoko .equation-before {
-    float: right;
-  }
-  .madoko .bibitem {
-    font-size: smaller;
-  }
-  .madoko .bibsearch {
-    font-size: x-small;
-    text-decoration:none;
-    color: black;
-    font-family: "Segoe UI Symbol", Symbola, serif;
-  }
-  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
-    margin-top: 1ex;
-    margin-bottom: 1ex;
-  }
-  .madoko .figure {
-    padding: 0.5em;
-    margin-left: 0pt;
-    margin-right: 0pt;
-  }
-  .madoko .hidden {
-    display: none;
-  }
-  .madoko .invisible {
-    visibility: hidden;
-  }
-  .madoko.preview .invisible {
-    visibility: visible;
-    opacity: 0.5;
-  }
-  .madoko code.code, .madoko span.code {
-    white-space: pre-wrap;
-  }
-  .madoko hr, hr.madoko {
-    border: none;
-    border-bottom: black solid 1px;
-    margin-bottom: 0.5ex;
-  }
-  .madoko .framed>*:first-child {
-    margin-top: 0pt;
-  }
-  .madoko .framed>*:last-child {
-    margin-bottom: 0pt;
-  }
-  .madoko ul.list-style-type-dash {
-      list-style-type: none !important;
-  }
-  .madoko ul.list-style-type-dash > li:before {
-      content: "\2013"; 
-      position: absolute;
-      margin-left: -1em; 
-  }
-  .madoko table.madoko {
-    border-collapse: collapse;
-  }
-  .madoko td, .madoko th {
-    padding: 0ex 0.5ex;
-    margin: 0pt;
-    vertical-align: top;
-  }
-  .madoko .cell-border-left {
-    border-left: 1px solid black;
-  }
-  .madoko .cell-border-right {
-    border-right: 1px solid black;
-  }
-  .madoko thead>tr:first-child>.cell-line,
-  .madoko tbody:first-child>tr:first-child>.cell-line {
-    border-top: 1px solid black;
-    border-bottom: none;
-  }
-  .madoko .cell-line, .madoko .cell-double-line {
-    border-bottom: 1px solid black;
-    border-top: none;
-  }
-  .madoko .cell-double-line {
-    border-top: 1px solid black;
-    padding-top: 1.5px !important;
-  }
-  .madoko .input-mathpre .MathJax_Display {
-    text-align: left !important;
-  }
-  .madoko div.input-mathpre {
-    text-align: left;
-    margin-top: 1.5ex;
-    margin-bottom: 1ex;
-  }
-  .madoko .math-rendering {
-    text-align: left;
-    white-space: pre;
-    color: gray;
-  }
-  .madoko .mathdisplay {
-    text-align: center;
-  }
-  .madoko .pretty table {
-    border-collapse: collapse;
-  }
-  .madoko .pretty td {
-    padding: 0em;
-  }
-  .madoko .pretty td.empty {
-    min-width: 1.5ex;
-  }
-  .madoko .pretty td.expander {
-    width: 100em;
-  }
-  body.madoko, .madoko .serif {
-    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
-  }
-  .madoko .sans-serif {
-    font-family: "Calibri", "Optima", sans-serif;
-  }
-  .madoko .symbol {
-    font-family: "Segoe UI Symbol", Symbola, serif;
-  }
-  body.madoko {  
-    -webkit-text-size-adjust: 100%;       
-    text-rendering: optimizeLegibility;
-  }
-  body.madoko {
-    max-width: 88ex; 
-    margin: 1em auto;
-    padding: 0em 2em;  
-  }
-  body.preview.madoko {
-    padding: 0em 1em;
-  }
-  .madoko p {
-    text-align: justify;
-  }
-  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
-    margin-top: 1.22em; 
-    margin-bottom: 1ex;
-  }
-  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
-    margin-top: 1ex;    
-  }
-  .madoko h5, .madoko h6 { 
-    margin-top: 1ex;
-    font-size: 1em;
-  }
-  .madoko h5 { 
-    margin-bottom: 0.5ex;
-  }
-  .madoko h5 + p {
-    margin-top: 0.5ex;
-  }
-  .madoko h6 { 
-    margin-bottom: 0pt;
-  }
-  .madoko h6 + p {
-    margin-top: 0pt;
-  }
-  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
-  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
-    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
-    font-size: 0.85em;
-  }
-  .madoko pre code, .madoko .token-indent {
-    font-size: 0.95em;
-  }
-  .madoko pre code {
-    font-family: inherit !important;
-  }
-  .madoko ol.linenums li {
-    background-color: white;
-    list-style-type: decimal;
-  }
-  .madoko .remote {
-    background-color: #F0FFF0;
-  }
-  .madoko .remote + * {
-    margin-top: 0pt;
-  }
-  @media print {
-    body.madoko {
-      font-size: 10pt;
-    }
-    @page {
-      margin: 1in 1.5in;
-    }
-  }
-  @media only screen and (max-device-width:1024px) {
-    body.madoko {
-      padding: 0em 0.5em;    
-    }
-    .madoko li {
-      text-align: left;
-    }
-  }
-  
-    </style>
+  <link rel="stylesheet" type="text/css" href="madoko.css"  class="link">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"  class="link">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"  class="link">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0//bootstrap.min.css"  class="link">
-  <style type="text/css"  class="link">
-  /*# sourceURL=../mytheme/main.css */
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: Cambria, "Times New Roman", "Liberation Serif", "Times", serif; }
-  nav#menu {
-    font-size: x-large;
-    background-color: #ffffff;
-    border-right: solid #eeeeff;
-    height: 100%;
-    left: 0;
-    margin: 0;
-    padding: 20px 0px 0px 20px;
-    position: fixed;
-    top: 0;
-    width: 140px; }
-  .proof {
-    background-color: #eeeeee; }
-  .site-name {
-    font-size: medium;
-    border-bottom: 1px solid rgba(180, 180, 255, 0.4);
-    padding-bottom: 5px; }
-  #post-title {
-    font-size: xx-large;
-    font-weight: bold; }
-  main {
-    height: 100%;
-    margin-left: 160px;
-    padding: 10px 10px 0px 20px; }
-  .footnotes {
-    height: 100%;
-    margin-left: 160px;
-    padding: 0px 10px 10px 20px; }
-  header {
-    height: 100%;
-    margin-left: 160px;
-    padding: 10px 10px 10px 20px; }
-  a.headerlink {
-    font-size: x-small; }
-  ul, ol, dl {
-    margin: 0 0 0 1em;
-    padding: 0; }
-  .passion {
-    letter-spacing: 0.5em; }
-  em {
-    -webkit-text-emphasis: filled dot;
-    text-emphasis: filled dot;
-    font-weight: normal;
-    font-style: normal; }
-  em.em-low1 {
-    -webkit-text-emphasis: none;
-    text-emphasis: none;
-    font-style: italic; }
-  a:link {
-    color: #0055ff;
-    text-decoration: none; }
-  a:visited {
-    color: #0044ff;
-    text-decoration: none; }
-  a:hover {
-    color: #0077ff;
-    text-decoration: underline; }
-  .citations {
-    color: #555555;
-    font-weight: bold;
-    font-size: large;
-    margin-left: 0.2em;
-    margin-right: 0.2em; }
-  #sec-contents {
-    margin-top: 0em; }
-  
-    </style>
+  <link rel="stylesheet" type="text/css" href="../mytheme/main.css"  class="link">
   <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -3228,129 +2884,19 @@ W3M_CURRENT_COLUMN=15</code></pre>
           max-width: 100%;
         }
       </style>
+  <head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){
+            i['GoogleAnalyticsObject']=r;
+            i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-34234538-2', 'auto');
+        ga('send', 'pageview');
+        [INCLUDE=../mytheme/disqus.js]
+  </script>
   </head>
 <body class="madoko">
 
-<div class="body madoko" style="line-adjust:0">
-<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:18"><span data-line="8;src/article/../mytheme/myprelude.mdk:18"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:18"></span> null == site-name {
-Site Name: ayu-mushi<span data-line="8;src/article/../mytheme/myprelude.mdk:19"></span>&#39;<span data-line="8;src/article/../mytheme/myprelude.mdk:19"></span>s website
-}
-title { after: <span data-line="8;src/article/../mytheme/myprelude.mdk:21"></span>&#8220;- ayu-mushi&#39;s website&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:21"></span>}
-.newword { font-weight: bold }
-Aligned { replace:<span data-line="8;src/article/../mytheme/myprelude.mdk:23"></span>&#8220;<sub>Math
-\begin{aligned}
-4
-\end{aligned}
-</sub>&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:23"></span> }
-Cite Style: natural
-Bib Search Url: google.co.jp
-Html Header: <span data-line="8;src/article/../mytheme/myprelude.mdk:26"></span><head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#"><span data-line="8;src/article/../mytheme/myprelude.mdk:26"></span>
-HTML Meta: name=<span data-line="8;src/article/../mytheme/myprelude.mdk:27"></span>&#8220;twitter:site&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:27"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:27"></span>&#8220;ayu_mushi&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:27"></span>
-HTML Meta: name=<span data-line="8;src/article/../mytheme/myprelude.mdk:28"></span>&#8220;twitter:card&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:28"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:28"></span>&#8220;summary&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:28"></span>
-HTML Meta: property=<span data-line="8;src/article/../mytheme/myprelude.mdk:29"></span>&#8220;og:title&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:29"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:29"></span>&#8220;Ubuntuのセッティング&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:29"></span>
-HTML Meta: property=<span data-line="8;src/article/../mytheme/myprelude.mdk:30"></span>&#8220;og:type&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:30"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:30"></span>&#8220;article&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:30"></span>
-HTML Meta: property=<span data-line="8;src/article/../mytheme/myprelude.mdk:31"></span>&#8220;og:site_name&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:31"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:31"></span>&#8220;ayu-mushi&#39;s website&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:31"></span>
-HTML Meta: property=<span data-line="8;src/article/../mytheme/myprelude.mdk:32"></span>&#8220;og:description&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:32"></span> content=<span data-line="8;src/article/../mytheme/myprelude.mdk:32"></span>&#8220;セッティング&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:32"></span>
-Github Source: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/<span data-line="8;src/article/../mytheme/myprelude.mdk:33"></span>src/article/ubuntu-setup.mdk<span data-line="8;src/article/../mytheme/myprelude.mdk:33"></span>
-body { after: <span data-line="8;src/article/../mytheme/myprelude.mdk:34"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:34"></span></main><span data-line="8;src/article/../mytheme/myprelude.mdk:34"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:34"></span> }
-Embed: 0
-<span data-line="8;src/article/../mytheme/myprelude.mdk:36"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:36"></span> Pubdate == null { <span data-line="8;src/article/../mytheme/myprelude.mdk:36"></span>#<span data-line="8;src/article/../mytheme/myprelude.mdk:36"></span>date {display: none} }
-<span data-line="8;src/article/../mytheme/myprelude.mdk:37"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:37"></span> Update == null { <span data-line="8;src/article/../mytheme/myprelude.mdk:37"></span>#<span data-line="8;src/article/../mytheme/myprelude.mdk:37"></span>date {display: none}}
-<span data-line="8;src/article/../mytheme/myprelude.mdk:38"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:38"></span> Draft { <span data-line="8;src/article/../mytheme/myprelude.mdk:38"></span>#<span data-line="8;src/article/../mytheme/myprelude.mdk:38"></span>date {display: none} }
-<span data-line="8;src/article/../mytheme/myprelude.mdk:39"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:39"></span> not Draft { <span data-line="8;src/article/../mytheme/myprelude.mdk:39"></span>#<span data-line="8;src/article/../mytheme/myprelude.mdk:39"></span>draft {display: none} }
-<span data-line="8;src/article/../mytheme/myprelude.mdk:40"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:40"></span> null == subtitle { <span data-line="8;src/article/../mytheme/myprelude.mdk:40"></span>#<span data-line="8;src/article/../mytheme/myprelude.mdk:40"></span>post-subtitle { display: none} }
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:42"><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>.ruby { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span><ruby><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span><rb><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>4<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span></rb><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span><rp><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>《<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span></rp><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span><rt><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>&rtext;<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span></rt><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span><rp><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>》<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span></rp><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span></ruby><span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:42"></span> }
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:44"><span data-line="8;src/article/../mytheme/myprelude.mdk:44"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:44"></span> tex {
-.SampleBlock : padding-left=1em padding-right=1em padding-top=1em padding-bottom=1em border-style=solid border-width=1px
-.samp-code-footer { padding-top: 1em; border-top: 1px solid}
-}
-Sample { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:48"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:48"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:48"></span> Begin Sampleblock {.panel .panel-default}<span data-line="8;src/article/../mytheme/myprelude.mdk:48"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:48"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:49"><span data-line="8;src/article/../mytheme/myprelude.mdk:49"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:49"></span> Begin samp-code-body {.panel-body}<span data-line="8;src/article/../mytheme/myprelude.mdk:49"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:49"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:50"><span data-line="8;src/article/../mytheme/myprelude.mdk:50"></span><code class="code code4"> madoko&amp;nl;&amp;source;&amp;nl;</code><span data-line="8;src/article/../mytheme/myprelude.mdk:50"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:50"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:51"><span data-line="8;src/article/../mytheme/myprelude.mdk:51"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:51"></span> End samp-code-body<span data-line="8;src/article/../mytheme/myprelude.mdk:51"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:51"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:52"><span data-line="8;src/article/../mytheme/myprelude.mdk:52"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:52"></span> Begin samp-code-footer {.panel-footer}<span data-line="8;src/article/../mytheme/myprelude.mdk:52"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:52"></span><br>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:53"></span>4<span data-line="8;src/article/../mytheme/myprelude.mdk:53"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:53"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:54"><span data-line="8;src/article/../mytheme/myprelude.mdk:54"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:54"></span> End samp-code-footer<span data-line="8;src/article/../mytheme/myprelude.mdk:54"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:54"></span><br>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:55"><span data-line="8;src/article/../mytheme/myprelude.mdk:55"></span>~<span data-line="8;src/article/../mytheme/myprelude.mdk:55"></span> End Sampleblock<span data-line="8;src/article/../mytheme/myprelude.mdk:55"></span>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:55"></span><br>
-<span data-line="8;src/article/../mytheme/myprelude.mdk:56"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:56"></span>}
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:58"><span data-line="8;src/article/../mytheme/myprelude.mdk:58"></span>.theorem { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:58"></span>&#8220;/Theorem/定理/&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:58"></span> }
-.lemma {replace : <span data-line="8;src/article/../mytheme/myprelude.mdk:59"></span>&#8220;/Lemma/補題/&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:59"></span>}
-.definition { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:60"></span>&#8220;/Definition/定義/&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:60"></span> }
-.proof { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:61"></span>&#8220;/Proof/証明/&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:61"></span> }
-.example { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:62"></span>&#8220;/Example/例/&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:62"></span>}
-.header { padding-bottom: 1em;}
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:65"><span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span>Gist { replace: <span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span><script src='https://gist.github.com/&gistcode;'><span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span></script><span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span>&quot;<span data-line="8;src/article/../mytheme/myprelude.mdk:65"></span>}
-</p><date id="sec-update" class="h1" data-line="8;src/article/../mytheme/myprelude.mdk:67" data-heading-depth="1" style="display:block"><span data-line="8;src/article/../mytheme/myprelude.mdk:67"></span>update</date><date id="sec-pubdate" class="h1" pubdate="pubdate" data-line="8;src/article/../mytheme/myprelude.mdk:68" data-heading-depth="1" style="display:block"><span data-line="8;src/article/../mytheme/myprelude.mdk:68"></span>pubdate</date>
-<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:70"><span data-line="8;src/article/../mytheme/myprelude.mdk:70"></span>Bib: ../article/biblio.bib
-Toc depth: 5
-Heading Depth: 5
-Header Base: 2
-JS Header:
-    (function(i,s,o,g,r,a,m){
-        i<span data-line="8;src/article/../mytheme/myprelude.mdk:76"></span>[&#8216;GoogleAnalyticsObject&#8217;]<span data-line="8;src/article/../mytheme/myprelude.mdk:76"></span>=r;
-        i<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[r]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>=i<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[r]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>||function(){(i<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[r]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>.q=i<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[r]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>.q||<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>).push(arguments)},i<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[r]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>.l=1<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>*<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>new Date();a=s.createElement(o),m=s.getElementsByTagName(o)<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>[0]<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>;a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>&#8216;script&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>,<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>&#8216;//www.google-analytics.com/analytics.js&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>,<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>&#8216;ga&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:77"></span>);
-    ga(<span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>&#8216;create&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>, <span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>&#8216;UA-34234538-2&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>, <span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>&#8216;auto&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:78"></span>);
-    ga(<span data-line="8;src/article/../mytheme/myprelude.mdk:79"></span>&#8216;send&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:79"></span>, <span data-line="8;src/article/../mytheme/myprelude.mdk:79"></span>&#8216;pageview&#8217;<span data-line="8;src/article/../mytheme/myprelude.mdk:79"></span>);
-<span data-line="8;src/article/../mytheme/myprelude.mdk:80"></span>    [INCLUDE=../mytheme/disqus.js]<span data-line="8;src/article/../mytheme/myprelude.mdk:80"></span>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:82"><span data-line="8;src/article/../mytheme/myprelude.mdk:82"></span>Package: tikz
-Package: tikz-cd
-TikzPicture { replace:<span data-line="8;src/article/../mytheme/myprelude.mdk:84"></span>&#8220;<del>Snippet 
- \begin{tikzpicture}
-4
-\end{tikzpicture}
-</del>
-&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:84"></span> }
-TikzCd { replace:<span data-line="8;src/article/../mytheme/myprelude.mdk:85"></span>&#8220;<sub> Math 
- \begin{tikzcd}4\end{tikzcd}
-</sub> 
-&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:85"></span> }
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:87"><span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span>HTML Footer: <span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span><script src="../elastic-text/js/elastictext.js"><span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span> <span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span></script><span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span> <span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span><script id="dsq-count-scr" src="http//ayu-mushis-site.disqus.com/count.js" async><span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span></script><span data-line="8;src/article/../mytheme/myprelude.mdk:87"></span>
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:89"><span data-line="8;src/article/../mytheme/myprelude.mdk:89"></span>@if<span data-line="8;src/article/../mytheme/myprelude.mdk:89"></span> tex {
-Doc class :<span data-line="8;src/article/../mytheme/myprelude.mdk:90"></span> [no-math, 10pt]<span data-line="8;src/article/../mytheme/myprelude.mdk:90"></span>article
-Package:<span data-line="8;src/article/../mytheme/myprelude.mdk:91"></span> [curve]<span data-line="8;src/article/../mytheme/myprelude.mdk:91"></span>xypic
-Package: amscd
-Package: amsthm
-Package: amsfonts
-Package: amsmath
-Package: amsthm
-Package: fontspec
-Package: pgfplots
-Package: pgfplotstable
-Package: pst-plot
-Package: pstricks
-Package: tikz
-Tex Header:
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:104"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:104"></span>setmainfont{IPAGothic}
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:105"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:105"></span>setsansfont{IPAPGothic}
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:106"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:106"></span>setmonofont{IPAPGothic}
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>XeTeXlinebreaklocale <span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>&#8220;ja&#8221;<span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:108"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:108"></span>XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
-  <span data-line="8;src/article/../mytheme/myprelude.mdk:109"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:109"></span>XeTeXlinebreakpenalty=0
-    <span data-line="8;src/article/../mytheme/myprelude.mdk:110"></span>\<span data-line="8;src/article/../mytheme/myprelude.mdk:110"></span>usetikzlibrary{decorations.pathreplacing, decorations.pathmorphing}
-</p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:91"><span data-line="8;src/article/../mytheme/myprelude.mdk:91"></span>}
-</p><nav id="menu">
+<div class="body madoko" style="line-adjust:0"><nav id="menu">
   <ul>
     <li><a href="/">About</a></li>
     <li><a href="/article">Article</a></li>
@@ -3362,64 +2908,58 @@ Tex Header:
 
 <main>
 
-<div class="header" data-line="8;src/article/../mytheme/myprelude.mdk:98">
+<div class="header" data-line="8;src/article/../mytheme/myprelude.mdk:99" style="padding-bottom:1em">
 
 
-<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:102"><span data-line="8;src/article/../mytheme/myprelude.mdk:102"></span><span class="site-name">ayu-mushi&#39;s website</span><span data-line="8;src/article/../mytheme/myprelude.mdk:102"></span>
+<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:103"><span data-line="8;src/article/../mytheme/myprelude.mdk:103"></span><span class="site-name">ayu-mushi&#39;s website</span><span data-line="8;src/article/../mytheme/myprelude.mdk:103"></span>
 </p>
-<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:104"><span data-line="8;src/article/../mytheme/myprelude.mdk:104"></span><span id="post-title">Ubuntuのセッティング</span><span data-line="8;src/article/../mytheme/myprelude.mdk:104"></span>
+<p class="p indent" data-line="8;src/article/../mytheme/myprelude.mdk:105"><span data-line="8;src/article/../mytheme/myprelude.mdk:105"></span><span id="post-title">Ubuntuのセッティング</span><span data-line="8;src/article/../mytheme/myprelude.mdk:105"></span>
 </p>
-<div id="post-subtitle" data-line="8;src/article/../mytheme/myprelude.mdk:106">
-<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:107"><span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>〜 <span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span>&Subtitle;<span data-line="8;src/article/../mytheme/myprelude.mdk:107"></span> 〜</p></div>
-<div id="date" data-line="8;src/article/../mytheme/myprelude.mdk:116">
-<dl class="dl compact" data-line="8;src/article/../mytheme/myprelude.mdk:117">
+<div id="date" data-line="8;src/article/../mytheme/myprelude.mdk:117">
+<dl class="dl compact" data-line="8;src/article/../mytheme/myprelude.mdk:118">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Published</dt>
-<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:117" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:117"></span><span id="pubdate">2016-12-10</span><span data-line="8;src/article/../mytheme/myprelude.mdk:117"></span>
+<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:118" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:118"></span><date id="pubdate" pubdate="pubdate">2016-12-10</date><span data-line="8;src/article/../mytheme/myprelude.mdk:118"></span>
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
-<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:119" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:119"></span><span id="update">2018-06-08</span></dd></dl></div>
-<div id="draft" data-line="8;src/article/../mytheme/myprelude.mdk:123">
-<p class="p noindent" data-line="8;src/article/../mytheme/myprelude.mdk:124"><span data-line="8;src/article/../mytheme/myprelude.mdk:124"></span>  <span data-line="8;src/article/../mytheme/myprelude.mdk:124"></span><strong class="strong-star2"> この記事は下書きです。</strong></p></div>
-<div id="source" data-line="8;src/article/../mytheme/myprelude.mdk:127">
-<dl class="dl compact" data-line="8;src/article/../mytheme/myprelude.mdk:128">
+<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:120" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:120"></span><date id="update">2018-06-11</date></dd></dl></div>
+<div id="source" data-line="8;src/article/../mytheme/myprelude.mdk:128">
+<dl class="dl compact" data-line="8;src/article/../mytheme/myprelude.mdk:129">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
-<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:128" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:128"></span>&github-source;</dd></dl></div></div><span data-line="8;src/article/../mytheme/myprelude.mdk:134"></span>
+<dd class="dd" data-line="8;src/article/../mytheme/myprelude.mdk:129" style="margin-left:1.5em"><span data-line="8;src/article/../mytheme/myprelude.mdk:129"></span>https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/ubuntu-setup.mdk</dd></dl></div></div><span data-line="8;src/article/../mytheme/myprelude.mdk:135"></span>
 <nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
 <div class="tocblock tocblock1">
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-update" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;update" style="toctarget:sec-update"><a href="#sec-update" class="localref"><span class="heading-label">1</span>.&#8194;update</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-pubdate" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;pubdate" style="toctarget:sec-pubdate"><a href="#sec-pubdate" class="localref"><span class="heading-label">2</span>.&#8194;pubdate</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u306F\u3058\u3081\u306B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>.&#8194;はじめに</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-cd" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;CD\u3078" style="toctarget:sec-cd"><a href="#sec-cd" class="localref"><span class="heading-label">4</span>.&#8194;CDへ</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;\u82F1\u8A9E\u7248\u304B\u3089\u65E5\u672C\u8A9E\u5165\u529B\u8A2D\u5B9A" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">5</span>.&#8194;英語版から日本語入力設定</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;\u8A2D\u5B9A" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">6</span>.&#8194;設定</a></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[7]{.heading-label}.&#8194;\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">7</span>.&#8194;アプリケーション</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;\u306F\u3058\u3081\u306B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>.&#8194;はじめに</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-cd" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;CD\u3078" style="toctarget:sec-cd"><a href="#sec-cd" class="localref"><span class="heading-label">2</span>.&#8194;CDへ</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u82F1\u8A9E\u7248\u304B\u3089\u65E5\u672C\u8A9E\u5165\u529B\u8A2D\u5B9A" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>.&#8194;英語版から日本語入力設定</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;\u8A2D\u5B9A" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4</span>.&#8194;設定</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;\u30A2\u30D7\u30EA\u30B1\u30FC\u30B7\u30E7\u30F3" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">5</span>.&#8194;アプリケーション</a></div>
 <div class="tocblock tocblock2">
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-xmonad" data-toc-depth="2" data-toc-line="[7.1]{.heading-label}.&#8194;XMonad" style="toctarget:sec-xmonad"><a href="#sec-xmonad" class="localref"><span class="heading-label">7.1</span>.&#8194;XMonad</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-vim" data-toc-depth="2" data-toc-line="[7.2]{.heading-label}.&#8194;Vim" style="toctarget:sec-vim"><a href="#sec-vim" class="localref"><span class="heading-label">7.2</span>.&#8194;Vim</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-xmobar" data-toc-depth="2" data-toc-line="[7.3]{.heading-label}.&#8194;Xmobar" style="toctarget:sec-xmobar"><a href="#sec-xmobar" class="localref"><span class="heading-label">7.3</span>.&#8194;Xmobar</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-w3m" data-toc-depth="2" data-toc-line="[7.4]{.heading-label}.&#8194;w3m" style="toctarget:sec-w3m"><a href="#sec-w3m" class="localref"><span class="heading-label">7.4</span>.&#8194;w3m</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-dropbox" data-toc-depth="2" data-toc-line="[7.5]{.heading-label}.&#8194;Dropbox" style="toctarget:sec-dropbox"><a href="#sec-dropbox" class="localref"><span class="heading-label">7.5</span>.&#8194;Dropbox</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-fbterm" data-toc-depth="2" data-toc-line="[7.6]{.heading-label}.&#8194;Fbterm" style="toctarget:sec-fbterm"><a href="#sec-fbterm" class="localref"><span class="heading-label">7.6</span>.&#8194;Fbterm</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-stack--the-haskell-tool" data-toc-depth="2" data-toc-line="[7.7]{.heading-label}.&#8194;Stack: The Haskell Tool" style="toctarget:sec-stack--the-haskell-tool"><a href="#sec-stack--the-haskell-tool" class="localref"><span class="heading-label">7.7</span>.&#8194;Stack: The Haskell Tool</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-latex" data-toc-depth="2" data-toc-line="[7.8]{.heading-label}.&#8194;LaTeX" style="toctarget:sec-latex"><a href="#sec-latex" class="localref"><span class="heading-label">7.8</span>.&#8194;LaTeX</a></div></div>
-<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec---" data-toc-depth="1" data-toc-line="[8]{.heading-label}.&#8194;\u554F\u984C\u3068\u5BFE\u51E6: \u30B1\u30FC\u30B9\u30B9\u30BF\u30C7\u30A3" style="toctarget:sec---"><a href="#sec---" class="localref"><span class="heading-label">8</span>.&#8194;問題と対処: ケーススタディ</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-xmonad" data-toc-depth="2" data-toc-line="[5.1]{.heading-label}.&#8194;XMonad" style="toctarget:sec-xmonad"><a href="#sec-xmonad" class="localref"><span class="heading-label">5.1</span>.&#8194;XMonad</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-vim" data-toc-depth="2" data-toc-line="[5.2]{.heading-label}.&#8194;Vim" style="toctarget:sec-vim"><a href="#sec-vim" class="localref"><span class="heading-label">5.2</span>.&#8194;Vim</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-xmobar" data-toc-depth="2" data-toc-line="[5.3]{.heading-label}.&#8194;Xmobar" style="toctarget:sec-xmobar"><a href="#sec-xmobar" class="localref"><span class="heading-label">5.3</span>.&#8194;Xmobar</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-w3m" data-toc-depth="2" data-toc-line="[5.4]{.heading-label}.&#8194;w3m" style="toctarget:sec-w3m"><a href="#sec-w3m" class="localref"><span class="heading-label">5.4</span>.&#8194;w3m</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-dropbox" data-toc-depth="2" data-toc-line="[5.5]{.heading-label}.&#8194;Dropbox" style="toctarget:sec-dropbox"><a href="#sec-dropbox" class="localref"><span class="heading-label">5.5</span>.&#8194;Dropbox</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-fbterm" data-toc-depth="2" data-toc-line="[5.6]{.heading-label}.&#8194;Fbterm" style="toctarget:sec-fbterm"><a href="#sec-fbterm" class="localref"><span class="heading-label">5.6</span>.&#8194;Fbterm</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-stack--the-haskell-tool" data-toc-depth="2" data-toc-line="[5.7]{.heading-label}.&#8194;Stack: The Haskell Tool" style="toctarget:sec-stack--the-haskell-tool"><a href="#sec-stack--the-haskell-tool" class="localref"><span class="heading-label">5.7</span>.&#8194;Stack: The Haskell Tool</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-latex" data-toc-depth="2" data-toc-line="[5.8]{.heading-label}.&#8194;LaTeX" style="toctarget:sec-latex"><a href="#sec-latex" class="localref"><span class="heading-label">5.8</span>.&#8194;LaTeX</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec---" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;\u554F\u984C\u3068\u5BFE\u51E6: \u30B1\u30FC\u30B9\u30B9\u30BF\u30C7\u30A3" style="toctarget:sec---"><a href="#sec---" class="localref"><span class="heading-label">6</span>.&#8194;問題と対処: ケーススタディ</a></div>
 <div class="tocblock tocblock2">
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-x-window-system" data-toc-depth="2" data-toc-line="[8.1]{.heading-label}.&#8194;X Window System\u304C\u30AF\u30E9\u30C3\u30B7\u30E5" style="toctarget:sec-x-window-system"><a href="#sec-x-window-system" class="localref"><span class="heading-label">8.1</span>.&#8194;X Window Systemがクラッシュ</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="section" data-toc-depth="2" data-toc-line="[8.2]{.heading-label}.&#8194;\u30ED\u30B0\u30A4\u30F3\u753B\u9762\u304C\u30EB\u30FC\u30D7\u3059\u308B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">8.2</span>.&#8194;ログイン画面がループする</a></div>
-<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-cui" data-toc-depth="2" data-toc-line="[8.3]{.heading-label}.&#8194;\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u8A2D\u5B9A\u3092CUI\u304B\u3089\u7DE8\u96C6\u3057\u305F\u3044" style="toctarget:sec-cui"><a href="#sec-cui" class="localref"><span class="heading-label">8.3</span>.&#8194;ネットワーク設定をCUIから編集したい</a></div></div></div></nav>
-<div class="mathdefs input-mathdefs" data-line="8;src/article/../mytheme/myprelude.mdk:136"></div><h2 id="section" class="h1" data-line="10" data-heading-depth="1" style="display:block"><span data-line="10"></span>はじめに</h2>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-x-window-system" data-toc-depth="2" data-toc-line="[6.1]{.heading-label}.&#8194;X Window System\u304C\u30AF\u30E9\u30C3\u30B7\u30E5" style="toctarget:sec-x-window-system"><a href="#sec-x-window-system" class="localref"><span class="heading-label">6.1</span>.&#8194;X Window Systemがクラッシュ</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="section" data-toc-depth="2" data-toc-line="[6.2]{.heading-label}.&#8194;\u30ED\u30B0\u30A4\u30F3\u753B\u9762\u304C\u30EB\u30FC\u30D7\u3059\u308B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">6.2</span>.&#8194;ログイン画面がループする</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-cui" data-toc-depth="2" data-toc-line="[6.3]{.heading-label}.&#8194;\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u8A2D\u5B9A\u3092CUI\u304B\u3089\u7DE8\u96C6\u3057\u305F\u3044" style="toctarget:sec-cui"><a href="#sec-cui" class="localref"><span class="heading-label">6.3</span>.&#8194;ネットワーク設定をCUIから編集したい</a></div></div></div></nav>
+<div class="mathdefs input-mathdefs" data-line="8;src/article/../mytheme/myprelude.mdk:137"></div><h2 id="section" class="h1" data-line="10" data-heading-depth="1" style="display:block"><span data-line="10"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="10"></span>はじめに</h2>
 <p class="p noindent" data-line="11"><span data-line="11"></span>次やるときのための個人的なマニュアル。
-</p><h2 id="sec-cd" class="h1" data-line="13" data-heading-depth="1" style="display:block"><span data-line="13"></span>CDへ</h2>
+</p><h2 id="sec-cd" class="h1" data-line="13" data-heading-depth="1" style="display:block"><span data-line="13"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="13"></span>CDへ</h2>
 <p class="p noindent" data-line="14"><span data-line="14"></span>isoファイルをダウンロード、
 BIOSセットアップを出し、ブート優先順位でisoファイルを入れたメモリを一番上にする。
-</p><h2 id="section" class="h1" data-line="18" data-heading-depth="1" style="display:block"><span data-line="18"></span>英語版から日本語入力設定</h2>
+</p><h2 id="section" class="h1" data-line="18" data-heading-depth="1" style="display:block"><span data-line="18"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="18"></span>英語版から日本語入力設定</h2>
 <p class="p noindent" data-line="19"><span data-line="19"></span><a href="http://archlinux-blogger.blogspot.jp/2016/02/ibus-mozcfcitx-mozc.html">IBus MozcからFcitx Mozcへの切り替え | 普段使いのArch Linux</a><span data-line="19"></span>
 </p>
 <p class="p indent" data-line="21"><span data-line="21"></span>英語キーボードになってるため、Zenkaku<span data-line="21"></span>_<span data-line="21"></span>Hankakuが使えない。
 そこで、日本語キーボード+英語入力(Keyboard Japanese)とfcitx-mozcとの組をセットしてZenkaku<span data-line="22"></span>_<span data-line="22"></span>Hankakuで切り替えるようにする
-</p><h2 id="section" class="h1" data-line="24" data-heading-depth="1" style="display:block"><span data-line="24"></span>設定</h2>
+</p><h2 id="section" class="h1" data-line="24" data-heading-depth="1" style="display:block"><span data-line="24"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="24"></span>設定</h2>
 <p class="p noindent" data-line="25"><span data-line="25"></span>Dropboxを入れたら、まず<span data-line="25"></span><a href="https://github.com/ayu-mushi/dotfiles" data-linkid="dotfiles">共通の設定</a><span data-line="25"></span>を持ってくる。
-</p><h2 id="section" class="h1" data-line="29" data-heading-depth="1" style="display:block"><span data-line="29"></span>アプリケーション</h2>
+</p><h2 id="section" class="h1" data-line="29" data-heading-depth="1" style="display:block"><span data-line="29"></span><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span><span data-line="29"></span>アプリケーション</h2>
 <p class="p noindent" data-line="30"><span data-line="30"></span>入れるやつ
 </p>
 <ul class="ul list-star compact" data-line="32">
@@ -3466,7 +3006,7 @@ BIOSセットアップを出し、ブート優先順位でisoファイルを入�
 <ul class="ul list-star compact" data-line="50">
 <li class="li ul-li list-star-li compact-li" data-line="50"><span data-line="50"></span>→npm
 </li></ul></li></ul>
-<h3 id="sec-xmonad" class="h2" data-line="52" data-heading-depth="2" style="display:block"><span data-line="52"></span>XMonad</h3>
+<h3 id="sec-xmonad" class="h2" data-line="52" data-heading-depth="2" style="display:block"><span data-line="52"></span><span class="heading-before"><span class="heading-label">5.1</span>.&#8194;</span><span data-line="52"></span>XMonad</h3>
 <p class="p noindent" data-line="53"><span data-line="53"></span><code class="code code1">man xmonad</code><span data-line="53"></span> でキーバインディングを見る
 </p>
 <blockquote data-line="55">
@@ -3545,7 +3085,7 @@ BIOSセットアップを出し、ブート優先順位でisoファイルを入�
 <p data-line="99"><span data-line="99"></span>Push window back into tiling
 </p></dd></dl>
 <p class="p noindent" data-line="101"><span data-line="101"></span>&#8230;<span data-line="101"></span>
-</p></blockquote><h3 id="sec-vim" class="h2" data-line="103" data-heading-depth="2" style="display:block"><span data-line="103"></span>Vim</h3>
+</p></blockquote><h3 id="sec-vim" class="h2" data-line="103" data-heading-depth="2" style="display:block"><span data-line="103"></span><span class="heading-before"><span class="heading-label">5.2</span>.&#8194;</span><span data-line="103"></span>Vim</h3>
 <p class="p noindent" data-line="104"><span data-line="104"></span><a href="vim-build">&#8220;vim-jp » Linuxでのビルド方法&#8221;</a><span data-line="104"></span>
 </p>
 <p class="p noindent" data-line="109"><span data-line="109"></span><a href="https://qiita.com/Kuchitama/items/68b6b5d5ed40f6f96310">NeoBundleのインストール &#8211; Qiita</a><span data-line="109"></span>
@@ -3553,7 +3093,7 @@ BIOSセットアップを出し、ブート優先順位でisoファイルを入�
 <blockquote data-line="112">
 
 <pre class="para-block pre-fenced pre-fenced3" data-line="112" data-line-first="113" style="display:block"><code data-line="113">$ mkdir -p ~/.vim/bundle
-$ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim</code></pre></blockquote><h3 id="sec-xmobar" class="h2" data-line="117" data-heading-depth="2" style="display:block"><span data-line="117"></span>Xmobar</h3><h3 id="sec-w3m" class="h2" data-line="119" data-heading-depth="2" style="display:block"><span data-line="119"></span>w3m</h3>
+$ git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim</code></pre></blockquote><h3 id="sec-xmobar" class="h2" data-line="117" data-heading-depth="2" style="display:block"><span data-line="117"></span><span class="heading-before"><span class="heading-label">5.3</span>.&#8194;</span><span data-line="117"></span>Xmobar</h3><h3 id="sec-w3m" class="h2" data-line="119" data-heading-depth="2" style="display:block"><span data-line="119"></span><span class="heading-before"><span class="heading-label">5.4</span>.&#8194;</span><span data-line="119"></span>w3m</h3>
 <p class="p noindent" data-line="120"><span data-line="120"></span>テキストブラウザ。
 lynxでも可。
 </p>
@@ -3564,7 +3104,7 @@ lynxでも可。
 <p class="p indent" data-line="125"><span data-line="125"></span>訪れたことがあるリンクの色<span data-line="125"></span> [紫  ]<span data-line="125"></span>
 </p></blockquote>
 <p class="p noindent" data-line="127"><span data-line="127"></span>訪れたことのあるリンクの色をオプション(o)で変える。
-</p><h3 id="sec-dropbox" class="h2" data-line="129" data-heading-depth="2" style="display:block"><span data-line="129"></span>Dropbox</h3>
+</p><h3 id="sec-dropbox" class="h2" data-line="129" data-heading-depth="2" style="display:block"><span data-line="129"></span><span class="heading-before"><span class="heading-label">5.5</span>.&#8194;</span><span data-line="129"></span>Dropbox</h3>
 <p class="p noindent" data-line="130"><span data-line="130"></span><a href="https://www.dropbox.com/install-linux">インストール - Dropbox</a><span data-line="130"></span> を参照。
 </p>
 <p class="p indent" data-line="132"><span data-line="132"></span>以下に従う。
@@ -3590,13 +3130,13 @@ lynxでも可。
 </p>
 <pre class="para-block pre-fenced pre-fenced3" data-line="162" data-line-first="163" style="display:block"><code data-line="163">wget https://www.dropbox.com/download?dl=packages/dropbox.py</code></pre>
 <p class="p noindent para-continued" data-line="166"><span data-line="166"></span>そしたら.xsessionrcからdropboxを自動起動するようにする
-</p><h3 id="sec-fbterm" class="h2" data-line="168" data-heading-depth="2" style="display:block"><span data-line="168"></span>Fbterm</h3>
+</p><h3 id="sec-fbterm" class="h2" data-line="168" data-heading-depth="2" style="display:block"><span data-line="168"></span><span class="heading-before"><span class="heading-label">5.6</span>.&#8194;</span><span data-line="168"></span>Fbterm</h3>
 <p class="p noindent" data-line="169"><span data-line="169"></span>X Window System が死んだとき<span data-line="169"></span><sup id="back-fn-die" ><a href="#fn-die" title="1.たまにあると思う
 &#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="169"></span>に日本語を使うため必要。
 </p>
 <p class="p indent" data-line="171"><span data-line="171"></span><a href="fbterm">Fbterm - ArchWiki</a><span data-line="171"></span>
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-sh lang-sh sh" data-line="173" data-line-first="174" style="display:block"><code data-line="174">sudo apt-get install fbterm</code></pre><h3 id="sec-stack--the-haskell-tool" class="h2" data-line="180" data-heading-depth="2" style="display:block"><span data-line="180"></span>Stack: The Haskell Tool</h3>
+<pre class="para-block pre-fenced pre-fenced3 language-sh lang-sh sh" data-line="173" data-line-first="174" style="display:block"><code data-line="174">sudo apt-get install fbterm</code></pre><h3 id="sec-stack--the-haskell-tool" class="h2" data-line="180" data-heading-depth="2" style="display:block"><span data-line="180"></span><span class="heading-before"><span class="heading-label">5.7</span>.&#8194;</span><span data-line="180"></span>Stack: The Haskell Tool</h3>
 <p class="p noindent" data-line="181"><span data-line="181"></span><a href="stack">Install/upgrade - The Haskell Tool Stack</a><span data-line="181"></span>
 </p>
 <blockquote data-line="183">
@@ -3612,13 +3152,13 @@ lynxでも可。
 <p class="p indent" data-line="191"><span data-line="191"></span>or:
 </p>
 <p class="p indent" data-line="193"><span data-line="193"></span><code class="code code1">wget -qO- https://get.haskellstack.org/ | sh</code><span data-line="193"></span>
-</p></blockquote><h3 id="sec-latex" class="h2" data-line="197" data-heading-depth="2" style="display:block"><span data-line="197"></span>LaTeX</h3>
+</p></blockquote><h3 id="sec-latex" class="h2" data-line="197" data-heading-depth="2" style="display:block"><span data-line="197"></span><span class="heading-before"><span class="heading-label">5.8</span>.&#8194;</span><span data-line="197"></span>LaTeX</h3>
 <p class="p noindent" data-line="198"><span data-line="198"></span>mhchem などを使うときに、バージョンが高くないといけないようだし、tlgmr を使えたほうが便利なので、パッケージ管理システムを使わずにTeXLiveをインストールする。
 </p>
 <p class="p indent" data-line="200"><span data-line="200"></span>TeXLiveに標準で日本語環境がマージされているようなので、普通にTeXLive を入れると良い
 </p>
 <p class="p indent" data-line="202"><span data-line="202"></span><a href="https://texwiki.texjp.org/?Linux">Linux - TeX Wiki</a><span data-line="202"></span> を参照
-</p><h2 id="sec---" class="h1" data-line="205" data-heading-depth="1" style="display:block"><span data-line="205"></span>問題と対処: ケーススタディ</h2>
+</p><h2 id="sec---" class="h1" data-line="205" data-heading-depth="1" style="display:block"><span data-line="205"></span><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span><span data-line="205"></span>問題と対処: ケーススタディ</h2>
 <p class="p noindent" data-line="206"><span data-line="206"></span>自分が遭遇した問題だけ書くので経験論というやつですね。
 まあこの文章は基本的に自分用なので(自分用でも網羅的な方が便利なのかもしれないけど、それぞれの問題の頻度とかわからないし<span data-line="207"></span>&#8230;<span data-line="207"></span>&#8230;<span data-line="207"></span>)。
 </p>
@@ -3633,8 +3173,8 @@ lynxでも可。
 </li></ul>
 
 <p class="p noindent" data-line="215"><span data-line="215"></span>などがある
-</p><h3 id="sec-x-window-system" class="h2" data-line="217" data-heading-depth="2" style="display:block"><span data-line="217"></span>X Window Systemがクラッシュ</h3>
-<pre class="para-block pre-fenced pre-fenced3" data-line="218" data-line-first="219" style="display:block"><code data-line="219">sudo searvice lightdm restart</code></pre><h3 id="section" class="h2" data-line="222" data-heading-depth="2" style="display:block"><span data-line="222"></span>ログイン画面がループする</h3>
+</p><h3 id="sec-x-window-system" class="h2" data-line="217" data-heading-depth="2" style="display:block"><span data-line="217"></span><span class="heading-before"><span class="heading-label">6.1</span>.&#8194;</span><span data-line="217"></span>X Window Systemがクラッシュ</h3>
+<pre class="para-block pre-fenced pre-fenced3" data-line="218" data-line-first="219" style="display:block"><code data-line="219">sudo searvice lightdm restart</code></pre><h3 id="section" class="h2" data-line="222" data-heading-depth="2" style="display:block"><span data-line="222"></span><span class="heading-before"><span class="heading-label">6.2</span>.&#8194;</span><span data-line="222"></span>ログイン画面がループする</h3>
 <p class="p noindent" data-line="223"><span data-line="223"></span><a href="http://poppycompass.hatenablog.jp/entry/2015/11/07/121105" data-linkid="loop">Ubuntuで認証画面を無限ループさせる方法と対処</a><span data-line="223"></span>
 </p>
 <blockquote data-line="224">
@@ -3653,9 +3193,10 @@ sudoを使えるユーザでログインすることが重要。そして以下�
 </p></blockquote><!-- grub マルチブート -->
 
 
-<h3 id="sec-cui" class="h2" data-line="240" data-heading-depth="2" style="display:block"><span data-line="240"></span>ネットワーク設定をCUIから編集したい</h3>
+<h3 id="sec-cui" class="h2" data-line="240" data-heading-depth="2" style="display:block"><span data-line="240"></span><span class="heading-before"><span class="heading-label">6.3</span>.&#8194;</span><span data-line="240"></span>ネットワーク設定をCUIから編集したい</h3>
 <p class="p noindent" data-line="241"><span data-line="241"></span>nm-connection-editor
-</p><span data-line=""></span>
+</p>
+<p class="p indent" data-line="243"><span data-line="243"></span></main></p><span data-line=""></span>
 <div class="footnotes madoko">
 <hr >
 
@@ -3665,6 +3206,7 @@ sudoを使えるユーザでログインすることが重要。そして以下�
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="../elastic-text/js/elastictext.js"> </script> <script id="dsq-count-scr" src="http//ayu-mushis-site.disqus.com/count.js" async></script>
 </html>
   ]]> </content>
 </entry>
