@@ -10,6 +10,8 @@ from jinja2 import Template
 import feedformatter
 import argparse
 import time
+import tempfile
+import subprocess
 
 # build/article下の全てのhtmlファイルをリストとして取得
 # → pubdateの無いものや、下書きのものを取り除く (下書きのものには、pubdateを指定しないようにした。)
@@ -72,6 +74,9 @@ def doc_detail(filename):
     ftitle, fext = os.path.splitext(os.path.basename(filename))
     doc["github_source"] = "https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/" + ftitle + ".mdk"
     doc["update"] = str2date(getid_maybe(filename, "update"))
+
+    #os.system("madoko -v ./src/article/"  + ftitle + ".mdk --odir=./temp/ > /dev/null 2>&1")
+    doc["content"] = unicode(readContent(filename), 'utf-8')
     return doc
 
 def all_to_mdk(doc_list):
@@ -95,19 +100,51 @@ Author: ayu-mushi
     t = Template(index_template_mdk)
     print(t.render(doc_list=doc_list).encode("utf-8"))
 
-# RSS Atom
 def all_to_rss(doc_list):
-    feed = feedformatter.Feed()
-    feed.feed['title'] = "title"
-    feed.feed['link'] = "https://ayu-mushi.github.io/"
-    feed.feed['author'] = "ayu-mushi"
-    feed.feed['description'] = "ayu-mushi"
-    feed.feed['pubDate'] = time.localtime()
-    for doc in doc_list:
-        feed.items.append({'title': doc["title"],
-                           'description': doc["description"]
-            })
-    print(feed.format_atom_string())
+    index_template_mdk = u"""
+<feed xmlns="http://www.w3.org/2005/Atom"
+xml:lang="en"
+xml:base="http://www.example.org">
+<id>https://ayu-mushi.github.io</id>
+<title>ayu-mushi's website</title>
+<updated>site_update</updated>
+<link href="https://ayu-mushi.github.io" />
+
+{% for doc in doc_list %}
+<entry>
+<id>https://ayu-mushi.github.io/article/{{doc.file_base}}</id>
+<title>{{doc.title}}</title>
+<link href="https://ayu-mushi.github.io/article/{{doc.file_base}}" />
+<updated>{{doc.pubdate}}</updated>
+<summary>{{doc.description}}</summary>
+<content type="html"><![CDATA[ {{doc.content}}  ]]> </content>
+</entry>
+{% endfor %}
+
+</feed>
+"""
+
+    t = Template(index_template_mdk)
+    print(t.render(doc_list=doc_list, site_update=time.localtime()).encode("utf-8"))
+
+# RSS Atom
+# def all_to_rss(doc_list):
+#    feed = feedformatter.Feed()
+#    feed.feed['title'] = "ayu-mushi's website"
+#    feed.feed['link'] = "https://ayu-mushi.github.io/"
+#    feed.feed['author'] = "ayu-mushi"
+#    feed.feed['description'] = "ayu-mushi's website."
+#    feed.feed['pubDate'] = time.localtime()
+#
+#    for doc in doc_list:
+#        ftitle, fext = os.path.splitext(doc["file_base"])
+#        feed.items.append(
+#                {'title': doc["title"]
+#                ,'description': unicode(readContent("./src/article/" + ftitle + ".mdk").replace('\n', '<br />'), 'utf-8')
+#                ,'link': "https://ayu-mushi.github.io/article/" + doc["file_base"]
+#                ,'pubdate': time.strptime(datetime.datetime.strftime(doc["pubdate"], '%y-%m-%d'), "%y-%m-%d")
+#            })
+#    print(feed.format_atom_string())
 
 def drafts():
     files = filter(lambda filename: getid_maybe(filename, "pubdate") is None, files)
