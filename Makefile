@@ -21,8 +21,11 @@ build/README.md: README.md
 build/mytheme/main.css : src/mytheme/main.sass
 	sass $< $@
 
-src/article/index.mdk : $(ARTICLE_BUILDS) src/article/make_index.py src/mytheme/myprelude.mdk
-	python src/article/make_index.py > src/article/index.mdk
+src/article/index.mdk : src/article/make_index.py
+	python src/article/make_index.py index > src/article/index.mdk
+
+build/atom.xml : src/article/make_index.py
+	python src/article/make_index.py rss > build/atom.xml
 
 build/article/%.html : src/article/%.md build/mytheme/main.css
 	pandoc -f markdown -o $@ $< --css=../mytheme/main.css $(COMMON_OPTS)

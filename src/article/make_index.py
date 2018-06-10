@@ -7,6 +7,9 @@ import glob
 import datetime
 from prettyprint import pp
 from jinja2 import Template
+import feedformatter
+import argparse
+import time
 
 # build/article下の全てのhtmlファイルをリストとして取得
 # → pubdateの無いものや、下書きのものを取り除く (下書きのものには、pubdateを指定しないようにした。)
@@ -92,6 +95,20 @@ Author: ayu-mushi
     t = Template(index_template_mdk)
     print(t.render(doc_list=doc_list).encode("utf-8"))
 
+# RSS Atom
+def all_to_rss(doc_list):
+    feed = feedformatter.Feed()
+    feed.feed['title'] = "title"
+    feed.feed['link'] = "https://ayu-mushi.github.io/"
+    feed.feed['author'] = "ayu-mushi"
+    feed.feed['description'] = "ayu-mushi"
+    feed.feed['pubDate'] = time.localtime()
+    for doc in doc_list:
+        feed.items.append({'title': doc["title"],
+                           'description': doc["description"]
+            })
+    print(feed.format_atom_string())
+
 def drafts():
     files = filter(lambda filename: getid_maybe(filename, "pubdate") is None, files)
     detailed_files = map(doc_detail, files)
@@ -100,4 +117,15 @@ def drafts():
 files = filter(lambda filename: getid_maybe(filename, "pubdate") is not None, files)
 detailed_files = map(doc_detail, files)
 detailed_files = sorted(detailed_files, key=lambda file0: file0["pubdate"], reverse=True)
-all_to_mdk(detailed_files)
+
+parser = argparse.ArgumentParser(description='generate index and rss')
+subparsers = parser.add_subparsers()
+
+ixCmd = subparsers.add_parser("index", help="index")
+ixCmd.set_defaults(func=(lambda args: all_to_mdk(detailed_files)))
+
+rssCmd = subparsers.add_parser("rss", help="rss")
+rssCmd.set_defaults(func=(lambda args: all_to_rss(detailed_files)))
+
+args = parser.parse_args()
+args.func(args)
