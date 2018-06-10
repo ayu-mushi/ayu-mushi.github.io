@@ -11,7 +11,7 @@ Author: ayu-mushi
   : キーワード: XMonad, 集中力
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/on_concentration.mdk>
   : 投稿日: 2018-06-08
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-06-09
 * [進化、伝統、理性 〜色々なデザイン、最適化](varieties_of_design.html "進化、伝統、理性 〜色々なデザイン、最適化")
   : 説明: 本能によるデザイン、伝統によるデザイン、経験によるデザイン、理性によるデザイン、機械学習によるデザインなど色々な制作、最適化の手法の段階を叙述し、まとめる。
   : キーワード: 機能主義, 人工物の哲学, 人工物, 進化, 文化進化, デネット, デザイン, ポエム
@@ -71,7 +71,7 @@ Author: ayu-mushi
   : キーワード: えへへー☆
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/ubuntu-setup.mdk>
   : 投稿日: 2016-12-10
-  : 最終更新日: 2018-06-04
+  : 最終更新日: 2018-06-11
 * [束と順序集合](lattice-and-order.html "束と順序集合")
   : 説明: 束
   : キーワード: 束, 計算機科学
@@ -86,3 +86,5 @@ Author: ayu-mushi
   : 投稿日: 2016-10-05
   : 最終更新日: 2018-06-08
   : [pdf版](pdf/new-site-is-started.pdf "Madokoでサイト作りました pdf版")
+* RSS
+  : [https://ayu-mushi.github.io/atom.xml](https://ayu-mushi.github.io/atom.xml)

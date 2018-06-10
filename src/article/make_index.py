@@ -95,6 +95,8 @@ Author: ayu-mushi
   : 投稿日: {{doc.pubdate}}
   : 最終更新日: {{doc["update"]}}{% if doc.isthere_pdf_of %}
   : [pdf版](pdf/{{ doc.pdf_versions_name }} "{{doc.title}} pdf版"){% endif %}{% endfor %}
+* RSS
+  : [https://ayu-mushi.github.io/atom.xml](https://ayu-mushi.github.io/atom.xml)
 """
 
     t = Template(index_template_mdk)
@@ -107,7 +109,7 @@ xml:lang="en"
 xml:base="http://www.example.org">
 <id>https://ayu-mushi.github.io</id>
 <title>ayu-mushi's website</title>
-<updated>site_update</updated>
+<updated>{{site_update}}</updated>
 <link href="https://ayu-mushi.github.io" />
 
 {% for doc in doc_list %}
