@@ -25,10 +25,10 @@
 * 記事を一覧するページを生成 (article/index.html)
 * Newer Article Older Article (次、新しい、)
 * Article、Game(Work)、Aboutといったものをサイドなどに表示
-* <meta name="twitter:title" content="About me">
-* <meta name="keywords" content="">
-* <meta name="twitter:site" content="mushi_ayumu">
-* <meta name="description"> madokoではHtml Meta で指定可能
+* \<meta name="twitter:title" content="About me"\>
+* \<meta name="keywords" content=""\>
+* \<meta name="twitter:site" content="mushi\_ayumu"\>
+* \<meta name="description"\> madokoではHtml Meta で指定可能
 * タイトルを見出しにすると、目次に含まれてしまう。
 * article/pdf ?
 * RSS
@@ -41,6 +41,7 @@
 * Google Analysis
 * 伸縮する数学書 https://i3vi3.github.io/elastic-text/ac.html
 * 索引自動生成 現在ページ数取得か、いまいる上の見出しを取得するか
+  * 文書の構造化
 * 「◯◯に関するメモ」みたいな感じで自由に書ける環境を用意したい
 * 公開日記はどうか?
 * 目次を横に出す
@@ -58,6 +59,9 @@
 * サイトは、凡例に色々な言い換え、言い方などを書こうか
 * これをGithubにあげる
 * 自分用 index ―― Draft も 見えるページを 作るとか
+* クリックで見出しなどを折りたたむ
+* CCでライセンスを設定
+* draftは別ブランチにしたほうがいいのでは？
 
 ##解決済み
 * サブタイトルも付けたい
