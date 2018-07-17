@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.1.4" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="twitter:site" content="ayu_mushi" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:title" content="GHCJSにおけるイベント管理" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ayu-mushi's website" />
+  <meta property="og:description" content="イベント" />
+  <meta name="keywords" content="イベント管理, イベントループ" />
+  <meta name="author" content="ayu-mushi" />
+  <meta name="description" content="イベント" />
+  <title>GHCJSにおけるイベント管理</title>
+  <link rel="stylesheet" type="text/css" href="madoko.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0//bootstrap.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="../mytheme/main.css"  class="link">
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+        body.madoko, body.madoko.preview[data-view=full] { 
+          padding: 0pt;
+          margin: 0pt;
+          max-width: 100%;
+        }
+      </style>
+  <head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){
+            i['GoogleAnalyticsObject']=r;
+            i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-34234538-2', 'auto');
+        ga('send', 'pageview');
+        [INCLUDE=../mytheme/disqus.js]
+  </script>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0"><nav id="menu">
+  <ul>
+    <li><a href="/">About</a></li>
+    <li><a href="/article">Article</a></li>
+    <li><a href="/games.html">Game</a></li>
+  </ul>
+</nav>
+
+
+
+<main>
+
+<div class="header" data-line="10;src/article/../mytheme/myprelude.mdk:125" style="padding-bottom:1em">
+
+
+<p class="p noindent" data-line="10;src/article/../mytheme/myprelude.mdk:129"><span data-line="10;src/article/../mytheme/myprelude.mdk:129"></span><span class="site-name">ayu-mushi&#39;s website</span><span data-line="10;src/article/../mytheme/myprelude.mdk:129"></span>
+</p>
+<p class="p indent" data-line="10;src/article/../mytheme/myprelude.mdk:131"><span data-line="10;src/article/../mytheme/myprelude.mdk:131"></span><span id="post-title">GHCJSにおけるイベント管理</span><span data-line="10;src/article/../mytheme/myprelude.mdk:131"></span>
+</p>
+<div id="date" data-line="10;src/article/../mytheme/myprelude.mdk:143" style="display:inline">
+<dl class="dl compact" data-line="10;src/article/../mytheme/myprelude.mdk:144">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Published</dt>
+<dd class="dd" data-line="10;src/article/../mytheme/myprelude.mdk:144" style="margin-left:1.5em"><span data-line="10;src/article/../mytheme/myprelude.mdk:144"></span><date id="pubdate" pubdate="pubdate">2017-10-08</date><span data-line="10;src/article/../mytheme/myprelude.mdk:144"></span>
+</dd>
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
+<dd class="dd" data-line="10;src/article/../mytheme/myprelude.mdk:146" style="margin-left:1.5em"><span data-line="10;src/article/../mytheme/myprelude.mdk:146"></span><date id="update">2018-07-17</date></dd></dl></div>
+<div id="draft" data-line="10;src/article/../mytheme/myprelude.mdk:150">
+<dl class="dl compact" data-line="10;src/article/../mytheme/myprelude.mdk:151">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Draft</dt>
+<dd class="dd" data-line="10;src/article/../mytheme/myprelude.mdk:151" style="margin-left:1.5em"><span data-line="10;src/article/../mytheme/myprelude.mdk:151"></span><strong class="strong-star2"> この記事は下書きです。</strong></dd></dl></div>
+<div id="source" data-line="10;src/article/../mytheme/myprelude.mdk:155">
+<dl class="dl compact" data-line="10;src/article/../mytheme/myprelude.mdk:156">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
+<dd class="dd" data-line="10;src/article/../mytheme/myprelude.mdk:156" style="margin-left:1.5em"><span data-line="10;src/article/../mytheme/myprelude.mdk:156"></span>https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/event-management-in-ghcjs.mdk</dd></dl></div></div><span data-line="10;src/article/../mytheme/myprelude.mdk:162"></span>
+<nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;\u306F\u3058\u3081\u306B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>.&#8194;はじめに</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u7D99\u7D9A\u3068\u30B3\u30FC\u30EB\u30D0\u30C3\u30AF" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">2</span>.&#8194;継続とコールバック</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u30DE\u30EB\u30C1\u30B9\u30EC\u30C3\u30C9" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>.&#8194;マルチスレッド</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-frp" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;FRP" style="toctarget:sec-frp"><a href="#sec-frp" class="localref"><span class="heading-label">4</span>.&#8194;FRP</a></div></div></nav>
+<div class="mathdefs input-mathdefs" data-line="10;src/article/../mytheme/myprelude.mdk:164"></div><h2 id="section" class="h1" data-line="12" data-heading-depth="1" style="display:block"><span data-line="12"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="12"></span>はじめに</h2>
+<p class="p noindent" data-line="13"><span data-line="13"></span>JavaScript におけるイベント管理は、コールバック地獄などがあり、面倒であることが有名です。
+この記事では、JavaScriptにコンパイルされるHaskellコンパイラーのGHCJSにおけるイベント管理の方法をいくつか見ます。
+</p>
+<p class="p indent" data-line="16"><span data-line="16"></span>【注意】この記事は、色々な方法を羅列するだけで、結論は無いです。
+各方法の実用性の比較などについては、私が知らないので、あまり触れません。
+</p><h2 id="section" class="h1" data-line="19" data-heading-depth="1" style="display:block"><span data-line="19"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="19"></span>継続とコールバック</h2>
+<p class="p noindent" data-line="20"><span data-line="20"></span>コールバック関数とは、以下のような型の関数です。
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="22" data-line-first="23" style="display:block"><code data-line="23">(a <span style="color:blue">-&gt;</span> r) <span style="color:blue">-&gt;</span> r
+(a <span style="color:blue">-&gt;</span> <span style="color:purple">IO</span> ()) <span style="color:blue">-&gt;</span> <span style="color:purple">IO</span> ()
+(a <span style="color:blue">-&gt;</span> <span style="color:purple">IO</span> r) <span style="color:blue">-&gt;</span> <span style="color:purple">IO</span> r</code></pre>
+<p class="p noindent para-continued" data-line="28"><span data-line="28"></span>具体的には、
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="29" data-line-first="30" style="display:block"><code data-line="30"><span style="color:darkgreen">{-</span><span style="color:darkgreen"># LANGUAGE JavaScriptFFI #</span><span style="color:darkgreen">-}</span>
+foreign <span style="color:blue">import</span> javascript unsafe <span style="color:maroon">&quot;</span><span style="color:maroon">..(省略)..</span><span style="color:maroon">&quot;</span> settimeout_js <span style="color:teal">::</span> <span style="color:teal">Int</span> <span style="color:teal">-&gt;</span> <span style="color:teal">Callback</span> <span style="color:teal">(</span><span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span>
+foreign <span style="color:blue">import</span> javascript unsafe  <span style="color:maroon">&quot;</span><span style="color:maroon">..(省略)..</span><span style="color:maroon">&quot;</span> mouseXY_js <span style="color:teal">::</span> <span style="color:teal">Element</span> <span style="color:teal">-&gt;</span> <span style="color:teal">Callback</span> <span style="color:teal">(</span><span style="color:teal">JSVal</span> <span style="color:teal">-&gt;</span> <span style="color:teal">JSVal</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span>
+
+
+sleep <span style="color:teal">::</span> <span style="color:teal">Int</span> <span style="color:teal">-&gt;</span> <span style="color:teal">(</span><span style="color:teal">(</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span>
+sleep n <span style="color:blue">=</span> <span style="color:blue">\</span>f <span style="color:blue">-&gt;</span> <span style="color:blue">do</span>
+  cb &lt;- asyncCallback $ f ()
+  settimeout_js n cb
+  releaseCallback cb
+
+mouseXY <span style="color:teal">::</span> <span style="color:teal">Element</span> <span style="color:teal">-&gt;</span> <span style="color:teal">(</span><span style="color:teal">(</span><span style="color:teal">Int</span><span style="color:teal">,</span><span style="color:teal">Int</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span>
+mouseXY elm <span style="color:blue">=</span> <span style="color:blue">\</span>f <span style="color:blue">-&gt;</span> <span style="color:blue">do</span>
+  cb &lt;- asyncCallback2 $ <span style="color:blue">\</span>x y <span style="color:blue">-&gt;</span> f (pFromJSVal x, pFromJSVal y)
+  mouseXY_js elm cb
+  releaseCallback cb</code></pre>
+<p class="p noindent para-continued" data-line="47"><span data-line="47"></span>といったものです。
+</p>
+<p class="p indent" data-line="49"><span data-line="49"></span>こういった関数を簡潔に書くために、callCCやContモナド、ContTモナドを使うことがあります。
+なぜなら、コールバック関数にcallCCを使うと型<span data-line="50"></span><code class="code code1">a</code><span data-line="50"></span>の値のように扱え、コールバック関数にContモナドを使うと<span data-line="50"></span><code class="code code1">Cont r a</code><span data-line="50"></span>というモナド(<span data-line="50"></span><code class="code code1">Cont r</code><span data-line="50"></span>がモナド)としてdo記法で扱えるので、関数を渡すときに括弧が増えないからです。
+</p>
+<p class="p indent" data-line="52"><span data-line="52"></span>GHCJSではGHCのライブラリが使えるので、ContやContTを使えます。
+callCCについても、インポートのときに<span data-line="53"></span><code class="code code1">$c</code><span data-line="53"></span>という変数(関数が入る)を使ったものを使うと、<span data-line="53"></span><code class="code code1">$c</code><span data-line="53"></span>の部分に継続(<span data-line="53"></span><code class="code code1">(_ &gt;&gt;= f) &gt;&gt;= g :: IO a -&gt; IO ()</code><span data-line="53"></span>のような)が渡されます。
+ただし、言語プラグマ<span data-line="54"></span>&#8220;InterruptibleFFI&#8221;<span data-line="54"></span>を指定します。
+</p><!--限定継続-->
+
+
+
+<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="58" data-line-first="59" style="display:block"><code data-line="59"><span style="color:darkgreen">{-</span><span style="color:darkgreen"># LANGUAGE JavaScriptFFI, InterruptibleFFI #</span><span style="color:darkgreen">-}</span>
+foreign <span style="color:blue">import</span> javascript interruptible <span style="color:maroon">&quot;</span><span style="color:maroon">setTimeout($c, $1);</span><span style="color:maroon">&quot;</span> delayJS <span style="color:teal">::</span> <span style="color:teal">Int</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">)</span>
+foreign <span style="color:blue">import</span> javascript interruptible <span style="color:maroon">&quot;</span><span style="color:maroon">$1.onmousemove = function(e) { $c(e.clientX, e.clientY) };</span><span style="color:maroon">&quot;</span> mouseXY <span style="color:teal">::</span> <span style="color:teal">Element</span> <span style="color:teal">-&gt;</span> <span style="color:teal">IO</span> <span style="color:teal">(</span><span style="color:teal">Int</span><span style="color:teal">,</span> <span style="color:teal">Int</span><span style="color:teal">)</span></code></pre>
+<p class="p noindent para-continued" data-line="64"><span data-line="64"></span>細かい実装については分かりませんが、変数<span data-line="64"></span><code class="code code1">$c</code><span data-line="64"></span>を使った場合には、一回の呼び出しにつきイベント発生回数が一回になる。
+そして、複数回別の継続がある場所で呼び出すことができます。
+これにより<span data-line="66"></span><code class="code code1">mouseXY :: Element -&gt; IO (Int, Int)</code><span data-line="66"></span>などのコールバックだった関数を、<span data-line="66"></span><code class="code code1">read :: IO String</code><span data-line="66"></span> などと同じように扱えるので、便利です。
+ただし、複数使うと、競合するようです。
+</p>
+<p class="p indent" data-line="69"><span data-line="69"></span><a href="https://qiita.com/tanakh/items/81fc1a0d9ae0af3865cb">&#8220;継続モナドによるリソース管理 - Qiita&#8221;</a><span data-line="69"></span>も参照。
+</p><h2 id="section" class="h1" data-line="72" data-heading-depth="1" style="display:block"><span data-line="72"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="72"></span>マルチスレッド</h2>
+<p class="p noindent" data-line="73"><span data-line="73"></span>GHCJSにはマルチスレッドとアトミックブロックの機能がGHCと同様にある。
+</p>
+<p class="p indent" data-line="75"><span data-line="75"></span>イベントループ
+ソフトウェアトランザクショナルメモリー(STM)
+アトミックブロック
+TChan イベントバッファー キーボード入力
+非同期
+</p><h2 id="sec-frp" class="h1" data-line="81" data-heading-depth="1" style="display:block"><span data-line="81"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="81"></span>FRP</h2>
+<p class="p noindent" data-line="83"><span data-line="83"></span></main></p><span data-line=""></span></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="../elastic-text/js/elastictext.js"> </script> <script id="dsq-count-scr" src="http//ayu-mushis-site.disqus.com/count.js" async></script>
+</html>
