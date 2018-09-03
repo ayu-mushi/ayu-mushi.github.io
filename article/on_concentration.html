@@ -68,7 +68,7 @@
 <dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:144" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:144"></span><date id="pubdate" pubdate="pubdate">2018-06-08</date><span data-line="6;src/article/../mytheme/myprelude.mdk:144"></span>
 </dd>
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
-<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:146" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:146"></span><date id="update">2018-08-30</date></dd></dl></div>
+<dd class="dd" data-line="6;src/article/../mytheme/myprelude.mdk:146" style="margin-left:1.5em"><span data-line="6;src/article/../mytheme/myprelude.mdk:146"></span><date id="update">2018-09-03</date></dd></dl></div>
 <div id="source" data-line="6;src/article/../mytheme/myprelude.mdk:155">
 <dl class="dl compact" data-line="6;src/article/../mytheme/myprelude.mdk:156">
 <dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
@@ -79,19 +79,18 @@
 <div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u96C6\u4E2D\u306E\u30E1\u30EA\u30C3\u30C8/\u30C7\u30E1\u30EA\u30C3\u30C8" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">2</span>.&#8194;集中のメリット/デメリット</a></div>
 <div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u305D\u306E\u4ED6" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>.&#8194;その他</a></div></div></nav>
 <div class="mathdefs input-mathdefs" data-line="6;src/article/../mytheme/myprelude.mdk:164"></div><h2 id="sec-xmonad" class="h1" data-line="9" data-heading-depth="1" style="display:block"><span data-line="9"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="9"></span>XMonadで集中できない場合の対策</h2>
-<p class="p noindent" data-line="10"><span data-line="10"></span>XMonadでワークスペースをカチャカチャ無意味に移動して集中できない問題への対策として、<span data-line="10"></span><code class="code code1">mod-s</code><span data-line="10"></span>で一定時間ワークスペース間の移動を不可能にすることをした。
-</p>
-<p class="p indent" data-line="12"><span data-line="12"></span>方法は、愚直に集中中かどうかを変数を持ち回って、<span data-line="12"></span><code class="code code1">mod-s</code><span data-line="12"></span>で変数に集中中を表す値を入れ、1分したら集中中でなくしている<span data-line="12"></span><sup id="back-fn-better" ><a href="#fn-better" title="1.もっといいやり方があったら教えてほしい
-&#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="12"></span>。
-そして、もとの<span data-line="13"></span><code class="code code1">windows</code><span data-line="13"></span>を改変した<span data-line="13"></span><code class="code code1">myWindows</code><span data-line="13"></span>は、集中中の場合に作動しないようにしている。
-ワークスペース間の移動について、<span data-line="14"></span><code class="code code1">windows</code><span data-line="14"></span>を<span data-line="14"></span><code class="code code1">myWindows</code><span data-line="14"></span>と差し替えている。
+<p class="p noindent" data-line="10"><span data-line="10"></span>XMonadでワークスペースをカチャカチャ無意味に移動して集中できない問題への対策として、<span data-line="10"></span><code class="code code1">mod-s</code><span data-line="10"></span>で一定時間ワークスペース間の移動を不可能にすることをした。 
+方法は、愚直に集中中かどうかを変数を持ち回って、<span data-line="11"></span><code class="code code1">mod-s</code><span data-line="11"></span>で変数に集中中を表す値を入れ、1分したら集中中でなくしている<span data-line="11"></span><sup id="back-fn-better" ><a href="#fn-better" title="1.もっといいやり方があったら教えてほしい
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="11"></span>。
+そして、もとの<span data-line="12"></span><code class="code code1">windows</code><span data-line="12"></span>を改変した<span data-line="12"></span><code class="code code1">myWindows</code><span data-line="12"></span>は、集中中の場合に作動しないようにしている。
+ワークスペース間の移動について、<span data-line="13"></span><code class="code code1">windows</code><span data-line="13"></span>を<span data-line="13"></span><code class="code code1">myWindows</code><span data-line="13"></span>と差し替えている。
 </p><!-- import が少ない -->
 
 
 
-<p class="p indent" data-line="20"><span data-line="20"></span>~<span data-line="20"></span>/.xmonad/xmonad.hs
+<p class="p indent" data-line="19"><span data-line="19"></span>~<span data-line="19"></span>/.xmonad/xmonad.hs
 </p>
-<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="22" data-line-first="23" style="display:block"><code data-line="23"><span style="color:blue">import</span> <span style="color:navy">Control.</span><span style="color:purple">Concurrent</span> (forkIO, <span style="color:purple">MVar</span>, readMVar, newMVar, modifyMVar, modifyMVar_, putMVar, threadDelay)
+<pre class="para-block pre-fenced pre-fenced3 language-haskell lang-haskell haskell colorized" data-line="21" data-line-first="22" style="display:block"><code data-line="22"><span style="color:blue">import</span> <span style="color:navy">Control.</span><span style="color:purple">Concurrent</span> (forkIO, <span style="color:purple">MVar</span>, readMVar, newMVar, modifyMVar, modifyMVar_, putMVar, threadDelay)
 
 myWindows <span style="color:teal">::</span> <span style="color:teal">MVar</span> <span style="color:teal">Bool</span> <span style="color:teal">-&gt;</span> <span style="color:teal">(</span><span style="color:teal">WindowSet</span> <span style="color:teal">-&gt;</span> <span style="color:teal">WindowSet</span><span style="color:teal">)</span> <span style="color:teal">-&gt;</span> <span style="color:teal">X</span> <span style="color:teal">(</span><span style="color:teal">)</span>
 myWindows v f <span style="color:blue">=</span> <span style="color:blue">do</span>
@@ -143,41 +142,45 @@ main <span style="color:blue">=</span> <span style="color:blue">do</span>
   isInConc &lt;- newMVar <span style="color:purple">False</span>
   xmonad $ defaults isInConc $ dynamicLogWithPP $ xmobarPP { ppOutput <span style="color:blue">=</span> hPutStrLn myStatusBar}
 </code></pre>
-<p class="p noindent para-continued" data-line="77"><span data-line="77"></span>どうしても移動したいときは<span data-line="77"></span><code class="code code1">xmonad --restart</code><span data-line="77"></span>すると変数も新しくなるので集中中ではなくなる。
+<p class="p noindent para-continued" data-line="76"><span data-line="76"></span>どうしても移動したいときは<span data-line="76"></span><code class="code code1">xmonad --restart</code><span data-line="76"></span>すると変数も新しくなるので集中中ではなくなる。
 </p>
-<p class="p indent" data-line="79"><span data-line="79"></span>TODO: 集中中かどうかをどこかに可視化する
+<p class="p indent" data-line="78"><span data-line="78"></span>TODO: 集中中かどうかをどこかに可視化する
 </p>
-<p class="p indent" data-line="81"><span data-line="81"></span>やってみた結果としては、それなりに集中できるように思う。
+<p class="p indent" data-line="80"><span data-line="80"></span>やってみた結果としては、それなりに集中できるように思う。
 </p>
-<p class="p indent" data-line="83"><span data-line="83"></span><strong class="strong-star2">TODO:</strong><span data-line="83"></span> Google Chrome拡張でもタブを一定時間変えられないようにするのを作る。
-<span data-line="84"></span><code class="code code1">F11</code><span data-line="84"></span> フルスクリーンでもOKかも。
+<p class="p indent" data-line="82"><span data-line="82"></span><strong class="strong-star2">TODO:</strong><span data-line="82"></span> Google Chrome拡張でもタブを一定時間変えられないようにするのを作る。
+<span data-line="83"></span><code class="code code1">F11</code><span data-line="83"></span> フルスクリーンでもOKかも。
 </p>
-<p class="p indent" data-line="86"><span data-line="86"></span><strong class="strong-star2">TODO:</strong><span data-line="86"></span> あるウィンドウをワークスペース一面にするレイアウトだと集中できるが、横長すぎるのでサイズを調節
+<p class="p indent" data-line="85"><span data-line="85"></span><strong class="strong-star2">TODO:</strong><span data-line="85"></span> あるウィンドウをワークスペース一面にするレイアウトだと集中できるが、横長すぎるのでサイズを調節
 </p>
-<p class="p indent" data-line="88"><span data-line="88"></span><strong class="strong-star2">TODO:</strong><span data-line="88"></span> 移動までできなくなるのを訂正
+<p class="p indent" data-line="87"><span data-line="87"></span><strong class="strong-star2">TODO:</strong><span data-line="87"></span> 移動までできなくなるのを訂正
 </p>
-<p class="p indent" data-line="90"><span data-line="90"></span><a href="https://github.com/ayu-mushi/dotfiles/blob/master/xmonad.hs">&#8220;Github ayu-mushi/dotfiles/xmonad.hs&#8221;</a><span data-line="90"></span>にソースを置いた。
-</p><h2 id="section" class="h1" data-line="92" data-heading-depth="1" style="display:block"><span data-line="92"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="92"></span>集中のメリット/デメリット</h2><h2 id="section" class="h1" data-line="95" data-heading-depth="1" style="display:block"><span data-line="95"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="95"></span>その他</h2>
-<ul class="ul list-star compact" data-line="96">
-<li class="li ul-li list-star-li compact-li" data-line="96"><span data-line="96"></span>動画の講座で学ぶ
+<p class="p indent" data-line="89"><span data-line="89"></span><a href="https://github.com/ayu-mushi/dotfiles/blob/master/xmonad.hs">&#8220;Github ayu-mushi/dotfiles/xmonad.hs&#8221;</a><span data-line="89"></span>にソースを置いた。
+</p><h2 id="section" class="h1" data-line="91" data-heading-depth="1" style="display:block"><span data-line="91"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="91"></span>集中のメリット/デメリット</h2>
+<p class="p noindent" data-line="92"><span data-line="92"></span>利用と探索のトレードオフ
+</p>
+<p class="p indent" data-line="94"><span data-line="94"></span>時間選好
+</p><h2 id="section" class="h1" data-line="97" data-heading-depth="1" style="display:block"><span data-line="97"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="97"></span>その他</h2>
+<ul class="ul list-star compact" data-line="98">
+<li class="li ul-li list-star-li compact-li" data-line="98"><span data-line="98"></span>動画の講座で学ぶ
 </li>
-<li class="li ul-li list-star-li compact-li" data-line="97"><span data-line="97"></span>音読をする
+<li class="li ul-li list-star-li compact-li" data-line="99"><span data-line="99"></span>音読をする
 </li>
-<li class="li ul-li list-star-li compact-li" data-line="98"><span data-line="98"></span>脳内イベントループを減らすこと(マルチタスクを減らす)
+<li class="li ul-li list-star-li compact-li" data-line="100"><span data-line="100"></span>脳内イベントループを減らすこと(マルチタスクを減らす)
 </li>
-<li class="li ul-li list-star-li compact-li" data-line="99"><span data-line="99"></span>予測不可能な突然通知ではなく予測可能な定期的通知システム
+<li class="li ul-li list-star-li compact-li" data-line="101"><span data-line="101"></span>予測不可能な突然通知ではなく予測可能な定期的通知システム
 
-<ul class="ul list-star compact" data-line="100">
-<li class="li ul-li list-star-li compact-li" data-line="100"><span data-line="100"></span>Unified Notification Stream
+<ul class="ul list-star compact" data-line="102">
+<li class="li ul-li list-star-li compact-li" data-line="102"><span data-line="102"></span>Unified Notification Stream
 </li></ul></li></ul>
 
-<p class="p noindent" data-line="102"><span data-line="102"></span></main></p><span data-line=""></span>
+<p class="p noindent" data-line="104"><span data-line="104"></span></main></p><span data-line=""></span>
 <div class="footnotes madoko">
 <hr >
 
-<div id="fn-better" class="footnote" data-line="16" style="line-adjust:0">
-<p class="p noindent" data-line="16"><span data-line="16"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="16"></span>もっといいやり方があったら教えてほしい
-<span data-line="17"></span><span data-line="17"></span><a href="#back-fn-better" class="footnote-backref localref">&#8617;</a></p></div></div></div>
+<div id="fn-better" class="footnote" data-line="15" style="line-adjust:0">
+<p class="p noindent" data-line="15"><span data-line="15"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="15"></span>もっといいやり方があったら教えてほしい
+<span data-line="16"></span><span data-line="16"></span><a href="#back-fn-better" class="footnote-backref localref">&#8617;</a></p></div></div></div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
