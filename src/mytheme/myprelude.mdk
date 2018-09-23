@@ -10,13 +10,16 @@ Diary {
 .need-cite { after: "[\[要出典\]]{.need-cite-display}"}
 .need-cite-display { font-weight: bold }
 
+
 hr { border: none; border-top: dotted 1px; height: 1px; width: 10em }
 .diary-title { border-right: 0.09em solid; border-left: 0.09em solid; border-radius: 0.5em 0.5em 0.5em 0.5em; margin-right: 4px; text-align: center; padding: 2px}
 
 Css: ../mytheme/main.css
 @if null == site-name {
-Site Name: ayu-mushi.github.io
+Site Name: ayu-mushi\'s website
 }
+
+
 .newword { font-weight: bold }
 Aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
 Cite Style: natural
@@ -29,13 +32,23 @@ HTML Meta: property="og:type" content="article"
 HTML Meta: property="og:site_name" content="&site-name;"
 HTML Meta: property="og:description" content="&description;"
 Github Source: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/&filename;
-body { after: "</main>" }
 Embed: 0
 @if Pubdate == null { #date {display: none} }
 @if Update == null { #date {display: none}}
 @if Draft { #date {display: none} }
+@if Visible { #date {display: inline }}
 @if not Draft { #draft {display: none} }
 @if null == subtitle { #post-subtitle { display: none} }
+
+
+body {
+  replace: "&source;<div id='disqus_thread'></div>&nl;[FOOTNOTES]&nl;</main>";
+}
+
+HTML Header: <script>var disqus_config = function () {this.page.url = PAGE_URL;this.page.identifier = PAGE_IDENTIFIER;};(function() {var d = document, s = d.createElement('script');s.src = 'https://ayu-mushis-site.disqus.com/embed.js';s.setAttribute('data-timestamp', +new Date());(d.head || d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+
+
+
 
 .ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
 
@@ -45,7 +58,7 @@ Embed: 0
 }
 Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 ~ Begin samp-code-body {.panel-body}&nl;\
-````madoko&nl;&source;&nl;````&nl;\
+```` madoko&nl;&source;&nl;````&nl;\
 ~ End samp-code-body&nl;\
 ~ Begin samp-code-footer {.panel-footer}&nl;\
 &source;&nl;\
@@ -54,11 +67,36 @@ Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
 "}
 
 .theorem { replace: "/Theorem/定理/" }
+.proposition { replace: "/Proposition/命題/" }
 .lemma {replace : "/Lemma/補題/"}
 .definition { replace: "/Definition/定義/" }
 .proof { replace: "/Proof/証明/" }
 .example { replace: "/Example/例/"}
 .header { padding-bottom: 1em;}
+
+name-rebuttal   : 再反論
+name-objection   : 反論
+
+<!-- caption-endは改行をなくすために必要-->
+
+Rebuttal {
+  before: '↪[&rebuttal-format;]{.rebuttal-before}';
+  theorem-caption-end: " ";
+  display: block;
+  margin: 1ex 0pt;
+  padding-left: 1em;
+}
+rebuttal-format     : **&name-rebuttal;\ &label;&theorem-endperiod;** &theorem-caption;
+
+Objection {
+  before: "↪[&objection-format;]{.proof-before}";
+  theorem-caption-end: " ";
+  display: block;
+  margin: 1ex 0pt;
+  padding-left: 1em;
+}
+objection-format     : **&name-objection;\ &label;&theorem-endperiod;** &theorem-caption;
+
 
 Gist { replace: "<script src='https://gist.github.com/&gistcode;'></script>"}
 
@@ -75,13 +113,13 @@ JS Header:
         i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-34234538-2', 'auto');
     ga('send', 'pageview');
+    [INCLUDE=../mytheme/disqus.js]
 
 Package: tikz
 Package: tikz-cd
 TikzPicture { replace:"~~Snippet &nl; \begin{tikzpicture}&nl;&source;&nl;\end{tikzpicture}&nl;~~&nl;" }
 TikzCd { replace:"~ Math &nl; \begin{tikzcd}&source;\end{tikzcd}&nl;~ &nl;" }
 
-HTML Footer: <script src="../elastic-text/js/elastictext.js"> </script>
 
 @if tex {
 [INCLUDE=../mytheme/myprelude_pdf.mdk]
@@ -118,7 +156,8 @@ Last Modified
 ~
 
 ~ {#draft}
-  ** この記事は下書きです。**
+Draft
+  ~ ** この記事は下書きです。**
 ~
 
 ~ {#source}
