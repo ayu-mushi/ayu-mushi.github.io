@@ -1,9 +1,10 @@
-Title: GHCJSにおけるイベント管理
+Title: GHCJSによるイベント管理
 Author: ayu-mushi
 Keywords: イベント管理, イベントループ
 Description: イベント
 Draft: True
-Pubdate: 2017-10-08
+Visible: True
+Pubdate: &date;
 Update: &date;
 
 [INCLUDE="../mytheme/myprelude.mdk"]
@@ -51,6 +52,8 @@ mouseXY elm = \f -> do
 GHCJSではGHCのライブラリが使えるので、ContやContTを使えます。
 callCCについても、インポートのときに`$c`という変数(関数が入る)を使ったものを使うと、`$c`の部分に継続(`(_ >>= f) >>= g :: IO a -> IO ()`のような)が渡されます。
 ただし、言語プラグマ"InterruptibleFFI"を指定します。
+
+<!--限定継続-->
 
 ```haskell
 {-# LANGUAGE JavaScriptFFI, InterruptibleFFI #-}

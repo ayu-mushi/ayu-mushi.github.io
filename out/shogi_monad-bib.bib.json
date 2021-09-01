@@ -1,0 +1,105 @@
+{
+  "_preamble": "",
+  "_comments": "",
+  "leijen201604": {
+    "id": "Leijen201604",
+    "type": "no-type",
+    "author": [
+      {
+        "family": "Leijen",
+        "given": "Daan"
+      }
+    ],
+    "title": "Madoko Reference",
+    "issued": {
+      "date-parts": [
+        [
+          "2016",
+          "4"
+        ]
+      ]
+    },
+    "publisher": "Microsoft Research",
+    "URL": "http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html",
+    "_line": "src/article/./biblio.bib:1"
+  },
+  "daveypriestley200204": {
+    "id": "DaveyPriestley200204",
+    "type": "book",
+    "author": [
+      {
+        "family": "Davey",
+        "given": "B. A."
+      },
+      {
+        "family": "Priestley",
+        "given": "H. A."
+      }
+    ],
+    "title": "Introduction to Lattices and Order",
+    "issued": {
+      "date-parts": [
+        [
+          "2002",
+          "4"
+        ]
+      ]
+    },
+    "publisher": "Cambridge University Press",
+    "edition": "2",
+    "isbn": "9780521784511",
+    "URL": "http://amazon.co.jp/o/ASIN/0521784514/",
+    "_line": "src/article/./biblio.bib:9"
+  },
+  "birthoflinearlogic": {
+    "id": "BirthOfLinearLogic",
+    "type": "article-journal",
+    "author": [
+      {
+        "family": "照井",
+        "given": "一成"
+      }
+    ],
+    "title": "線形論理の誕生",
+    "container-title": "數學",
+    "issued": {
+      "date-parts": [
+        [
+          "2010",
+          "1"
+        ]
+      ]
+    },
+    "publisher": "日本数学会",
+    "issn": "0039470X",
+    "URL": "http://ci.nii.ac.jp/naid/10026792499/en/",
+    "page": "115-132",
+    "page-first": "115",
+    "volume": "62",
+    "issue": "1",
+    "_line": "src/article/./biblio.bib:22"
+  },
+  "iida198710": {
+    "id": "Iida198710",
+    "type": "book",
+    "author": [
+      {
+        "family": "飯田",
+        "given": "隆"
+      }
+    ],
+    "title": "言語哲学大全1　論理と言語",
+    "issued": {
+      "date-parts": [
+        [
+          "1987",
+          "10"
+        ]
+      ]
+    },
+    "publisher": "勁草書房",
+    "isbn": "9784326152001",
+    "URL": "http://amazon.co.jp/o/ASIN/4326152001/",
+    "_line": "src/article/./biblio.bib:37"
+  }
+}

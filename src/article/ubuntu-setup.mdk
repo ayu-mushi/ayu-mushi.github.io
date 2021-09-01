@@ -40,8 +40,14 @@ Dropboxを入れたら、まず[共通の設定][dotfiles]を持ってくる。
 * urxvt
   * `apt install rxvt-unicode`
 * newsbeuter
+  * →apt install
 * alarm-clock-applet
+  * →apt install
 * Mendeley
+* Heroku CLI
+  * →npm
+* madoko
+  * →npm
 
 ##XMonad
 `man xmonad` でキーバインディングを見る
@@ -194,6 +200,7 @@ mhchem などを使うときに、バージョンが高くないといけない�
 TeXLiveに標準で日本語環境がマージされているようなので、普通にTeXLive を入れると良い
 
 [Linux - TeX Wiki](https://texwiki.texjp.org/?Linux) を参照
+
 
 #問題と対処: ケーススタディ
 自分が遭遇した問題だけ書くので経験論というやつですね。

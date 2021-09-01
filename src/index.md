@@ -2,18 +2,51 @@
 title: 'About me'
 ---
 
-Twitter
-  ~ [\@ayu\_mushi](https://twitter.com/ayu_mushi)
 
-aclog
-  : [ayu-mushi](https://aclog.rhe.jp/ayu_mushi)
+
+
+作ったもの & 書いたもの
+---
+
+[【人工生命】ジェネラティブアートな生態系シミュレータを作ってみた](https://www.nicovideo.jp/watch/sm35998123)
+  ~ @vespid 氏と作成した人工生命シミュレータ(Processing.js)
+
+[Parasite Aging](https://ayu-mushi.github.io/KorogaruGame/index.html)
+  ~ 知人と作成した生態系の中で動物に憑依して遊ぶゲーム(Unity)
+
+[天才フランベシアちゃん](https://github.com/ayu-mushi/linebot)
+  ~ 駒をモナドで表した、盤が分裂する将棋ができるLINE bot(Heroku, Haskell, Scotty)
+
+[Brainfuckのコンパイラ](https://github.com/ayu-mushi/brainfuck-compiler)
+  ~ Pythonで作成
+
+SNSなど
+---
 
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
 
+マストドン
+  ~ [\@ayu\_mushi@mstdn.jp](https://mstdn.jp/@ayu\_mushi)
+
+AtCoder
+  ~ [ayu\_mushi](https://atcoder.jp/users/ayu_mushi)
+
+Scrapbox
+  ~ [ayu-mushi](https://scrapbox.io/ayu-mushi/)
+
+Scrapboxの更新情報
+  ~ [stream](https://scrapbox.io/stream/ayu-mushi)
+
+Twitter
+  ~ [\@ayu\_mushi](https://twitter.com/ayu_mushi)
+
+twilog
+  ~ [\@ayu\_mushi](https://twilog.org/ayu_mushi)
+
+
 将棋ウォーズ
-  ~ [mushi2000 - 棋譜](http://shogiwars.heroz.jp/users/history/mushi2000)
   ~ [mushi2000 - profile](http://shogiwars.heroz.jp/users/mushi2000)
 
 ask.fm

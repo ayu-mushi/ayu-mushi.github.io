@@ -130,6 +130,30 @@ keymap O EXEC_SHELL "je $(printenv | ag 'W3M_CURRENT_WORD' | sed -e 's/^W3M_CURR
 #文字数を求める
 パイプ| wc -m を使う
 -->
+
+#YouTube
+youtube-dlを使えばw3mでもYouTubeを扱える。
+
+```
+# 開いている頁のURLをクリップボードへコピー
+keymap C-u EXTERN "echo %s | xsel --clipboard --input"
+
+# URLをクリップボードにコピー
+keymap x EXTERN_LINK "echo %s | xsel --clipboard --input"
+
+#YouTube
+keymap y EXTERN_LINK "echo %s | sed -e 's/&.*$//g'| xargs youtube-dl -g | xargs vlc --play-and-exit &"
+
+#YouTubeの動画の音声のみを聞く
+keymap m EXTERN_LINK "echo %s | sed -e 's/&.*$//g'| xargs youtube-dl -o ~/music/temp_music_video && ffmpeg -y -i ~/music/temp_music_video* ~/music/temp.mp3; rm ~/music/temp_music_video*; mpg321 -g 2 ~/music/temp.mp3 &"
+
+#ニコ動
+keymap Y EXTERN_LINK "nicovideo-dl -n -o ~/movie/temp.flv %s && vlc --play-and-exit ~/movie/temp.flv &"
+
+#ニコ動の音声のみを聞く
+keymap X EXTERN_LINK "nicovideo-dl -n -o ~/music/temp_music_video %s && ffmpeg -y -i ~/music/temp_music_video ~/music/temp.mp3; mpg321 -g 20 ~/music/temp.mp3; rm ~/music/temp_music_video &"
+```
+
 #おわりに
 私のkeymapは
 [dotfiles/keymap at master · ayu-mushi/dotfiles][keymap]

@@ -6,85 +6,103 @@ Author: ayu-mushi
 [INCLUDE="../mytheme/myprelude.mdk"]
 
 
+* [GHCJSによるイベント管理](event-management-in-ghcjs.html "GHCJSによるイベント管理")
+  : 説明: イベント
+  : キーワード: イベント管理, イベントループ
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/event-management-in-ghcjs.mdk>
+  : 投稿日: 2018-09-23
+  : 最終更新日: 2018-09-23
+* [近況：2018年8月](kinkyou-2018-August.html "近況：2018年8月")
+  : 説明: 移行ぎみ
+  : キーワード: Twitter, Mastodon, Scrapbox
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/kinkyou-2018-August.mdk>
+  : 投稿日: 2018-08-13
+  : 最終更新日: 2019-01-29
 * [集中力について](on_concentration.html "集中力について")
   : 説明: 集中のためにXMonadなどをいじる
   : キーワード: XMonad, 集中力
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/on_concentration.mdk>
   : 投稿日: 2018-06-08
-  : 最終更新日: 2018-06-09
+  : 最終更新日: 2018-09-23
+* [命題集: Arguments for and against it](propositions-and-argument-for-and-against-it.html "命題集: Arguments for and against it")
+  : 説明: meidai
+  : キーワード: 哲学
+  : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/propositions-and-argument-for-and-against-it.mdk>
+  : 投稿日: 2018-05-19
+  : 最終更新日: 2019-04-07
 * [進化、伝統、理性 〜色々なデザイン、最適化](varieties_of_design.html "進化、伝統、理性 〜色々なデザイン、最適化")
   : 説明: 本能によるデザイン、伝統によるデザイン、経験によるデザイン、理性によるデザイン、機械学習によるデザインなど色々な制作、最適化の手法の段階を叙述し、まとめる。
-  : キーワード: 機能主義, 人工物の哲学, 人工物, 進化, 文化進化, デネット, デザイン, ポエム
+  : キーワード: 機能主義, 人工物の哲学, 人工物, 進化, 文化進化, デネット, デザイン, ポエム, 思いつき
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/varieties_of_design.mdk>
   : 投稿日: 2018-05-05
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [2018年にやりたいこと](beginning-of-2018.html "2018年にやりたいこと")
   : 説明: 遅すぎた抱負
   : キーワード: 抱負
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/beginning-of-2018.mdk>
   : 投稿日: 2018-04-30
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [2018年前半の日記](2018-first-half-of.html "2018年前半の日記")
   : 説明: 日記
   : キーワード: 日記
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/2018-first-half-of.mdk>
   : 投稿日: 2018-04-30
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [2017年前半の日記](2017-first-half-of.html "2017年前半の日記")
   : 説明: 日記
   : キーワード: 日記
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/2017-first-half-of.mdk>
   : 投稿日: 2018-04-29
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [2016後半の日記](2016-later.html "2016後半の日記")
   : 説明: 日記
   : キーワード: 日記
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/2016-later.mdk>
   : 投稿日: 2018-04-23
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [Makefile っぽいことをシェルコマンドでする](instead-of-makefile.html "Makefile っぽいことをシェルコマンドでする")
   : 説明: Makefileは便利ですが、ファイル構造が複雑な場合(正規表現でも使わないと書けないときとか)など、自分でああいう動きをやりたいときがあります。
   : キーワード: Makefile, シェルスクリプト
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/instead-of-makefile.mdk>
   : 投稿日: 2018-04-08
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [読んだ本の感想文 〜八木沢『分析哲学入門』など](book_report.html "読んだ本の感想文 〜八木沢『分析哲学入門』など")
   : 説明: 八木沢『分析哲学入門』など
   : キーワード: 本, 哲学
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/book_report.mdk>
   : 投稿日: 2017-11-26
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [2017後半の日記](2017-later.html "2017後半の日記")
   : 説明: 日記
   : キーワード: 日記
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/2017-later.mdk>
   : 投稿日: 2017-11-01
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [自分が使ってるw3mの設定と拡張](w3m.html "自分が使ってるw3mの設定と拡張")
   : 説明: テキストブラウザw3mの設定や拡張などを紹介します。ページごとにメモを取る、ページのはてなブックマーク情報を見る、ダウンロードしたPDFファイルの履歴、カーソルが載ってる単語から英単語辞書を引くなど。
   : キーワード: w3m
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/w3m.mdk>
   : 投稿日: 2017-04-08
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
 * [Ubuntuのセッティング](ubuntu-setup.html "Ubuntuのセッティング")
   : 説明: セッティング
   : キーワード: えへへー☆
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/ubuntu-setup.mdk>
   : 投稿日: 2016-12-10
-  : 最終更新日: 2018-06-11
+  : 最終更新日: 2018-09-23
 * [束と順序集合](lattice-and-order.html "束と順序集合")
   : 説明: 束
   : キーワード: 束, 計算機科学
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/lattice-and-order.mdk>
   : 投稿日: 2016-10-06
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
   : [pdf版](pdf/lattice-and-order.pdf "束と順序集合 pdf版")
 * [Madokoでサイト作りました](new-site-is-started.html "Madokoでサイト作りました")
   : 説明: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
   : キーワード: ayu-mushi, madoko
   : ソース: <https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk>
   : 投稿日: 2016-10-05
-  : 最終更新日: 2018-06-08
+  : 最終更新日: 2018-09-23
   : [pdf版](pdf/new-site-is-started.pdf "Madokoでサイト作りました pdf版")
 * RSS
   : [https://ayu-mushi.github.io/atom.xml](https://ayu-mushi.github.io/atom.xml)

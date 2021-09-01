@@ -12,6 +12,7 @@ import argparse
 import time
 import tempfile
 import subprocess
+import sys
 
 # build/article下の全てのhtmlファイルをリストとして取得
 # → pubdateの無いものや、下書きのものを取り除く (下書きのものには、pubdateを指定しないようにした。)
@@ -27,6 +28,7 @@ article_dir = "build/article/"
 pdf_dir = "build/article/pdf/"
 
 files = glob.glob(article_dir + "*.html")
+files.remove("build/article/index.html")
 
 def readContent(path):
   f = open(path)
@@ -35,10 +37,13 @@ def readContent(path):
   return content
 
 def getid_maybe(filename, id0):
-    dom = lxml.html.fromstring(readContent(filename))
     try:
-        return dom.get_element_by_id(id0).text_content()
-    except KeyError:
+        dom = lxml.html.fromstring(readContent(filename))
+        try:
+            return dom.get_element_by_id(id0).text_content()
+        except KeyError:
+            return None
+    except lxml.etree.ParserError:
         return None
 
 # ref: https://cre8cre8.com/python/sort_string_date.htm
@@ -65,7 +70,12 @@ def doc_detail(filename):
     doc = {}
     doc["file"] = filename
     doc["file_base"] = os.path.basename(filename)
-    doc["pubdate"] = str2date(getid_maybe(filename, "pubdate"))
+    try:
+        doc["pubdate"] = str2date(getid_maybe(filename, "pubdate"))
+        doc["update"] = str2date(getid_maybe(filename, "update"))
+    except ValueError:
+        doc["pubdate"] = str2date("2018-1-1")
+        doc["update"] = str2date("2018-1-1")
     doc["title"] = getid_maybe(filename, "post-title")
     doc["description"] = get_metadata(filename, "description")
     doc["keywords"] = get_metadata(filename, "keywords")
@@ -73,7 +83,6 @@ def doc_detail(filename):
     doc["pdf_versions_name"] = os.path.basename(pdf_versions_name(filename))
     ftitle, fext = os.path.splitext(os.path.basename(filename))
     doc["github_source"] = "https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/" + ftitle + ".mdk"
-    doc["update"] = str2date(getid_maybe(filename, "update"))
 
     #os.system("madoko -v ./src/article/"  + ftitle + ".mdk --odir=./temp/ > /dev/null 2>&1")
     doc["content"] = unicode(readContent(filename), 'utf-8')
