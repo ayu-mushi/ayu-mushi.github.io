@@ -1,14 +1,14 @@
-#ayu-mushi.github.ioのTODO
+# ayu-mushi.github.ioのTODO
 
 
-##マークアップ言語の候補
+## マークアップ言語の候補
 * Madoko ✓
 * pandocのmarkdown
 * multimarkdown
 * Scholdoc
 
 
-##記事一覧
+## 記事一覧
 * madokoとmarkdownとの記事が混在するなら、一覧生成ではhtmlの側から記事情報を取るべき
 * 公開日と最終更新日は別にした方がいい。なぜならソートするときに、最終更新日だけだと、一覧がへんになるから
 * 公開日→手動記入、最終更新日→自動
@@ -21,7 +21,7 @@
 * Draft は 日付が 消えるようにして、収集されなくしてある
 
 
-##その他
+## その他
 * 記事を一覧するページを生成 (article/index.html)
 * Newer Article Older Article (次、新しい、)
 * Article、Game(Work)、Aboutといったものをサイドなどに表示
@@ -63,7 +63,7 @@
 * CCでライセンスを設定
 * draftは別ブランチにしたほうがいいのでは？
 
-##解決済み
+## 解決済み
 * サブタイトルも付けたい
 * なぜか更新してないのまでなっちゃうナンデ
 * 説明Descriptionが無いと表示がおかしくなる make_indexの改行調整により解決
