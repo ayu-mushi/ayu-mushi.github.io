@@ -27,9 +27,6 @@ Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
 
-マストドン
-  ~ [\@ayu\_mushi@mstdn.jp](https://mstdn.jp/@ayu\_mushi)
-
 AtCoder
   ~ [ayu\_mushi](https://atcoder.jp/users/ayu_mushi)
 
