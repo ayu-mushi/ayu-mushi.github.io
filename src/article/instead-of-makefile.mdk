@@ -1,0 +1,51 @@
+Title : Makefile っぽいことをシェルコマンドでする
+Pubdate : 2018-4-8
+Update: &date;
+Description: Makefileは便利ですが、ファイル構造が複雑な場合(正規表現でも使わないと書けないときとか)など、自分でああいう動きをやりたいときがあります。
+Keywords: Makefile, シェルスクリプト
+<!--Draft: True-->
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+#Makefile っぽいことをシェルコマンドでする
+Makefileは便利ですが、ディレクトリ構造が複雑な場合(正規表現でも使わないと書けないときとか)など、自分でああいう動きをやりたいときがあります。
+
+なんか[Makeではソースより実行ファイルの方が新しいか確かめてる]{.need-cite}って話を聞いたことがあるので、そのやりかたを使います。
+
+シェルスクリプトでは、`if [ $SOURCE -nt $BIN ] `でソースより実行ファイルの方が新しいかで分岐できるので
+
+``` shellscript
+CURRDIR=$(pwd)
+
+function is_updated()
+{
+  SOURCE=# gonyogonyo ...
+  BIN=#gonyogonyo ...
+  if [ $SOURCE -nt $BIN ]
+  then
+    echo "ソースが更新された" >&2
+    return 0
+  else
+    return 1
+  fi
+}
+
+PRJECTS=$(./lsprj)
+for prj in $PRJECTS;
+do
+  PRNAME=$(./prjtoname $prj)
+  if $(is_updated $prj);
+  then
+    cd $PRNAME;
+    echo $PRNAME"をビルド"
+    stack build
+    cd $CURRDIR
+  else
+    echo $PRNAME"の更新なし"
+  fi
+done
+```
+
+のようにしました。
+
+プロジェクト毎にソースが更新されたか調べ、されていたならばビルド用の命令(ここでは`stack build`)を走らせ、されていなければ「更新なし」と表示させています。

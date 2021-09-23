@@ -1,0 +1,14 @@
+Title: SCLモデル: オートポイエーシス、細胞膜のモデル
+Pubdate: 2019-10-20
+Update: &date;
+Description: 作って学べるALife
+Keywords: ALife
+Draft: True
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+#はじめに
+むかし、オートポイエーシスという概念について調べたとき、何やら難しい言葉が並んでいてさっぱり分からなかった記憶がある。
+『作って動かすALife』O'REILLY にオートポイエーシスのモデルである **SCLモデル** (Subtrate Catalyst Link) というのが載っていて、意外とシンプルで「そんなものか」と思ったので紹介する。
+
+#感想
+

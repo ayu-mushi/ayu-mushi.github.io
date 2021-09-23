@@ -1,0 +1,3 @@
+~ begin bibliography { .bib-numeric; cite-style:"numeric:'[',']',', '" ; caption:"0" ; data-style:"numeric" ; data-style:'madoko-numeric';  }
+
+~ end bibliography

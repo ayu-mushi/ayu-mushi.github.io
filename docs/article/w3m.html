@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.0.0-rc7" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="twitter:site" content="ayu_mushi" />
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:title" content="自分が使ってるw3mの設定と拡張" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ayu-mushi's website" />
+  <meta property="og:description" content="テキストブラウザw3mの設定や拡張などを紹介します。ページごとにメモを取る、ページのはてなブックマーク情報を見る、ダウンロードしたPDFファイルの履歴、カーソルが載ってる単語から英単語辞書を引くなど。" />
+  <meta name="keywords" content="w3m" />
+  <meta name="author" content="ayu-mushi" />
+  <meta name="description" content="テキストブラウザw3mの設定や拡張などを紹介します。ページごとにメモを取る、ページのはてなブックマーク情報を見る、ダウンロードしたPDFファイルの履歴、カーソルが載ってる単語から英単語辞書を引くなど。" />
+  <title>自分が使ってるw3mの設定と拡張</title>
+  <link rel="stylesheet" type="text/css" href="madoko.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0//bootstrap.min.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="../mytheme/main.css"  class="link">
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+      <style>
+        body.madoko, body.madoko.preview[data-view=full] { 
+          padding: 0pt;
+          margin: 0pt;
+          max-width: 100%;
+        }
+      </style>
+  <head prefix="og: http://ogp.me/ns#  article: http://ogp.me/ns/article#">
+  <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){
+            i['GoogleAnalyticsObject']=r;
+            i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-34234538-2', 'auto');
+        ga('send', 'pageview');
+  </script>
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0"><nav id="menu">
+  <ul>
+    <li><a href="/">About</a></li>
+    <li><a href="/article">Article</a></li>
+    <li><a href="/games.html">Game</a></li>
+  </ul>
+</nav>
+
+
+
+<main>
+
+<div class="header" data-line="9;src/article/../mytheme/myprelude.mdk:81" style="padding-bottom:1em">
+
+
+<p class="p noindent" data-line="9;src/article/../mytheme/myprelude.mdk:85"><span data-line="9;src/article/../mytheme/myprelude.mdk:85"></span><span class="site-name">ayu-mushi&#39;s website</span><span data-line="9;src/article/../mytheme/myprelude.mdk:85"></span>
+</p>
+<p class="p indent" data-line="9;src/article/../mytheme/myprelude.mdk:87"><span data-line="9;src/article/../mytheme/myprelude.mdk:87"></span><span id="post-title">自分が使ってるw3mの設定と拡張</span><span data-line="9;src/article/../mytheme/myprelude.mdk:87"></span>
+</p>
+<div id="date" data-line="9;src/article/../mytheme/myprelude.mdk:99">
+<dl class="dl compact" data-line="9;src/article/../mytheme/myprelude.mdk:100">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Published</dt>
+<dd class="dd" data-line="9;src/article/../mytheme/myprelude.mdk:100" style="margin-left:1.5em"><span data-line="9;src/article/../mytheme/myprelude.mdk:100"></span><date id="pubdate" pubdate="pubdate">2017-4-8</date><span data-line="9;src/article/../mytheme/myprelude.mdk:100"></span>
+</dd>
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Last Modified</dt>
+<dd class="dd" data-line="9;src/article/../mytheme/myprelude.mdk:102" style="margin-left:1.5em"><span data-line="9;src/article/../mytheme/myprelude.mdk:102"></span><date id="update">2017-4-8</date></dd></dl></div>
+<div id="source" data-line="9;src/article/../mytheme/myprelude.mdk:110">
+<dl class="dl compact" data-line="9;src/article/../mytheme/myprelude.mdk:111">
+<dt class="dt noindent dl-li compact-li" style="text-indent:0em;font-weight:bold">Source of This Page(GitHub)</dt>
+<dd class="dd" data-line="9;src/article/../mytheme/myprelude.mdk:111" style="margin-left:1.5em"><span data-line="9;src/article/../mytheme/myprelude.mdk:111"></span>https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/w3m.mdk</dd></dl></div></div><span data-line="9;src/article/../mytheme/myprelude.mdk:117"></span>
+<nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;\u306F\u3058\u3081\u306B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">1</span>.&#8194;はじめに</a></div>
+<div class="tocitem tocitem1" data-toc-target="sec-cgi" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;\u30ED\u30FC\u30AB\u30EBCGI" style="toctarget:sec-cgi"><a href="#sec-cgi" class="localref"><span class="heading-label">2</span>.&#8194;ローカルCGI</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;\u30DA\u30FC\u30B8\u3054\u3068\u306B\u30E1\u30E2\u3092\u53D6\u308B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">3</span>.&#8194;ページごとにメモを取る</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;\u30DA\u30FC\u30B8\u306E\u306F\u3066\u306A\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u60C5\u5831\u3092\u898B\u308B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">4</span>.&#8194;ページのはてなブックマーク情報を見る</a></div>
+<div class="tocitem tocitem1" data-toc-target="sec-pdf" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;\u30C0\u30A6\u30F3\u30ED\u30FC\u30C9\u3057\u305FPDF\u30D5\u30A1\u30A4\u30EB\u306E\u5C65\u6B74" style="toctarget:sec-pdf"><a href="#sec-pdf" class="localref"><span class="heading-label">5</span>.&#8194;ダウンロードしたPDFファイルの履歴</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;\u30AB\u30FC\u30BD\u30EB\u304C\u8F09\u3063\u3066\u308B\u5358\u8A9E\u304B\u3089\u82F1\u5358\u8A9E\u8F9E\u66F8\u3092\u5F15\u304F" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">6</span>.&#8194;カーソルが載ってる単語から英単語辞書を引く</a></div>
+<div class="tocitem tocitem1" data-toc-target="section" data-toc-depth="1" data-toc-line="[7]{.heading-label}.&#8194;\u304A\u308F\u308A\u306B" style="toctarget:section"><a href="#section" class="localref"><span class="heading-label">7</span>.&#8194;おわりに</a></div></div></nav>
+<div class="mathdefs input-mathdefs" data-line="9;src/article/../mytheme/myprelude.mdk:119"></div><h2 id="section" class="h1" data-line="11" data-heading-depth="1" style="display:block"><span data-line="11"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="11"></span>はじめに</h2>
+<p class="p noindent" data-line="12"><span data-line="12"></span>w3mはタブが使えたり、表や画像が表示できたりする<span data-line="12"></span><sup id="back-fn-w3mimg" ><a href="#fn-w3mimg" title="1.w3m-imgを使えば。
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">1</span></a></sup><span data-line="12"></span>、軽量テキストブラウザです。
+w3mでは、キーによる操作を拡張するkeymapや、CGIをローカルで実行できるローカルCGIなどを使って、機能を追加・拡張することができます。
+この記事では私がこれを利用して作った機能を紹介します。
+</p><h2 id="sec-cgi" class="h1" data-line="19" data-heading-depth="1" style="display:block"><span data-line="19"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="19"></span>ローカルCGI</h2>
+<p class="p noindent" data-line="20"><span data-line="20"></span>作ったものを紹介する前ににローカルCGIについて説明します。
+</p>
+<p class="p indent" data-line="22"><span data-line="22"></span>w3mではシェルスクリプトやPerlで書かれたCGIをローカルで実行でき、CGIのテストや、w3mに機能を追加したいときに使えます。
+公式で提供されているものとして、Googleで検索できるgoogle.cgiや、w3mmail.cgiなどがあります。
+CGIは、urimethodmapに短縮URLを書いておくと使いやすいです。<span data-line="24"></span><sup id="back-fn-urimethodmap" ><a href="#fn-urimethodmap" title="2.私のurimethodmapはdotfiles/urimethodmap at master · ayu-mushi/dotfiles
+&#8617;" class="footnote-ref localref" ><span class="footnote-label">2</span></a></sup><span data-line="24"></span>
+</p>
+<p class="p indent" data-line="28"><span data-line="28"></span>ローカルCGIでシェルスクリプトを使う場合、理由は知りませんが、空白echoをはさみながらechoしないとうまく出力されません。
+</p>
+<p class="p noindent" data-line="32"><span data-line="32"></span>local CGIについて詳しくは、<span data-line="32"></span><a href="[http://www.mnet.ne.jp/~tnomura/w3m2.html]" data-linkid="local_cgi">w3m の local CGI 機能</a><span data-line="32"></span>
+<span data-line="33"></span><a href="http://insideflag.blogspot.jp/2009/08/w3m-tips.html" data-linkid="w3m_tips">&#8220;w3m Tips | インサイドフラッギング&#8221;</a><span data-line="33"></span>
+などを参照してください。
+</p><h2 id="section" class="h1" data-line="39" data-heading-depth="1" style="display:block"><span data-line="39"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="39"></span>ページごとにメモを取る</h2>
+<p class="p noindent" data-line="40"><span data-line="40"></span>1つ目。
+</p>
+<p class="p indent" data-line="42"><span data-line="42"></span>あるページをフォーカスしてるときctrl-Aを押すと、タイトルとURLとを書き込んだファイルを生成し、そのファイルにメモできるようにします。
+ページ毎にコメントを付けるのは記憶術的にも正解
+</p>
+<p class="p indent" data-line="45"><span data-line="45"></span>keymapに以下を追加。ただし<span data-line="45"></span><code class="code code1">path/to</code><span data-line="45"></span>はw3m<span data-line="45"></span>_<span data-line="45"></span>commentary.pyへのパスとします。
+</p>
+<pre class="para-block pre-fenced pre-fenced3" data-line="47" data-line-first="48" style="display:block"><code data-line="48">keymap A EXEC_SHELL &quot;python3 path/to/w3m_commentary.py&quot;</code></pre>
+<div class="gist" data-line="50" style="gistcode:9ed7b4c489cc5f20b6825673ed4baddd.js"><script src='https://gist.github.com/9ed7b4c489cc5f20b6825673ed4baddd.js'></script>
+</div><h2 id="section" class="h1" data-line="53" data-heading-depth="1" style="display:block"><span data-line="53"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="53"></span>ページのはてなブックマーク情報を見る</h2>
+<p class="p noindent" data-line="54"><span data-line="54"></span>keymap に次のように設定。
+</p>
+<pre class="para-block pre-fenced pre-fenced3" data-line="55" data-line-first="56" style="display:block"><code data-line="56">keymap HA EXTERN &quot;hateinfo %s &amp;&amp; read YES&quot;</code></pre>
+<pre class="para-block pre-fenced pre-fenced3 language-python lang-python python colorized" data-line="59" data-line-first="60" style="display:block"><code data-line="60"><span style="color:darkgreen">#!/usr/bin/env python</span>
+<span style="color:darkgreen"># -*- coding: utf-8- -*-</span>
+
+<span style="color:blue">import</span> urllib2
+<span style="color:blue">import</span> argparse
+<span style="color:blue">import</span> json
+
+<span style="color:blue">def</span> bukome(args)<span style="color:blue">:</span>
+    req <span style="color:blue">=</span> urllib2.<span style="color:navy">Request</span>(<span style="color:maroon">&#39;</span><span style="color:maroon">http://b.hatena.ne.jp/entry/json/</span><span style="color:maroon">&#39;</span> + args.uri);
+    response <span style="color:blue">=</span> urllib2.urlopen(req)
+    json_hate <span style="color:blue">=</span> response.read()
+    parsed_hate <span style="color:blue">=</span> json.loads(json_hate)
+    <span style="color:blue">print</span> <span style="color:maroon">&quot;</span><span style="color:maroon">-----</span><span style="color:maroon">&quot;</span>
+    <span style="color:blue">print</span> <span style="color:maroon">&quot;</span><span style="color:maroon">count:</span><span style="color:maroon">&quot;</span> + str(parsed_hate[<span style="color:maroon">&quot;</span><span style="color:maroon">count</span><span style="color:maroon">&quot;</span>])
+    <span style="color:blue">print</span> <span style="color:maroon">&quot;</span><span style="color:maroon">comments: </span><span style="color:gray">\n</span><span style="color:maroon">&quot;</span> + reduce(<span style="color:blue">lambda</span> comm0, comm1<span style="color:blue">:</span> comm0 <span style="color:blue">if</span> comm1 == <span style="color:maroon">&quot;</span><span style="color:maroon">&quot;</span> <span style="color:blue">else</span> comm0 + <span style="color:maroon">&quot;</span><span style="color:gray">\n</span><span style="color:gray">\n</span><span style="color:maroon">[ </span><span style="color:maroon">&quot;</span> + comm1 + <span style="color:maroon">&quot;</span><span style="color:maroon"> ]</span><span style="color:maroon">&quot;</span>, map(<span style="color:blue">lambda</span> bkm<span style="color:blue">:</span> bkm[<span style="color:maroon">&quot;</span><span style="color:maroon">comment</span><span style="color:maroon">&quot;</span>], parsed_hate[<span style="color:maroon">&quot;</span><span style="color:maroon">bookmarks</span><span style="color:maroon">&quot;</span>]), <span style="color:maroon">&quot;</span><span style="color:maroon">&quot;</span>)
+
+<span style="color:blue">if</span> __name__ == <span style="color:maroon">&#39;</span><span style="color:maroon">__main__</span><span style="color:maroon">&#39;</span><span style="color:blue">:</span>
+    parser <span style="color:blue">=</span> argparse.<span style="color:navy">ArgumentParser</span>(description<span style="color:blue">=</span><span style="color:maroon">&#39;</span><span style="color:maroon">print bookmark comments in hatena.ne.jp</span><span style="color:maroon">&#39;</span>)
+    parser.add_argument(<span style="color:maroon">&#39;</span><span style="color:maroon">uri</span><span style="color:maroon">&#39;</span>, type<span style="color:blue">=</span>str, help<span style="color:blue">=</span><span style="color:maroon">&#39;</span><span style="color:maroon">the URI of the target web page</span><span style="color:maroon">&#39;</span>)
+    parser.set_defaults(func<span style="color:blue">=</span>bukome)
+    args <span style="color:blue">=</span> parser.parse_args()
+    args.func(args)</code></pre>
+<p class="p noindent para-continued" data-line="84"><span data-line="84"></span>ページをはてなブックマーク<span data-line="84"></span><em class="em-star1">する</em><span data-line="84"></span>方は、<span data-line="84"></span><a href="http://mattn.kaoriya.net/software/w3m/20090801214718.htm" data-linkid="w3mhate">Big Sky :: w3mから「はてなブックマーク」する</a><span data-line="84"></span>を参照。
+</p><h2 id="sec-pdf" class="h1" data-line="88" data-heading-depth="1" style="display:block"><span data-line="88"></span><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span><span data-line="88"></span>ダウンロードしたPDFファイルの履歴</h2>
+<p class="p noindent" data-line="89"><span data-line="89"></span>~<span data-line="89"></span>/.w3mにある、pdf(htmlも対応)の要約と、タイトルとを抜き出して一覧。
+history.cgiはローカルCGIなので、シェルスクリプトをローカルCGIとして実行できる位置に置きます。
+使うときは、file:///cgi-bin/history.cgi?n=0<span data-line="91"></span>&amp;<span data-line="91"></span>size=20<span data-line="91"></span>&amp;<span data-line="91"></span>ext=html や file:///cgi-bin/history.cgi?n=0<span data-line="91"></span>&amp;<span data-line="91"></span>size=20<span data-line="91"></span>&amp;<span data-line="91"></span>ext=pdf などのURLを使います。extが探索する拡張子、sizeが一度に表示するファイル数、nが表示するファイルの順位(<span data-line="91"></span><code class="code code1">ls -t</code><span data-line="91"></span>で上から)です。
+doctitleはPDFファイルからタイトルを抽出するのに使います。
+<span data-line="93"></span><a href="http://kiito.hatenablog.com/entry/2016/04/24/073441" data-linkid="apache_tika">【Python】Web上にあるpdfのタイトルを取得する（中間報告） - 歩いたら休め</a><span data-line="93"></span>を参考にしました。
+</p>
+<div class="gist" data-line="96" style="gistcode:994b98ef5eb4f83161153196e18c9ec3.js"><script src='https://gist.github.com/994b98ef5eb4f83161153196e18c9ec3.js'></script>
+</div><h2 id="section" class="h1" data-line="99" data-heading-depth="1" style="display:block"><span data-line="99"></span><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span><span data-line="99"></span>カーソルが載ってる単語から英単語辞書を引く</h2>
+<p class="p noindent" data-line="100"><span data-line="100"></span>w3mはそのときカーソルがある単語を記録しており、<span data-line="100"></span><code class="code code1">printenv</code><span data-line="100"></span>で出力できます(日本語は無理っぽいですが)。
+それを使って、英単語辞書を引くことが可能。
+</p>
+<p class="p indent" data-line="103"><span data-line="103"></span><code class="code code1">printenv</code><span data-line="103"></span>の実行例(Githubのサイト):
+</p>
+<pre class="para-block pre-fenced pre-fenced3" data-line="105" data-line-first="106" style="display:block"><code data-line="106">W3M_CURRENT_FORM=
+W3M_CHARSET=UTF-8
+W3M_CURRENT_WORD=developers
+W3M_FILENAME=/
+W3M_TITLE=How people build software  GitHub
+W3M_CURRENT_LINE=9
+W3M_CURRENT_IMG=
+W3M_CURRENT_LINK=
+W3M_URL=https://github.com/
+W3M_TYPE=text/html
+W3M_SOURCEFILE=/home/ayu-mushi/.w3m/w3mtmp1991-970.gz
+W3M_CURRENT_COLUMN=15</code></pre>
+<p class="p noindent para-continued" data-line="120"><span data-line="120"></span>以下はkeymapの設定例です。ただし、<span data-line="120"></span><code class="code code1">je</code><span data-line="120"></span> は英単語を渡すと辞書を引くコマンドです。<span data-line="120"></span><a href="http://d.hatena.ne.jp/its_out_of_tune/20120610/1339311044" data-linkid="cuidict">CUI超お手軽英語辞書 - capriccioso String Creating(Object something){ return My.Expression(something); }</a><span data-line="120"></span>を利用します。
+</p>
+<pre class="para-block noescape pre-fenced pre-fenced3" data-line="125" data-line-first="126" style="display:block"><code data-line="126">keymap O EXEC_SHELL &quot;je $(printenv | ag &#39;W3M_CURRENT_WORD&#39; | sed -e &#39;s/^W3M_CURRENT_WORD\=\([^&lt;]\)/\1/&#39;)&quot;</code></pre><!--
+#文字数を求める
+パイプ| wc -m を使う
+-->
+
+<h2 id="section" class="h1" data-line="133" data-heading-depth="1" style="display:block"><span data-line="133"></span><span class="heading-before"><span class="heading-label">7</span>.&#8194;</span><span data-line="133"></span>おわりに</h2>
+<p class="p noindent" data-line="134"><span data-line="134"></span>私のkeymapは
+<span data-line="135"></span><a href="https://github.com/ayu-mushi/dotfiles/blob/master/keymap" data-linkid="keymap">dotfiles/keymap at master · ayu-mushi/dotfiles</a><span data-line="135"></span>
+です。
+</p>
+<p class="p noindent" data-line="141"><span data-line="141"></span></main></p><span data-line=""></span>
+<div class="footnotes madoko">
+<hr >
+
+<div id="fn-w3mimg" class="footnote" data-line="16" style="line-adjust:0">
+<p class="p noindent" data-line="16"><span data-line="16"></span><span class="footnote-before"><sup><span class="footnote-label">1</span>.</sup></span><span data-line="16"></span>w3m-imgを使えば。
+<span data-line="17"></span><span data-line="17"></span><a href="#back-fn-w3mimg" class="footnote-backref localref">&#8617;</a></p></div>
+<div id="fn-urimethodmap" class="footnote" data-line="26" style="line-adjust:0">
+<p class="p noindent" data-line="26"><span data-line="26"></span><span class="footnote-before"><sup><span class="footnote-label">2</span>.</sup></span><span data-line="26"></span>私のurimethodmapは<span data-line="26"></span><a href="https://github.com/ayu-mushi/dotfiles/blob/master/urimethodmap" data-linkid="urimethodmap">dotfiles/urimethodmap at master · ayu-mushi/dotfiles</a><span data-line="26"></span>
+<span data-line="27"></span><span data-line="27"></span><a href="#back-fn-urimethodmap" class="footnote-backref localref">&#8617;</a></p></div></div></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="../elastic-text/js/elastictext.js"> </script>
+</html>

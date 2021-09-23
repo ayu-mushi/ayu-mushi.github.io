@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+  <head>
+    <meta charset="utf-8">
+    <meta name="twitter:title" content="$title$">
+    $if(abstract)$
+    <meta name="twitter:description" content="$abstract$">
+    <meta name="description" content="$abstract$">
+    $endif$
+    <meta name="keywords" content="$for(tags)$$tags$,$endfor$">
+    <meta name="twitter:site" content="ayu_mushi">
+    <meta name="generator" content="pandoc">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"  class="link">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"  class="link">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.2.0//bootstrap.min.css"  class="link">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    $for(author-meta)$
+    <meta name="author" content="$author-meta$">
+    $endfor$
+    $if(date-meta)$
+    <meta name="dcterms.date" content="$date-meta$">
+    $endif$
+    <title>$pagetitle$$if(title-prefix)$ | $title-prefix$$endif$</title>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-34234538-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+    <style type="text/css">code{white-space: pre;}</style>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+      $if(quotes)$
+      <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
+      $endif$
+      $if(highlighting-css)$
+      <style type="text/css">
+$highlighting-css$
+      </style>
+      $endif$
+      $for(css)$
+      <link rel="stylesheet" href="$css$">
+      $endfor$
+      $if(math)$
+      $math$
+      $endif$
+      $for(header-includes)$
+      $header-includes$
+      $endfor$
+  </head>
+  <body>
+    $for(include-before)$
+    $include-before$
+    $endfor$
+    <header>
+      $if(title-prefix)$
+      <h1 class="site-name">$title-prefix$</h1>
+      $endif$
+      $if(title)$
+      <h2 id="post-title">$title$</h2>
+      $endif$
+      $if(date)$
+      <div class='date-header'>
+        <time pubdate="pubdate">$date$</time>
+      </div>
+      $endif$
+      $for(author)$
+      <h2 class="author">$author$</h2>
+      $endfor$
+    </header>
+    $if(toc)$
+    <nav id="$idprefix$TOC">
+      $toc$
+    </nav>
+    $endif$
+    <nav id="menu">
+      <ul>
+        <li><a href="/">About</a></li>
+        <li><a href="/article">Article</a></li>
+        <li><a href="./games.html">Game</a></li>
+      </ul>
+    </nav>
+    <main>
+    $if(abstract)$
+    <section id="abstract">
+      <h1>概要</h1>
+      $abstract$
+    </section>
+    $endif$
+    $body$
+    $for(include-after)$
+    $include-after$
+    $endfor$
+    </main>
+  </body>
+</html>

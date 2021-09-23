@@ -1,0 +1,14 @@
+~ begin bibliography { .bib-numeric; cite-style:"numeric:'[',']',', '" ; caption:"3" ; data-style:"numeric" ; data-style:'madoko-numeric';  }
+~ begin bibitem {id:"DaveyPriestley200204"; cite-year:"2002"; cite-authors:"Davey and Priestley"; cite-authors-long:"Davey and Priestley"; cite-label:"1"; caption:"Introduction to Lattices and Order&nl;Davey and Priestley, 2002"; data-line:"./src/article/../article/biblio.bib:9"; searchterm:"Introduction%20to%20Lattices%20and%20Order%20Davey%20and%20Priestley%2C%202002"; spellcheck:"false"; bibitem-label:"\[1\]"}
+\/B.&nbsp;A.&nbsp;Davey, and H.&nbsp;A.&nbsp;Priestley. _Introduction to Lattices and Order_. 2nd edition. Cambridge University Press. Apr. 2002. <http://amazon.co.jp/o/ASIN/0521784514/>{.bib-url}.
+~ end bibitem
+
+~ begin bibitem {id:"BirthOfLinearLogic"; cite-year:"2010"; cite-authors:"照井"; cite-authors-long:"照井"; cite-label:"2"; caption:"線形論理の誕生&nl;照井, 2010"; data-line:"./src/article/../article/biblio.bib:22"; searchterm:"%E7%B7%9A%E5%BD%A2%E8%AB%96%E7%90%86%E3%81%AE%E8%AA%95%E7%94%9F%20%E7%85%A7%E4%BA%95%2C%202010"; spellcheck:"false"; bibitem-label:"\[2\]"}
+\/照井一成. &ldquo;線形論理の誕生.&rdquo; 數學 62 (1). 日本数学会: 115–132. Jan. 2010. <http://ci.nii.ac.jp/naid/10026792499/en/>{.bib-url}.
+~ end bibitem
+
+~ begin bibitem {id:"Iida198710"; cite-year:"1987"; cite-authors:"飯田"; cite-authors-long:"飯田"; cite-label:"3"; caption:"言語哲学大全1　論理と言語&nl;飯田, 1987"; data-line:"./src/article/../article/biblio.bib:37"; searchterm:"%E8%A8%80%E8%AA%9E%E5%93%B2%E5%AD%A6%E5%A4%A7%E5%85%A81%20%E8%AB%96%E7%90%86%E3%81%A8%E8%A8%80%E8%AA%9E%20%E9%A3%AF%E7%94%B0%2C%201987"; spellcheck:"false"; bibitem-label:"\[3\]"}
+\/飯田隆. _言語哲学大全1　論理と言語_. 勁草書房. Oct. 1987. <http://amazon.co.jp/o/ASIN/4326152001/>{.bib-url}.
+~ end bibitem
+
+~ end bibliography

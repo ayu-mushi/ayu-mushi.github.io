@@ -1,0 +1,163 @@
+Title : 自分が使ってるw3mの設定と拡張
+Author: ayu-mushi
+Keywords: w3m
+Description: テキストブラウザw3mの設定や拡張などを紹介します。ページごとにメモを取る、ページのはてなブックマーク情報を見る、ダウンロードしたPDFファイルの履歴、カーソルが載ってる単語から英単語辞書を引くなど。
+
+Pubdate: 2017-4-8
+Update: &date;
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+#はじめに
+w3mはタブが使えたり、表や画像が表示できたりする[^w3mimg]、軽量テキストブラウザです。
+w3mでは、キーによる操作を拡張するkeymapや、CGIをローカルで実行できるローカルCGIなどを使って、機能を追加・拡張することができます。
+この記事では私がこれを利用して作った機能を紹介します。
+
+[^w3mimg]: w3m-imgを使えば。
+
+
+#ローカルCGI
+作ったものを紹介する前ににローカルCGIについて説明します。
+
+w3mではシェルスクリプトやPerlで書かれたCGIをローカルで実行でき、CGIのテストや、w3mに機能を追加したいときに使えます。
+公式で提供されているものとして、Googleで検索できるgoogle.cgiや、w3mmail.cgiなどがあります。
+CGIは、urimethodmapに短縮URLを書いておくと使いやすいです。[^urimethodmap]
+
+[^urimethodmap]: 私のurimethodmapは[dotfiles/urimethodmap at master · ayu-mushi/dotfiles][urimethodmap]
+
+ローカルCGIでシェルスクリプトを使う場合、理由は知りませんが、空白echoをはさみながらechoしないとうまく出力されません。
+
+[urimethodmap]: https://github.com/ayu-mushi/dotfiles/blob/master/urimethodmap
+
+local CGIについて詳しくは、[w3m の local CGI 機能][local_cgi]
+["w3m Tips | インサイドフラッギング"][w3m_tips]
+などを参照してください。
+
+[local_cgi]: [http://www.mnet.ne.jp/~tnomura/w3m2.html]
+[w3m_tips]:http://insideflag.blogspot.jp/2009/08/w3m-tips.html
+
+#ページごとにメモを取る
+1つ目。
+
+あるページをフォーカスしてるときctrl-Aを押すと、タイトルとURLとを書き込んだファイルを生成し、そのファイルにメモできるようにします。
+ページ毎にコメントを付けるのは記憶術的にも正解
+
+keymapに以下を追加。ただし`path/to`はw3m_commentary.pyへのパスとします。
+
+```
+keymap A EXEC_SHELL "python3 path/to/w3m_commentary.py"
+```
+~ Gist { gistcode: '9ed7b4c489cc5f20b6825673ed4baddd.js' }
+~
+
+#ページのはてなブックマーク情報を見る
+keymap に次のように設定。
+```
+keymap HA EXTERN "hateinfo %s && read YES"
+```
+
+``` python
+#!/usr/bin/env python
+# -*- coding: utf-8- -*-
+
+import urllib2
+import argparse
+import json
+
+def bukome(args):
+    req = urllib2.Request('http://b.hatena.ne.jp/entry/json/' + args.uri);
+    response = urllib2.urlopen(req)
+    json_hate = response.read()
+    parsed_hate = json.loads(json_hate)
+    print "-----"
+    print "count:" + str(parsed_hate["count"])
+    print "comments: \n" + reduce(lambda comm0, comm1: comm0 if comm1 == "" else comm0 + "\n\n[ " + comm1 + " ]", map(lambda bkm: bkm["comment"], parsed_hate["bookmarks"]), "")
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='print bookmark comments in hatena.ne.jp')
+    parser.add_argument('uri', type=str, help='the URI of the target web page')
+    parser.set_defaults(func=bukome)
+    args = parser.parse_args()
+    args.func(args)
+```
+
+ページをはてなブックマーク*する*方は、[Big Sky :: w3mから「はてなブックマーク」する][w3mhate]を参照。
+
+[w3mhate]: http://mattn.kaoriya.net/software/w3m/20090801214718.htm
+
+#ダウンロードしたPDFファイルの履歴
+~/.w3mにある、pdf(htmlも対応)の要約と、タイトルとを抜き出して一覧。
+history.cgiはローカルCGIなので、シェルスクリプトをローカルCGIとして実行できる位置に置きます。
+使うときは、file:///cgi-bin/history.cgi?n=0&size=20&ext=html や file:///cgi-bin/history.cgi?n=0&size=20&ext=pdf などのURLを使います。extが探索する拡張子、sizeが一度に表示するファイル数、nが表示するファイルの順位(`ls -t`で上から)です。
+doctitleはPDFファイルからタイトルを抽出するのに使います。
+[【Python】Web上にあるpdfのタイトルを取得する（中間報告） - 歩いたら休め][apache_tika]を参考にしました。
+[apache_tika]: http://kiito.hatenablog.com/entry/2016/04/24/073441
+
+~ Gist { gistcode: '994b98ef5eb4f83161153196e18c9ec3.js' }
+~
+
+#カーソルが載ってる単語から英単語辞書を引く
+w3mはそのときカーソルがある単語を記録しており、`printenv`で出力できます(日本語は無理っぽいですが)。
+それを使って、英単語辞書を引くことが可能。
+
+`printenv`の実行例(Githubのサイト):
+
+```
+W3M_CURRENT_FORM=
+W3M_CHARSET=UTF-8
+W3M_CURRENT_WORD=developers
+W3M_FILENAME=/
+W3M_TITLE=How people build software  GitHub
+W3M_CURRENT_LINE=9
+W3M_CURRENT_IMG=
+W3M_CURRENT_LINK=
+W3M_URL=https://github.com/
+W3M_TYPE=text/html
+W3M_SOURCEFILE=/home/ayu-mushi/.w3m/w3mtmp1991-970.gz
+W3M_CURRENT_COLUMN=15
+```
+
+以下はkeymapの設定例です。ただし、`je` は英単語を渡すと辞書を引くコマンドです。[CUI超お手軽英語辞書 - capriccioso String Creating(Object something){ return My.Expression(something); }][cuidict]を利用します。
+
+[cuidict]: http://d.hatena.ne.jp/its_out_of_tune/20120610/1339311044
+
+
+``` {.noescape}
+keymap O EXEC_SHELL "je $(printenv | ag 'W3M_CURRENT_WORD' | sed -e 's/^W3M_CURRENT_WORD\=\([^<]\)/\1/')"
+```
+
+<!--
+#文字数を求める
+パイプ| wc -m を使う
+-->
+
+#YouTube
+youtube-dlを使えばw3mでもYouTubeを扱える。
+
+```
+# 開いている頁のURLをクリップボードへコピー
+keymap C-u EXTERN "echo %s | xsel --clipboard --input"
+
+# URLをクリップボードにコピー
+keymap x EXTERN_LINK "echo %s | xsel --clipboard --input"
+
+#YouTube
+keymap y EXTERN_LINK "echo %s | sed -e 's/&.*$//g'| xargs youtube-dl -g | xargs vlc --play-and-exit &"
+
+#YouTubeの動画の音声のみを聞く
+keymap m EXTERN_LINK "echo %s | sed -e 's/&.*$//g'| xargs youtube-dl -o ~/music/temp_music_video && ffmpeg -y -i ~/music/temp_music_video* ~/music/temp.mp3; rm ~/music/temp_music_video*; mpg321 -g 2 ~/music/temp.mp3 &"
+
+#ニコ動
+keymap Y EXTERN_LINK "nicovideo-dl -n -o ~/movie/temp.flv %s && vlc --play-and-exit ~/movie/temp.flv &"
+
+#ニコ動の音声のみを聞く
+keymap X EXTERN_LINK "nicovideo-dl -n -o ~/music/temp_music_video %s && ffmpeg -y -i ~/music/temp_music_video ~/music/temp.mp3; mpg321 -g 20 ~/music/temp.mp3; rm ~/music/temp_music_video &"
+```
+
+#おわりに
+私のkeymapは
+[dotfiles/keymap at master · ayu-mushi/dotfiles][keymap]
+です。
+
+
+[keymap]: https://github.com/ayu-mushi/dotfiles/blob/master/keymap

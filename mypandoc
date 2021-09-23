@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pandoc -o build/$(echo $1 | sed -e "s/^src\/\(.*\)\.md$/\1/").html   $1 --css=mytheme/main.css --template src/mytheme/layout.html --title-prefix="ayu-mushi's website"

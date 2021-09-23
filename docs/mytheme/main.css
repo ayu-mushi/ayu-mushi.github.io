@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Cambria, "Times New Roman", "Liberation Serif", "Times", serif;
-}
+  font-family: Cambria, "Times New Roman", "Liberation Serif", "Times", serif; }
 
 nav#menu {
   font-size: x-large;
@@ -14,25 +13,15 @@ nav#menu {
   padding: 20px 0px 0px 20px;
   position: fixed;
   top: 0;
-  width: 140px;
-}
+  width: 140px; }
 
 .proof {
-  background-color: #eeeeee;
-}
-
+  background-color: #eeeeee; }
 
 .site-name {
   font-size: medium;
   border-bottom: 1px solid rgba(180, 180, 255, 0.4);
-<<<<<<< HEAD
-  padding-bottom: 5px;
-}
-
-#post-title {
-  font-size: xx-large;
-  font-weight: bold;
-}
+  padding-bottom: 5px; }
 
 #post-title {
   font-size: xx-large;
@@ -41,71 +30,57 @@ nav#menu {
 main {
   height: 100%;
   margin-left: 160px;
-  padding: 10px 10px 0px 20px;
-}
+  padding: 10px 10px 0px 20px; }
 
 .footnotes {
   height: 100%;
-}
+  margin-left: 160px;
+  padding: 0px 10px 10px 20px; }
 
 header {
   height: 100%;
   margin-left: 160px;
-<<<<<<< HEAD
-  padding: 10px 10px 10px 20px;
-}
+  padding: 10px 10px 10px 20px; }
 
 a.headerlink {
-  font-size: x-small;
-}
+  font-size: x-small; }
 
 ul, ol, dl {
   margin: 0 0 0 1em;
-  padding: 0 0 0 0;
-}
+  padding: 0; }
 
 .passion {
-  letter-spacing: 0.5em;
-}
+  letter-spacing: 0.5em; }
+
 em {
   -webkit-text-emphasis: filled dot;
   text-emphasis: filled dot;
   font-weight: normal;
-}
-
+  font-style: normal; }
 
 em.em-low1 {
   -webkit-text-emphasis: none;
   text-emphasis: none;
-  font-style: italic;
-}
+  font-style: italic; }
 
 a:link {
   color: #0055ff;
-  text-decoration: none;
-}
+  text-decoration: none; }
 a:visited {
   color: #0044ff;
-  text-decoration: none;
-}
+  text-decoration: none; }
 a:hover {
   color: #0077ff;
-  text-decoration: underline;
-}
+  text-decoration: underline; }
 
 .citations {
   color: #555555;
   font-weight: bold;
   font-size: large;
   margin-left: 0.2em;
-  margin-right: 0.2em;
-}
+  margin-right: 0.2em; }
 
 #sec-contents {
-  margin-top: 0em;
-}
+  margin-top: 0em; }
 
-dd ~ dt {
-  padding-top: 0.5em;
-}
 /*# sourceMappingURL=main.css.map */

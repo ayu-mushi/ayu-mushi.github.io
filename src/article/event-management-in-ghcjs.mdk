@@ -1,0 +1,81 @@
+Title: GHCJSによるイベント管理
+Author: ayu-mushi
+Keywords: イベント管理, イベントループ
+Description: イベント
+Draft: True
+Visible: True
+Pubdate: &date;
+Update: &date;
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+#はじめに
+JavaScript におけるイベント管理は、コールバック地獄などがあり、面倒であることが有名です。
+この記事では、JavaScriptにコンパイルされるHaskellコンパイラーのGHCJSにおけるイベント管理の方法をいくつか見ます。
+
+【注意】この記事は、色々な方法を羅列するだけで、結論は無いです。
+各方法の実用性の比較などについては、私が知らないので、あまり触れません。
+
+#継続とコールバック
+コールバック関数とは、以下のような型の関数です。
+
+``` haskell
+(a -> r) -> r
+(a -> IO ()) -> IO ()
+(a -> IO r) -> IO r
+```
+
+具体的には、
+``` haskell
+{-# LANGUAGE JavaScriptFFI #-}
+foreign import javascript unsafe "..(省略).." settimeout_js :: Int -> Callback (IO ()) -> IO ()
+foreign import javascript unsafe  "..(省略).." mouseXY_js :: Element -> Callback (JSVal -> JSVal -> IO ()) -> IO ()
+
+
+sleep :: Int -> (() -> IO ()) -> IO ()
+sleep n = \f -> do
+  cb <- asyncCallback $ f ()
+  settimeout_js n cb
+  releaseCallback cb
+
+mouseXY :: Element -> ((Int,Int) -> IO ()) -> IO ()
+mouseXY elm = \f -> do
+  cb <- asyncCallback2 $ \x y -> f (pFromJSVal x, pFromJSVal y)
+  mouseXY_js elm cb
+  releaseCallback cb
+```
+といったものです。
+
+こういった関数を簡潔に書くために、callCCやContモナド、ContTモナドを使うことがあります。
+なぜなら、コールバック関数にcallCCを使うと型`a`の値のように扱え、コールバック関数にContモナドを使うと`Cont r a`というモナド(`Cont r`がモナド)としてdo記法で扱えるので、関数を渡すときに括弧が増えないからです。
+
+GHCJSではGHCのライブラリが使えるので、ContやContTを使えます。
+callCCについても、インポートのときに`$c`という変数(関数が入る)を使ったものを使うと、`$c`の部分に継続(`(_ >>= f) >>= g :: IO a -> IO ()`のような)が渡されます。
+ただし、言語プラグマ"InterruptibleFFI"を指定します。
+
+<!--限定継続-->
+
+```haskell
+{-# LANGUAGE JavaScriptFFI, InterruptibleFFI #-}
+foreign import javascript interruptible "setTimeout($c, $1);" delayJS :: Int -> IO ()
+foreign import javascript interruptible "$1.onmousemove = function(e) { $c(e.clientX, e.clientY) };" mouseXY :: Element -> IO (Int, Int)
+```
+
+細かい実装については分かりませんが、変数`$c`を使った場合には、一回の呼び出しにつきイベント発生回数が一回になる。
+そして、複数回別の継続がある場所で呼び出すことができます。
+これにより`mouseXY :: Element -> IO (Int, Int)`などのコールバックだった関数を、`read :: IO String` などと同じように扱えるので、便利です。
+ただし、複数使うと、競合するようです。
+
+["継続モナドによるリソース管理 - Qiita"](https://qiita.com/tanakh/items/81fc1a0d9ae0af3865cb)も参照。
+
+
+#マルチスレッド
+GHCJSにはマルチスレッドとアトミックブロックの機能がGHCと同様にある。
+
+イベントループ
+ソフトウェアトランザクショナルメモリー(STM)
+アトミックブロック
+TChan イベントバッファー キーボード入力
+非同期
+
+#FRP

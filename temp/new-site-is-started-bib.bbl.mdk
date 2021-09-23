@@ -1,0 +1,6 @@
+~ begin bibliography { .bib-numeric; cite-style:"numeric:'[',']',', '" ; caption:"1" ; data-style:"numeric" ; data-style:'madoko-numeric';  }
+~ begin bibitem {id:"Leijen201604"; cite-year:"2016"; cite-authors:"Leijen"; cite-authors-long:"Leijen"; cite-label:"1"; caption:"Madoko Reference&nl;Leijen, 2016"; data-line:"./src/article/../article/biblio.bib:1"; searchterm:"Madoko%20Reference%20Leijen%2C%202016"; spellcheck:"false"; bibitem-label:"\[1\]"}
+\/Daan Leijen. &ldquo;Madoko Reference.&rdquo; Microsoft Research. Apr. 2016. <http://research.microsoft.com/en-us/um/people/daan/madoko/doc/reference.html>{.bib-url}.
+~ end bibitem
+
+~ end bibliography

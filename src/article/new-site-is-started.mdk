@@ -1,0 +1,213 @@
+Title : Madokoでサイト作りました
+Author: ayu-mushi
+Keywords: ayu-mushi, madoko
+Description: アカデミック文書に適したMarkdownプロセッサーMadokoを使用しサイトを作った
+Pubdate: 2016-10-5
+Update: &date;
+
+[INCLUDE="../mytheme/myprelude.mdk"]
+
+
+#作った
+これからサイトをやっていきます。例えば記事とかを書きますよ。
+
+この記事では、筆者のことと、サイトを作るときに使わせてもらった技術とを紹介します。
+
+#自己紹介 {#auto}
+ayu-mushiといいます。
+
+Haskell、計算機科学などに関心があります。
+
+[ayu-mushiの自己紹介(Scrapbox)](https://scrapbox.io/ayu-mushi/ayu-mushi)をご覧ください。
+
+あとは[トップページ](/ "ayu-mushi.github.io")に使ってるSNSなどへのリンクが貼ってあるので見て下さい。
+
+#サイト生成の構造
+Makefileで生成、gh-pagesに送り込んでる。
+
+#Madoko
+本サイトで記事を生成するのに使いました。
+
+Madokoは色々な拡張を提供した高機能なMarkdownプロセッサーです。プログラミング言語Kokaの開発者Daan Leijen氏によって、Kokaで書かれました[^koka]。
+名前は"*Ma*rk*do*wn in *Ko*ka"に由来します[@Leijen201604]。
+
+[^koka]: KokaはEffectを扱える言語で、その名を日本語の「効果(Koka)」、すなわちEffectに由来するそうな。
+
+公式サイトは["Welcome to Madoko"][official_site]。
+
+[official_site]: https://www.madoko.net/ "Madoko 公式サイト"
+
+BibTeXかCitation Languageかによる参考文献の管理、
+LaTeXによる数式描画、
+amsthmのHTML版、
+あらゆる要素のナンバリングと参照(番号は表示しないようにもできる)、
+をサポートしているため、**学術文書の執筆**に適しています。
+
+同じソースからPDFもHTMLも出力できます。
+テストとして、[サイト作りました PDF版][pdf_version_of_me]としてこのページのPDF版をアップしました。
+PDF出力には、LaTeXと[XeLaTeX][XeTeX_WP]とが使えます。
+PDFで日本語を使う場合、XeLaTeXを使用し、フォントを指定する必要があります。
+具体的なコードは、[madokoを使う | 情報分析・システム開発のタロスカイ株式会社][specify_ja_font]を参照して下さい。
+
+[specify_ja_font]: https://tarosky.co.jp/tarog/1279 "XeLaTeX用にフォント指定"
+[XeTeX_WP]: https://ja.wikipedia.org/wiki/XeTeX "XeTeX - Wikipedia"
+
+ブロックやインライン要素に対して、css風のセレクタや、挿入・置換、などの機能があり、拡張性が高いです。
+
+ちなみに、設定は色々いじったのでこのサイトに変なところがあってもMadokoのせいとは限りません。
+このサイトの設定ファイルは["ayu-mushi.github.io/myprelude.mdk at develop · ayu-mushi/ayu-mushi.github.io · GitHub"][myprelude]として公開しました。
+
+[myprelude]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/mytheme/myprelude.mdk "myprelude.mdk"
+
+[このページのソースはGithubにあります][source_of_me]。
+
+[pdf_version_of_me]: ./pdf/new-site-is-started.pdf "「サイト作りました」のPDF版"
+[source_of_me]: https://github.com/ayu-mushi/ayu-mushi.github.io/blob/develop/src/article/new-site-is-started.mdk "「サイト作りました」のソース"
+
+
+以下では機能の紹介とテストのために、サンプルを挙げます。
+
+##文献言及(citation)
+~ Sample
+例えば、Madoko Reference[@Leijen201604]を参照。
+見よ!
+
+ぐへへへ[@Leijen201604]。
+~
+
+##数式
+~ Sample
+~~ Equation {#def_sum}
+\sum_{k=1}^{n} k = 1 + 2 + 3 + \dots + n
+~~
+
+~~ Equation
+\int _ {b}^{a} f(x) dx
+~~
+
+参照する[#def_sum]。
+~
+
+数式は、LaTeXで描画され、svg画像として出力されます。
+また、MathJaxなどで数式を描画するような設定にもできます。
+LaTeXの方は、パッケージが使える(MathJaxでもあるものは使えます)ので、可換図式なども通常のLaTeXと同じように書けます。
+
+``` Madoko
+Package: tikz-cd
+TikzCd { replace:"~ Math &nl; \begin{tikzcd}&source;\end{tikzcd}&nl;~ &nl;" }
+```
+
+~~ Sample
+~ TikzCd
+A \arrow{rd} \arrow{r}{\phi} & B \\ & C
+~
+~~
+
+##リスト
+
+~ Sample
+* A
+* B
+
+
+被定義項A
+  : 定義項A
+被定義項B
+  : 定義項B
+
+1. A
+2. B
+
+~
+
+
+##定理環境
+
+~ Begin Sample
+
+~ Theorem {#javataro_thm; caption: "定理A"}
+
+~~ Proof
+すごい証明。
+
+It is proof.
+~~
+
+~
+
+~ Theorem {caption: "███の定理"}
+
+~~ Proof
+███
+~~
+
+~
+
+Theorem [#javataro_thm]. を参照
+~ End Sample
+
+デフォルトでは**定理**、**証明**といった言葉は英語でしたが、以下のreplacerで日本語に変えました。
+```madoko
+.theorem { replace: "/Theorem/定理/" }
+.proof { replace: "/Proof/証明/" }
+```
+
+replacerでは、css風のセレクタに対し、正規表現でどう置換するかを指定できます[^replacer]。
+
+[^replacer]: セレクタを使わずとも、HTMLの`style`属性のように、要素に対して個別に指定することもできます。
+
+##脚注
+
+~ Sample
+脚注![^1]
+
+
+[^1]: ちなみに、
+~
+
+##自分で定義したやつ
+###ルビ
+
+Madokoの置換を利用して定義。
+`&source;`が置換元の内容を表す変数。
+```madoko
+.ruby { replace: "<ruby><rb>&source;</rb><rp>《</rp><rt>&rtext;</rt><rp>》</rp></ruby>" }
+```
+
+~ Sample
+* [死喰い人]{.ruby; rtext: "デスイーター"}
+* [獅子]{.ruby; rtext: "ライオン"}
+~
+
+###サンプルコード記法
+
+この記事で使われたMadokoによるMadokoに対するサンプルコード記法は公式のレファレンスに載っているものを参考にして書きました。
+
+```madoko
+Sample { replace: "~ Begin Sampleblock {.panel .panel-default}&nl;\
+~ Begin samp-code-body {.panel-body}&nl;\
+````madoko&nl;&source;&nl;````&nl;\
+~ End samp-code-body&nl;\
+~ Begin samp-code-footer {.panel-footer}&nl;\
+&source;&nl;\
+~ End samp-code-footer&nl;\
+~ End Sampleblock&nl;\
+"}
+```
+
+サンプルコード記法のサンプルコード
+
+~~ Sample
+~ Sample
+**こんにちは!!**
+&delta;
+-----そう
+......なんだって
+~
+~~
+
+
+#注意事項
+このサイトでは、Google アナリティクスを使用しています。
+
+[BIB]

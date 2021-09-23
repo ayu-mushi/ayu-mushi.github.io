@@ -1,0 +1,128 @@
+[INCLUDE=presentation]
+Title: 将棋の駒の動きをモナドで表す
+<!-- Author: @ayu-mushi -->
+Description: 将棋をモナドで表す
+Keywords: 将棋, Haskell, モナド
+Reveal Theme : sky
+Beamer Theme : singuapore
+Pubdate: 2019-04-09
+Update: &date;
+Bibliography: ./biblio.bib
+
+<!-- [INCLUDE="../mytheme/myprelude.mdk"] -->
+
+[TITLE]
+
+#将棋の駒
+[ソース](https://github.com/ayu-mushi/linebot/blob/master/Shogi.hs)
+
+![hu]
+
+([日本将棋連盟公式サイト](https://www.shogi.or.jp/knowledge/shogi/03.html)より転載)
+
+#選択可能
+![kin]
+![gin]
+![gyoku]
+
+([日本将棋連盟公式サイト](https://www.shogi.or.jp/knowledge/shogi/03.html)より転載)
+
+選択可能な動かし方を列挙していきたい
+
+#選択可能を再帰的にすると
+![hisya]
+![kaku]
+![kyou]
+([日本将棋連盟公式サイト](https://www.shogi.or.jp/knowledge/shogi/03.html)より転載)
+
+#選択可能を再帰的にすると
+飛び道具 = 飛車、角、香車
+
+空白のマスに動かしたとき同じ動きを繰り返すか、そこで止まるかという選択可能性が与えられる
+
+#参考：再帰的でないジャンプ
+![kei]
+
+([日本将棋連盟公式サイト](https://www.shogi.or.jp/knowledge/shogi/03.html)より転載)
+
+[gyoku]: ../images/shogi_03_img_1.png {width : 400px }
+[hisya]: ../images/shogi_03_img_2.png {width : 400px }
+[kaku]: ../images/shogi_03_img_3.png {width : 400px }
+[kin]: ../images/shogi_03_img_4.png {width : 400px }
+[gin]: ../images/shogi_03_img_5.png {width : 400px }
+[kei]: ../images/shogi_03_img_6.png {width : 400px }
+[kyou]: ../images/shogi_03_img_7.png {width : 400px }
+[hu]: ../images/shogi_03_img_8.png {width : 400px }
+
+#パーサーっぽい
+香車 = `歩+`
+
+`香車 ＝ (【歩→空】【止】) |(【歩→空】【香車】)| (【歩→相手】【止】)`
+
+`-- 【歩→自分】の場合は選択可能でない`
+
+飛車や角、香車[^1]は、相手の駒を取るとストップし、自分のコマは飛び越せない。
+
+#例
+【歩→空】【歩→空】【歩→空】【歩→空】【止】→ OK
+
+【歩→空】【歩→空】【歩→空】【歩→相手】【止】→ OK
+
+【歩→空】【歩→**相手**】【歩→空】【歩→空】【止】→**NG**
+
+【歩→空】【歩→空】【歩→空】【歩→**自分**】【止】→ **NG**
+
+#駒モナド
+Listモナドと状態モナド(State)を組み合わせた。
+
+あり得る動きをリストで表す
+
+駒を動かすと盤の状態が変更される
+
+``` Haskell
+type PieceM a = StateT ((Int, Int), Field) [] a -- 駒モナド
+-- [] は リストのこと
+-- (Int, Int)は駒の位置を表す
+-- ((Int, Int), Field) -> [(((Int, Int), Field), a)]
+```
+
+
+#飛び道具
+``` haskell
+moveAll :: PieceM (Either (Piece, (Int, Int)) (Int, Int)) -> PieceM (Int, Int)
+-- Eitherは、駒を取ったかどうかを表す
+moveAll move1 = do
+  loc2 <- move1 -- move1に歩を指定すると、`moveAll 歩`は香車の動きになる
+  case loc2 of
+    Left (pie, xy) -> do -- 相手の駒を取った場合、そこで止まる
+      _1 .= xy
+      return (xy::(Int, Int))
+    Right xy -> do -- 空白のマス目の場合再帰できる
+      _1 .= xy
+      (moveAll move1) `mplus` use _1  -- もう一度動くか、止まるか  選ぶ
+```
+
+
+[^1]: いわゆる「飛び道具」
+
+
+#和の演算：駒で足し算
+竜や馬は「王または飛車、角」で表す。
+
+斜めを`縦>>横`で表そうとしたが、それはダメだ
+
+
+#課題
+* 将棋の駒を状態系モナドで表すのは、データ構造で表すのと違ってファイル出力などに向かない
+  * 状態モナドは関数なので
+* 盤の境界を破ったときの処理が、盤の側のエラーはなくパースエラーしかない
+* 反則手を指すと盤が消える
+  * 複数盤に分岐している場合は反則のものが消えるのはいいが、盤が1つだけのときに消えるのは困る
+
+#今後の新機能候補
+* 王手・詰み判定
+* 量子将棋
+* 中将棋
+  * 獅子
+* 棋譜の読み込み／書き出し
+
