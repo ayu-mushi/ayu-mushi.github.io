@@ -27,6 +27,9 @@ Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
 
+Keyoxide
+  ~ [ayu-mushi](https://keyoxide.org/hkp/c7949b42d75219a0c3b611d4e3b8fe36f98c92e7)
+
 マストドン
   ~ [\@ayu\_mushi@mstdn.jp](https://mstdn.jp/@ayu\_mushi)
 
