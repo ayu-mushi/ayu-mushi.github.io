@@ -5,7 +5,7 @@ title: 'About me'
 
 
 
-作ったもの & 書いたもの
+作ったもの
 ---
 
 [【人工生命】ジェネラティブアートな生態系シミュレータを作ってみた](https://www.nicovideo.jp/watch/sm35998123)
@@ -26,12 +26,6 @@ SNSなど
 Github
   ~ [ayu-mushi](https://github.com/ayu-mushi)
   ~ [ayu-mushi@gist](https://gist.github.com/ayu-mushi)
-
-Keyoxide
-  ~ [ayu-mushi](https://keyoxide.org/hkp/c7949b42d75219a0c3b611d4e3b8fe36f98c92e7)
-
-マストドン
-  ~ [\@ayu\_mushi@mstdn.jp](https://mstdn.jp/@ayu\_mushi)
 
 AtCoder
   ~ [ayu\_mushi](https://atcoder.jp/users/ayu_mushi)
